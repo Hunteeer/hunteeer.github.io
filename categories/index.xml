@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 一苇间。</title>
+    <link>https://hunteeer.github.io/categories/</link>
+    <description>Recent content in Categories on 一苇间。</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hunteeer.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Code</title>
+      <link>https://hunteeer.github.io/categories/code/</link>
+      <pubDate>Sat, 05 Nov 2016 19:50:47 +0530</pubDate>
+      
+      <guid>https://hunteeer.github.io/categories/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design</title>
+      <link>https://hunteeer.github.io/categories/design/</link>
+      <pubDate>Sat, 05 Nov 2016 18:25:22 +0530</pubDate>
+      
+      <guid>https://hunteeer.github.io/categories/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Photography</title>
+      <link>https://hunteeer.github.io/categories/photography/</link>
+      <pubDate>Sat, 05 Nov 2016 19:53:42 +0530</pubDate>
+      
+      <guid>https://hunteeer.github.io/categories/photography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Travel</title>
+      <link>https://hunteeer.github.io/categories/travel/</link>
+      <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
+      
+      <guid>https://hunteeer.github.io/categories/travel/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -136,15 +136,24 @@ if (!doNotTrack) {
 
 
     
-
-    
-    <li>
-      <a href="https://hunteeer.github.io/search/index.html" data-animate-hover="pulse" class="search" target="_blank">
-        <i class="fa fa-search" title="search"></i>
-        <span class="screen-reader-text">search</span>
-      </a>
-    </li>
-    
+<link href="/lib/search/auto-complete.css" rel="stylesheet">
+<div class="search-wrapper">
+  <div class="searchbox">
+    <div id='inputfield'>
+      <i class='fa fa-search icon-search'></i>
+      <input id="search-by" autocomplete='off' autocorrect='off' name='address' placeholder=""
+       spellcheck='false' type='text'>
+    </div>
+  </div>
+</div>
+    <script type="text/javascript">
+      var lagoliaIndex = "algolia_index"
+      var lagoliaAppID = "algolia_application_id"
+      var lagoliaSearchKey = "algolia_search_only_key"
+    </script>
+    <script src="//cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script type="text/javascript" src="/lib/search/algolia/search-bar.js"></script>
 
     
 

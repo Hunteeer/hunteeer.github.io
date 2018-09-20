@@ -1,5 +1,4 @@
 /* global instantsearch */
-
 app({
     appId: '1L1I8ZEYGB',
     apiKey: '2422808fe4e37003bd73b4a94f520b56',

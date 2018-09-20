@@ -18,6 +18,10 @@
   </url>
   
   <url>
+    <loc>https://hunteeer.github.io/search/</loc>
+  </url>
+  
+  <url>
     <loc>https://hunteeer.github.io/categories/</loc>
     <priority>0</priority>
   </url>
@@ -31,10 +35,6 @@
   <url>
     <loc>https://hunteeer.github.io/tags/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hunteeer.github.io/search/</loc>
   </url>
   
   <url>

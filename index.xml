@@ -35,12 +35,14 @@
     </item>
     
     <item>
-      <title>search in blog</title>
+      <title></title>
       <link>https://hunteeer.github.io/search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hunteeer.github.io/search/</guid>
-      <description>var lagoliaIndex = &#34;{{.Site.Params.Search.index}}&#34; var lagoliaAppID = &#34;{{.Site.Params.Search.appID}}&#34; var lagoliaSearchKey = &#34;{{.Site.Params.Search.searchKey}}&#34;</description>
+      <description>!doctype html   Instant Search Tutorial                      Source Code on Github - Powered by Algolia - Data from Best Buy   ${{price}} {{{_highlightResult.name.value}}} {{{_highlightResult.description.value}}}
+   We didn&#39;t find any results for the search &#34;{{query}}&#34;.
+Clear search     </description>
     </item>
     
   </channel>

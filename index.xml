@@ -34,14 +34,5 @@
 &lt;/p&gt;</description>
     </item>
     
-    <item>
-      <title>在博客中搜索</title>
-      <link>https://hunteeer.github.io/search/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hunteeer.github.io/search/</guid>
-      <description>     var client = algoliasearch(&#34;1L1I8ZEYGB&#34;, &#34;2422808fe4e37003bd73b4a94f520b56&#34;); var index = client.initIndex(&#39;reed_blog&#39;); autocomplete(&#39;#aa-search-input&#39;, { hint: false}, { source: autocomplete.sources.hits(index, {hitsPerPage: 8}), displayKey: &#39;name&#39;, templates: { suggestion: function(suggestion) { console.log(suggestion); return &#39;&#39; + &#39;&#39; + suggestion._highlightResult.title.value + &#39;&#39;; } } }); </description>
-    </item>
-    
   </channel>
 </rss>

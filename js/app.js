@@ -1,130 +1,60 @@
-/* global instantsearch */
-
-app({
+let search = instantsearch({
+    // Replace with your own values
     appId: '1L1I8ZEYGB',
-    apiKey: '2422808fe4e37003bd73b4a94f520b56',
+    apiKey: '2422808fe4e37003bd73b4a94f520b56', // search only API key, no ADMIN key
     indexName: 'reed_blog',
-  searchParameters: {
-    hitsPerPage: 10,
-  },
+    // urlSync: true,
+    searchParameters: {
+        hitsPerPage: 5
+    },
+    searchFunction: function(helper) {
+        let searchResults = document.getElementById('search-results');
+        if (helper.state.query === '') {
+            searchResults.style.display = 'none';
+            return;
+        }
+        searchResults.style.display = 'block';
+        helper.search();
+    },
+    loadingIndicator: true
 });
 
-function app(opts) {
-  const search = instantsearch({
-    appId: opts.appId,
-    apiKey: opts.apiKey,
-    indexName: opts.indexName,
-    urlSync: true,
-    searchFunction: opts.searchFunction,
-  });
-
-  search.addWidget(
+search.addWidget(
     instantsearch.widgets.searchBox({
-      container: '#search-input',
-      placeholder: 'Search for products',
+        container: $('#search-input').get(0),
+        wrapInput: false,
+        autofocus: false,
+        magnifier: false,
+        reset: false
     })
-  );
+);
 
-  search.addWidget(
+search.addWidget(
     instantsearch.widgets.hits({
-      container: '#hits',
-      templates: {
-        item: getTemplate('hit'),
-        empty: getTemplate('no-results'),
-      },
-    })
-  );
-
-  search.addWidget(
-    instantsearch.widgets.stats({
-      container: '#stats',
-    })
-  );
-
-  search.addWidget(
-    instantsearch.widgets.sortBySelector({
-      container: '#sort-by',
-      autoHideContainer: true,
-      indices: [
-        {
-          name: opts.indexName,
-          label: 'Most relevant',
-        },
-        {
-          name: `${opts.indexName}_price_asc`,
-          label: 'Lowest price',
-        },
-        {
-          name: `${opts.indexName}_price_desc`,
-          label: 'Highest price',
-        },
-      ],
-    })
-  );
-
-  search.addWidget(
-    instantsearch.widgets.pagination({
-      container: '#pagination',
-      scrollTo: '#search-input',
-    })
-  );
-
-  search.addWidget(
-    instantsearch.widgets.refinementList({
-      container: '#category',
-      attributeName: 'categories',
-      operator: 'or',
-      templates: {
-        header: getHeader('Category'),
-      },
-    })
-  );
-
-  search.addWidget(
-    instantsearch.widgets.refinementList({
-      container: '#brand',
-      attributeName: 'brand',
-      operator: 'or',
-      searchForFacetValues: {
-        placeholder: 'Search for brands',
+        container: '#search-hits',
         templates: {
-          noResults: '<div class="sffv_no-results">No matching brands.</div>',
-        },
-      },
-      templates: {
-        header: getHeader('Brand'),
-      },
+            item: '<div class="hit"><p class="hit-name"><a href="{{{url}}}">{{{_highlightResult.title.value}}}</a><p>{{{_snippetResult.content.value}}}</p></p></div>',
+            empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
+        }
     })
-  );
+);
 
-  search.addWidget(
-    instantsearch.widgets.rangeSlider({
-      container: '#price',
-      attributeName: 'price',
-      templates: {
-        header: getHeader('Price'),
-      },
+search.addWidget(
+    instantsearch.widgets.pagination({
+        container: '#search-pagination',
+        showFirstLast: false,
+        autoHideContainer: true,
+        labels: {
+            previous: '<i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>',
+            next: '<i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>'
+        }
     })
-  );
+);
 
-  search.addWidget(
-    instantsearch.widgets.refinementList({
-      container: '#type',
-      attributeName: 'type',
-      operator: 'and',
-      templates: {
-        header: getHeader('Type'),
-      },
+search.addWidget(
+    instantsearch.widgets.stats({
+        container: '#search-stats'
     })
-  );
+);
 
-  search.start();
-}
-
-function getTemplate(templateName) {
-  return document.querySelector(`#${templateName}-template`).innerHTML;
-}
-
-function getHeader(title) {
-  return `<h5>${title}</h5>`;
-}
+search.start();

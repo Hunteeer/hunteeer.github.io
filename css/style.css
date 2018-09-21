@@ -1649,7 +1649,7 @@ li.pingback:first-child {
 .search-form-container {
   margin: 1.5em 0 3em;
 }
-.search-form-container .search-icon {
+.search-form-container  {
   display: none;
 }
 

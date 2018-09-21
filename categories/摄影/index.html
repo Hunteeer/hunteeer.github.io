@@ -38,7 +38,6 @@
 <meta name="description" content="个人技术博客。" />
 
 
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
@@ -57,6 +56,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2/dist/instantsearch-theme-algolia.min.css">
 
 
 <link href="https://hunteeer.github.io/categories/%E6%91%84%E5%BD%B1/index.xml" rel="alternate" type="application/rss+xml" title="一苇间" />
@@ -99,18 +100,14 @@ if (!doNotTrack) {
     </div>
 
   </div>
-    <ul class="search-box">
-        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
-        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
-        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
-    </ul>
-  <ul class="social-media-icons">
 
+  <ul class="social-media-icons">
   
     <li>
+      <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"></i>
       <a href="Page%28/categories/%e6%91%84%e5%bd%b1%29" data-animate-hover="pulse" class="search" target="_blank">
         <i class="fa fa-search" title="search"></i>
-        <span class="screen-reader-text">search</span>
       </a>
     </li>
     
@@ -338,4 +335,5 @@ if (!doNotTrack) {
 <script src="https://hunteeer.github.io/js/production.min.js"></script>
 <script src="https://hunteeer.github.io/js/app.js"></script>
 <script src="https://hunteeer.github.io/js/ink.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2"></script>
   </body>

@@ -109,15 +109,18 @@ if (!doNotTrack) {
   <ul class="social-media-icons">
   
   <a>
-    <ul class="search-box">
+    <div class="search-box">
       <li>
-        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <input id="search-input" placeholder="Search ..." autocapitalize="on" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
       </li>
       <li>
-        <i id="search-icon" class="fa fa-search"></i>
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
       </li>
 
-    </ul>
+      <li>
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+      </li>
+    </div>
   </a>
   
 

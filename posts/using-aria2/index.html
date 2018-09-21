@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aria2，目前我认为最好的下载工具 - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="aria2 是目前（20170428）我在各个平台上唯一使用的下载工具。足够，而且非常好用。关于它的使用教程烂大街了，而且感觉都差不太多。。我大概已经" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">Aria2，目前我认为最好的下载工具</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2017-04-28</span>
+</div>
+
+
+
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>2169</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#introduction">Introduction</a></li>
+<li><a href="index.html#基本配置">基本配置</a>
+<ul>
+<li><a href="index.html#命令行运行">命令行运行</a></li>
+<li><a href="index.html#配置文件运行">配置文件运行</a></li>
+<li><a href="index.html#rpc-远程">RPC 远程</a></li>
+</ul></li>
+<li><a href="index.html#使用情境">使用情境</a>
+<ul>
+<li><a href="index.html#macos-上的使用">macOS 上的使用</a></li>
+<li><a href="index.html#centos-上的使用">CentOS 上的使用</a></li>
+<li><a href="index.html#android-上的使用">Android 上的使用</a></li>
+<li><a href="index.html#使用-aria2-下载百度云文档">使用 aria2 下载百度云文档</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            
+
+<p>aria2 是目前（20170428）我在各个平台上唯一使用的下载工具。足够，而且非常好用。关于它的使用教程烂大街了，而且感觉都差不太多。。我大概已经使用三个月了，从 Mac，到 VPS 上的 CentOS，到 Android。这次就写写它了。</p>
+
+<!-- more -->
+
+<h2 id="introduction">Introduction</h2>
+
+<p>aria2 是一个命令行下载工具，类似于 curl、wget，但是功能更强，亮点是多线程下载、BT 下载。aria 支持的协议/下载源有：</p>
+
+<ul>
+<li>HTTP, HTTPS</li>
+<li>FTP, SFTP</li>
+<li>BitTorrent</li>
+<li>Metalink</li>
+</ul>
+
+<p>除了在命令行使用，aria2 支持 RPC 远程控制，利用 VPS 下载外面东西非常方便。</p>
+
+<p>aria2 支持的平台：</p>
+
+<ul>
+<li>Windows</li>
+<li>macOS</li>
+<li>Android</li>
+<li>Linux</li>
+</ul>
+
+<p>好吧，直接说全平台一点都不过分。</p>
+
+<p>当然，和一般有 GUI 界面的下载工具比起来，aria2 要麻烦很多，但是目前乘手又良心的下载器真的不多见，最重要的是 aria2 通用性强，一个配置文件，各个平台都可以使用，更加节省时间成本。</p>
+
+<p>相关链接：</p>
+
+<ul>
+<li><a href="https://aria2.github.io/">aria2 official site</a></li>
+<li><a href="https://github.com/aria2/aria2">aria2 - GitHub</a></li>
+<li><a href="https://aria2.github.io/manual/en/html/index.html">aria2 documentation</a>：有耐心还是看这个好</li>
+</ul>
+
+<h2 id="基本配置">基本配置</h2>
+
+<p>安装就不必多说了。我写一下 aria2 的三种基本使用方式：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">方式</th>
+<th align="center">优点</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">命令行运行</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center">配置文件运行</td>
+<td align="center">方便，简化了输入命令的过程</td>
+</tr>
+
+<tr>
+<td align="center">RPC 远程</td>
+<td align="center">方便远程下载，下载机</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="命令行运行">命令行运行</h3>
+
+<p>查看 man 页面获取帮助：</p>
+
+<pre><code class="language-bash">$ man aria2c
+</code></pre>
+
+<h3 id="配置文件运行">配置文件运行</h3>
+
+<p>下载的时候一般需要配置很多项目，输入命令就比较麻烦了，事先配置好 conf，然后将 aria2 以配置文件的方式启动，方便很多，通用性强。</p>
+
+<p>举个例子，将文档下载到特定目录可以这样：</p>
+
+<pre><code class="language-bash">$ aria2c -d $HOME/download &quot;target url&quot;
+</code></pre>
+
+<p>那么可以写一个配置文件 aria2.conf：</p>
+
+<pre><code>dir=$HOME/download
+</code></pre>
+
+<p>然后以配置文件运行 aria2：</p>
+
+<pre><code class="language-bash">$ aria2c --conf-path=&lt;conf path&gt; &quot;target url&quot;
+</code></pre>
+
+<p>这两种方法效果是一样的。嗯，貌似更加麻烦了。。但是配置项很多的话，那肯定选第二种方式。</p>
+
+<p>有哪些配置项呢？看看 man 里面就知道啦。就是里面的各种选项。</p>
+
+<p>下面是我在 Mac 上使用配置文件，更改目录就可以套用到其他平台了：</p>
+
+<pre><code>#Basic Download
+#log=$HOME/.aria2/aria2.log
+dir=$HOME/Downloads
+continue=true
+max-concurrent-downloads=5
+max-connection-per-server=8
+
+#Speed Limit
+min-split-size=10M
+split=10
+max-overall-download-limit=0
+max-overall-upload-limit=0
+max-download-limit=0
+max-upload-limit=0
+
+#Save Mission
+input-file=$HOME/.aria2/aria2.session
+save-session=$HOME/.aria2/aria2.session
+save-session-interval=60
+
+#RPC
+#rpc-secret=
+enable-rpc=true
+rpc-allow-origin-all=true
+rpc-listen-all=true
+rpc-listen-port=6800
+</code></pre>
+
+<p>各个选项是什么意思看看 man 或者 documentation 就知道了。我上面的配置选项是一般使用需要的基本配置，BT 的没贴。里面的 #RPC 是下面一种方式需要用到的。</p>
+
+<h3 id="rpc-远程">RPC 远程</h3>
+
+<p>如果对 GUI 界面有需求，或者在服务器、下载机上使用，可以使用这种方式。</p>
+
+<ul>
+<li><a href="https://github.com/ziahamza/webui-aria2">webui-aria2 - GitHub</a></li>
+<li><a href="https://github.com/binux/yaaw">yaaw - GitHub</a></li>
+</ul>
+
+<p>这两种比较好用，我现在用的是 webui-aria2，并且在服务器上放了，你可以打开看看：<a href="http://stonebythesea.org/aria2">点击链接</a>。</p>
+
+<p><img src="https://github.com/ziahamza/webui-aria2/blob/master/screenshots/overview.png?raw=true" alt="webui-aria2 - GitHub" /></p>
+
+<p>需要在配置文件设置这些选项：</p>
+
+<pre><code>#RPC
+#rpc-secret=	#设置 token，外网上面部署肯定需要设置，本地下载就没必要设置了
+enable-rpc=true
+rpc-allow-origin-all=true
+rpc-listen-all=true
+rpc-listen-port=6800
+</code></pre>
+
+<p>然后就可以通过 RPC 远程控制了。可以添加下载，查看进度等。webui 可以设置 aria2 的各个选项，因此直接命令行运行也是可以的。建议还是使用配置文件比较好。</p>
+
+<h2 id="使用情境">使用情境</h2>
+
+<p>这一部分写我在各个平台上使用的具体情境。使用配置文件。</p>
+
+<p>首先，写个运行脚本是有必要的，方便控制。贴一下我在 Mac 上的脚本：</p>
+
+<pre><code>#! /bin/bash
+
+ARIA2C=&quot;/usr/local/aria2/bin/aria2c&quot;
+CONFPATH=&quot;/Users/name/.aria2/aria2.conf&quot;
+start() {
+	$ARIA2C --conf-path=&quot;$CONFPATH&quot; -D
+	if [ $? -eq 0 ];then
+		echo &quot;aria2 start successfully in RPC mode&quot;
+	fi
+}
+
+stop() {
+
+	if [ &quot;$(ps -A | grep -m 1 aria2c | awk '{print $4}')&quot; = $ARIA2C ];then
+		kill &quot;$(ps -A | grep -m 1 aria2c | awk '{print $1}')&quot;
+                echo &quot;aria2 stop successfully&quot;
+	else
+		echo &quot;aria2 is not running&quot;
+    fi
+}
+
+status() {
+	if [ &quot;$(ps -A | grep -m 1 aria2c | awk '{print $4}')&quot; = &quot;$ARIA2C&quot; ];then
+                echo &quot;aria2 is running in RPC mode&quot;
+	else
+		echo &quot;aria2 is not running&quot;
+    fi
+}
+
+restart() {
+	stop
+	sleep 1
+	start
+}
+
+help() {
+	echo -e &quot;choose an option:\nstart\tstop\trestart\tstatus\thelp&quot;
+}
+
+case $1 in
+start)
+	start
+	;;
+stop)
+	stop
+	;;
+status)
+	status
+	;;
+restart)
+	restart
+	;;
+help)
+	help
+	;;
+*)
+	help
+	;;
+esac
+</code></pre>
+
+<h3 id="macos-上的使用">macOS 上的使用</h3>
+
+<p>主要就是利用 launchd 配置开机自启，然后就在后台静等 RPC。需要下载的时候打开浏览器，打开 webui 添加下载即可。</p>
+
+<p>在用户家目录下的 Library 里面，具体路径是 <code>$HOME/Library/LaunchAgents</code>。在这个目录里面新建一个 plist，名字就按照 java 的包名规则，内容可以参考其他的 plist。我新建的是 <code>com.name.aria2.plist</code>，内容如下：</p>
+
+<pre><code class="language-Plist">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+	&lt;key&gt;Label&lt;/key&gt;
+	&lt;string&gt;com.name.aria2&lt;/string&gt;
+	&lt;key&gt;ProgramArguments&lt;/key&gt;
+	&lt;array&gt;
+		&lt;string&gt;/Users/name/.aria2/start.sh&lt;/string&gt;
+	&lt;/array&gt;
+	&lt;key&gt;RunAtLoad&lt;/key&gt;
+	&lt;true/&gt;
+	&lt;key&gt;StandardErrorPath&lt;/key&gt;
+	&lt;string&gt;/Users/name/.aria2/error.log&lt;/string&gt;
+	&lt;key&gt;StandardOutPath&lt;/key&gt;
+	&lt;string&gt;/Users/name/.aria2/start.log&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+
+<p>然后加载并设置开机自启：</p>
+
+<pre><code>launchctl load $HOME/Library/LaunchAgents/com.name.aria2.plist
+launchctl enable com.name.aria2
+</code></pre>
+
+<p>这样开机就可以自动启动 aria2 了。</p>
+
+<p>可以直接使用 launchctl 来管理，不需要运行脚本。</p>
+
+<pre><code>$ launchctl load aria2
+$ launchctl unload aria2
+$ launchctl enable aria2
+$ launchctl disable aria2
+$ launchctl start aria2
+$ launchctl stop aria2
+</code></pre>
+
+<h3 id="centos-上的使用">CentOS 上的使用</h3>
+
+<p>开机启动的配置和 macOS 其实差不多啦，只不过用的是 systemd。</p>
+
+<p>systemd 的单元文件放置在两个地方：<code>/etc/systemd/system/</code>, <code>/usr/lib/systemd/system/</code>。分别放置软件包安装的单元和系统管理员安装的单元。aria2 的放置在 <code>/usr/lib/systemd/system/</code>。目录下新建一个 <code>aria2.service</code>，内容如下，具体的用法可以 man 下（<del>有必要写篇博客，先挖个坑</del>，填坑啦：<a href="http://stonebythesea.org/2017/04/30/%E4%BA%86%E8%A7%A3-systemd/">了解 systemd</a>）：</p>
+
+<pre><code>[Unit]
+Description=The next generation download utility
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/aria2c --conf-path=$HOME/.aria2/aria2.conf
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<p>然后设置开机自启：</p>
+
+<pre><code class="language-bash">$ systemctl enable aria2.service
+</code></pre>
+
+<p>启动试试，并查看状态：</p>
+
+<pre><code class="language-bash">$ systemctl start aria2
+$ systemctl status aria2
+● aria2.service - The next generation download utility
+   Loaded: loaded (/usr/lib/systemd/system/aria2.service; enabled; vendor preset: disabled)
+   Active: active (running) since Fri 2017-04-28 13:48:57 UTC; 4s ago
+ Main PID: 30725 (aria2c)
+   CGroup: /system.slice/aria2.service
+           └─30725 /usr/bin/aria2c --conf-path=$HOME/.aria2/aria2.conf
+
+Apr 28 13:48:57 vultr.guest systemd[1]: Started The next generation download utility.
+Apr 28 13:48:57 vultr.guest systemd[1]: Starting The next generation download utility...
+Apr 28 13:48:57 vultr.guest aria2c[30725]: 04/28 13:48:57 [NOTICE] IPv4 RPC: listening on TCP port 6800
+Apr 28 13:48:57 vultr.guest aria2c[30725]: 04/28 13:48:57 [NOTICE] IPv6 RPC: listening on TCP port 6800
+</code></pre>
+
+<p>启动成功。同样可以直接使用 systemctl 来管理 aria2 启动或关闭：</p>
+
+<pre><code class="language-bash">$ systemctl start aria2
+$ systemctl stop aria2
+$ systemctl status aria2
+$ systemctl reload aria2
+$ systemctl enable aria2	#设置开机自启
+$ systemctl disable aria2	#取消开机自启
+</code></pre>
+
+<p><em>这个单元在我本地服务器上测试是有效的，但是在 VPS 上自启失败，手动启动有效。目前的解决方法是添加启动延时，[Service] 里增加这一行 <code>ExecStartPre=/bin/sleep 30</code></em></p>
+
+<h3 id="android-上的使用">Android 上的使用</h3>
+
+<p>到 GitHub 上下载 Android 版的二进制文档就可以用了。同样可以使用上面的配置文档，同样可以使用上面的运行脚本。什么？没有终端？最近在用 Termux，非常好用。</p>
+
+<h3 id="使用-aria2-下载百度云文档">使用 aria2 下载百度云文档</h3>
+
+<p>aria2 可以多线程下载，找一个好用的 UA，百度云限速不是问题。但是慎用，可能会被限速。</p>
+
+<p>需要用到 Chrome 的一个插件，整合到百度云界面，可以导出 aria2 下载链接。<a href="https://github.com/acgotaku/BaiduExporter">BaiduExporter - GitHub</a>。作者停更了，但是还能用。</p>
+
+<p>另外 Chrome 应用商店上还有直接导入 aria2 下载的扩展插件。<a href="https://chrome.google.com/webstore/detail/aria2c-integration/cnkefpcjiolhnmhfpjbjpidgncnajlmf">Aria2c Integration</a></p>
+
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/aria2">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>aria2</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/downlaod">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>downlaod</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2017-04-28 10:36:52</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../shell-cmd-grep/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>grep - 文档内部的搜索工具</span>
+            </a>
+            <span class="clearfix"></span>
+            <a class="post-next" href="../introducing-systemd/index.html">
+                <span>了解 Systemd</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

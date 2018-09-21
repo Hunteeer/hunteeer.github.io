@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>利用 QQbot 实现服务器即时通知我 IP 变动 - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="一个月前搭的那个小服务器，用着挺好。让我头疼的是校园网。我们学校使用 L2TP 的 VPN，每个人单独帐号，幸好是不加密的，用路由器可以解决，小服务器可" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">利用 QQbot 实现服务器即时通知我 IP 变动</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2017-05-31</span>
+</div>
+
+
+
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>1531</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#原理">原理</a></li>
+<li><a href="index.html#步骤">步骤</a>
+<ul>
+<li><a href="index.html#让小米路由器能够-ssh-连接">让小米路由器能够 ssh 连接</a></li>
+<li><a href="index.html#通过-expect-配置-ssh-自动登录">通过 expect 配置 ssh 自动登录</a></li>
+<li><a href="index.html#获取路由器网络信息">获取路由器网络信息</a></li>
+<li><a href="index.html#搭建-qqbot">搭建 QQbot</a></li>
+<li><a href="index.html#通过-crontab-设置定时任务">通过 crontab 设置定时任务</a></li>
+</ul></li>
+<li><a href="index.html#代码">代码</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            
+
+<p>一个月前搭的那个小服务器，用着挺好。让我头疼的是校园网。我们学校使用 L2TP 的 VPN，每个人单独帐号，幸好是不加密的，用路由器可以解决，小服务器可以愉快地下载文件了。还有 DHCP 的问题，非夏天的时候晚上还得断电。这样一来，每天路由器分配到的 IP 都在变化。早上起来还得看一下路由器的 IP，否则不在寝室的时候就连不上服务器。如何解决呢？</p>
+
+<!-- more -->
+
+<p>网络状况是这样的：校园网（需 VPN 帐号登录）==&gt; 小米路由器 ==&gt; 小服务器</p>
+
+<p>讲一下为啥需要路由器。一方面是 IP 变动的原因，没路由器那可就真连不上了，有路由器，我就可以给他分配一个静态的 IP，不管怎样，在我的局域网内还是能连上的。另一方面是为了方便电脑、手机和服务器设备之间传送文件。可以躺床上看服务器上的影片。</p>
+
+<p>我希望实现的是路由器 IP 变化的时候，小服务器能够把这个新 IP 告诉我。这样不管怎么变，只要在校园网内就能连上服务器。路由器已经通过 DMZ 绑定了服务器的 IP。</p>
+
+<h2 id="原理">原理</h2>
+
+<p>实现这个主要有两点：</p>
+
+<ul>
+<li>如何获取路由器分配到的 IP？</li>
+<li>如何通知我？</li>
+</ul>
+
+<p>通过路由器是可以知道这个 IP 的，但是路由器又无法通知我。通过服务器可以通知我，但是服务器又无法直接获取路由器分配到的 IP。所以关键点就在于如何让服务器获取这个 IP。小米路由器的 ROM 是基于 OpenWrt 的，我的解决办法是，让路由器通过 ssh 连进路由器，然后将网络信息拿出来，之后通知我。</p>
+
+<p>ssh 自动连接：小米官方 ROM 下 /root 目录是只读的，不能免密登录。我使用 expect 命令实现自动登录。</p>
+
+<p>即时通知：其实一开始我是用发邮件的方式的，嫌麻烦没有配置外部邮箱帐号，所以发了几封之后被 Gmail 退回了。然后我想到了前段时间群里讨人厌的 QQ 机器人。现在，每当 IP 变动，机器人给我发消息的时候，超级有成就感。体验不要太好。</p>
+
+<p>其实，服务器异常通知什么的，也可以交给 QQ 机器人，服务器的小管家。所以本文 “真正“ 的题目应该是这：</p>
+
+<blockquote>
+<p>论 QQ 机器人的正确使用姿势（伪）</p>
+</blockquote>
+
+<h2 id="步骤">步骤</h2>
+
+<p>完整的代码在文末。</p>
+
+<h3 id="让小米路由器能够-ssh-连接">让小米路由器能够 ssh 连接</h3>
+
+<p>安装开发版 ROM，下载官方 ssh 开启工具，按照说明一步一步来就好了。</p>
+
+<p>我也刷过 Pandorabox，然而需要在不能登录 VPN 的情况下，联网安装 L2TP 组件，，人生充满了矛盾（还有小米路由器 APP 在路由器不能联网的情况下登录账号绑定路由器）。<del>手动试了下，没配置成功</del>（20170616 更新：已配置成功）。还是老老实实用小米官方的，毕竟我需要的工具都有。</p>
+
+<p><img src="http://stonebythesea.org/media/%E5%88%A9%E7%94%A8-qqbot-%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8D%B3%E6%97%B6%E9%80%9A%E7%9F%A5%E6%88%91-ip-%E5%8F%98%E5%8A%A8/Pandorabox_2936x1735.png" alt="" /></p>
+
+<h3 id="通过-expect-配置-ssh-自动登录">通过 expect 配置 ssh 自动登录</h3>
+
+<p>无非就是登录过程中需要自动输入密码，查了下，expect 可以实现这个功能。expect 不是自带的工具，使用前需要安装。下面的代码可以让我的服务器自动 ssh 到路由器：</p>
+
+<pre><code class="language-bash">spawn ssh $router_user@$router_ip
+expect {
+  &quot;(y/n) &quot; {send &quot;y\r&quot;}
+  &quot;(yes/no) &quot; {send &quot;yes\r&quot;}
+}
+expect   &quot;password: &quot; {send &quot;$router_passwd\r&quot;}
+</code></pre>
+
+<h3 id="获取路由器网络信息">获取路由器网络信息</h3>
+
+<p>一开始是使用 ifconfig 命令获取 IP 的。后来发现小米路由器 /tmp/network.env 里面已经存有网络信息了，包含 IP。那么只要用 scp 命令复制到服务器上即可。结合上面的代码：</p>
+
+<pre><code class="language-bash">/usr/bin/expect &lt;&lt;EOD
+spawn ssh $router_user@$router_ip
+expect {
+  &quot;(y/n) &quot; {send &quot;y\r&quot;}
+  &quot;(yes/no) &quot; {send &quot;yes\r&quot;}
+}
+expect   &quot;password: &quot; {send &quot;$router_passwd\r&quot;}
+expect &quot;~#&quot; {send &quot;scp /tmp/network.env $host_user@$host_ip:/tmp\r&quot;}
+expect {
+  &quot;(y/n) &quot; {send &quot;y\r&quot;}
+  &quot;(yes/no) &quot; {send &quot;yes\r&quot;}
+}
+expect &quot;password: &quot; {send &quot;$host_passwd\r&quot;}
+expect &quot;~#&quot; {send &quot;exit\r&quot;}
+expect eof
+exit
+EOD
+</code></pre>
+
+<p>之后的工作只要在服务器上完成即可。然后把里面的 IP 抓出来。“如何获取路由器分配到的 IP？” 这一部分的任务已经完成了，完整代码在文末。</p>
+
+<h3 id="搭建-qqbot">搭建 QQbot</h3>
+
+<p>感谢这个轮子：<a href="https://github.com/pandolia/qqbot/">QQBot: A conversation robot base on Tencent&rsquo;s SmartQQ - GitHub</a></p>
+
+<p>这个项目文档写的非常详细，具体配置的过程不写了。原理就是用一个 QQ 号登录 SmartQQ，然后让代码掌管这个号。需要注意的地方就是登录时候的二维码验证。我在服务器登录了废弃已久的老号，一旦上面的代码发现 IP 有变动，就用这个 QQ 号给我日常使用的 QQ 号发消息。下面是使用截图：</p>
+
+<p><img src="../../media/qqbot-ip-change-notice/QQbot_1584x1444.png" alt="" /></p>
+
+<h3 id="通过-crontab-设置定时任务">通过 crontab 设置定时任务</h3>
+
+<p>设置每隔 2 小时检查 IP 变动：</p>
+
+<pre><code class="language-bash">$ sudo crontab -u &lt;user&gt; -e
+# ----------------
+0 */2 * * * /path/to/script
+# ----------------
+</code></pre>
+
+<h2 id="代码">代码</h2>
+
+<p><a href="https://github.com/xinhangliu/my-shell-scripts/blob/master/if-ip-changed/ifipchanged.sh">ifipchanged</a></p>
+
+<p>搞笑的是，后来我发现，校园网网站上提供了申请静态 IP 的服务。</p>
+
+<p>20170601 更新：这种方法有个硬伤，无法长时间保持在线状态，每次登录成功后的 cookie 会每在 1 ~ 2 天后失效，将被腾讯服务器强制下线。改用邮箱。</p>
+
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/mail">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>mail</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/qqbot">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>qqbot</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/ip">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>ip</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/shell">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>shell</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2017-06-06 20:43:30</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../shell-cmd-find/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>find - 在 Linux 中自如地查找文件</span>
+            </a>
+            <span class="clearfix"></span>
+            <a class="post-next" href="../using-fail2ban/index.html">
+                <span>使用 Fail2ban（支持 Firewalld） 防御 VPS 被 SSH 暴力扫描</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

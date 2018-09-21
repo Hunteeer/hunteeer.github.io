@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LaTeX 环境搭建（macOS） - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="
+" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">LaTeX 环境搭建（macOS）</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2018-05-04</span>
+</div>
+
+
+
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>1564</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#安装-mactex">安装 MacTeX</a></li>
+<li><a href="index.html#宏包管理">宏包管理</a></li>
+<li><a href="index.html#编辑环境">编辑环境</a></li>
+<li><a href="index.html#其他">其他</a>
+<ul>
+<li><a href="index.html#texdoc">texdoc</a></li>
+<li><a href="index.html#texhash">texhash</a></li>
+<li><a href="index.html#latexit">LaTeXiT</a></li>
+<li><a href="index.html#pdffonts">pdffonts</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            <p></p>
+
+<h2 id="安装-mactex">安装 MacTeX</h2>
+
+<p>MacTeX 是 TeX Live 的分支，专门支持 macOS。TeX Live 又是什么呢？简单来说，TeX Live 是一个 TeX 排版系统的套装（全家桶），包含排版引擎、宏包、管理工具、编辑器、字体等。TeX Live 保持每年更新的频率，版本号是年份（比如 TeX Live 2018）。通过 TeX Live 自带的管理工具，可以对宏包、字体等进行更新，但像 TeX、LaTeX 等命令行工具是随着版本号更新的。</p>
+
+<p>安装 MacTeX 有两种方式，一是下载 <a href="http://tug.org/cgi-bin/mactex-download/MacTeX.pkg">MacTeX.pkg</a> 进行完全安装。这种方式会安装所有的内容，包括 TeX Live 提供的所有宏包，好处是能避免很多麻烦。但 MacTeX.pkg 文件非常大，有好几个 GB，而且绝大多数宏包你可能这辈子都不会用到。如果你刚刚接触，还是推荐这种方式。另一种方式是下载 <a href="http://tug.org/cgi-bin/mactex-download/BasicTeX.pkg">BasicTeX.pkg </a> 进行最小安装。这种方式只会安装必要的命令行工具，以及一部分重要的宏包和字体。编辑器等 GUI 工具也不会被安装。但是之后可以自行安装。我采用第二种方式。</p>
+
+<p>下载 PKG 包，安装即可。也可以通过 HomeBrew 安装：</p>
+
+<pre><code class="language-shell">$ brew cask install basictex
+</code></pre>
+
+<p>安装安成后，从命令行输入以下内容来验证：</p>
+
+<pre><code class="language-shell">$ tex '\empty Hello world!\bye'
+This is TeX, Version 3.14159265 (TeX Live 2018) (preloaded format=tex)
+[1]
+Output written on texput.dvi (1 page, 224 bytes).
+Transcript written on texput.log.
+</code></pre>
+
+<p>MacTeX 的卸载：可参考官方文档 <a href="http://www.tug.org/mactex/uninstalling.html">Uninstalling TeX</a>。</p>
+
+<h2 id="宏包管理">宏包管理</h2>
+
+<p>MacTeX 自带了 GUI 版本的管理工具 TeX Live Utility，以及命令行版本的管理工具 <code>tlmgr</code>。前面说过了，BasicTeX 不会安装 GUI 的工具，因此我们使用 <code>tlmgr</code> 来管理。</p>
+
+<p>列出宏包目录：</p>
+
+<pre><code class="language-shell">$ tlmgr list  # 列出所有宏包。前面有 i 的表示已经安装
+$ trmgr list --only-installed  # 列出已经安装的宏包
+</code></pre>
+
+<p>查找宏包信息：</p>
+
+<pre><code class="language-shell">$ tlmgr info ctex  # 查找 CTeX 信息
+package:     ctex
+category:    Package
+shortdesc:   LaTeX classes and packages for Chinese typesetting
+longdesc:    ctex is a collection of macro packages and document classes for LaTeX Chinese typesetting.
+installed:   Yes
+revision:    47595
+sizes:       doc: 1141k, run: 717k
+relocatable: No
+cat-version: 2.4.14
+cat-date:    2018-05-02 16:00:12 +0200
+cat-license: lppl1.3c
+cat-topics:  chinese book-pub class
+collection:  collection-langchinese
+</code></pre>
+
+<p>安装 &amp; 卸载宏包：</p>
+
+<pre><code class="language-shell">$ tlmgr install ctex  # 安装 CTeX
+$ tlmgr install --with-doc ctex  # 安装 CTeX 及其文档
+$ tlmgr uninstall &lt;package&gt;  # 卸载 package
+</code></pre>
+
+<p>更新宏包：</p>
+
+<pre><code class="language-shell">$ tlmgr update --list  # 列出有更新的宏包
+$ tlmgr update --all  # 更新所有宏包
+</code></pre>
+
+<p>如果习惯了使用 xPM 之类的工具，BasicTeX 是更好的选择。<code>tlmgr</code> 有个缺点是不能自动解决依赖关系。不过也不是没有办法，宏包 <code>texliveonfly</code> 可以解决这个问题。它能在编译文档的时候，自动安装依赖的宏包。</p>
+
+<h2 id="编辑环境">编辑环境</h2>
+
+<p>macOS 上比较有名的 TeX 编辑器有 TexPad、TeXstudio、TeXShop、TeXworks、TeXMaker。还可以使用 VIM、Emacs、Sublime Text、Atom、VScode 这类编辑器，通过安装插件来支持。我喜欢 Atom。</p>
+
+<p>Atom 安装以下相关插件后，就能获得一个很舒服的 LaTeX 编辑器了：</p>
+
+<ul>
+<li><a href="https://atom.io/packages/language-latex">language-latex</a>：语法高亮</li>
+<li><a href="https://atom.io/packages/latex">latex</a>：编译</li>
+<li><a href="https://atom.io/packages/autocomplete-latex">autocomplete-latex</a>：自动补全</li>
+<li><a href="https://atom.io/packages/autocomplete-latex-cite">autocomplete-latex-cite</a>：自动补全文献引用</li>
+<li><a href="https://atom.io/packages/autocomplete-latex-references">autocomplete-latex-references</a>：自动补全交叉引用</li>
+<li><a href="https://atom.io/packages/document-outline">document-outline</a>：文档大纲</li>
+</ul>
+
+<h2 id="其他">其他</h2>
+
+<h3 id="texdoc">texdoc</h3>
+
+<p>使用 <code>texdoc</code> 查看宏包文档，就像使用 <code>man</code> 一样方便。前提是安装宏包的时候要携带安装 DOC。宏包文档一般是 PDF 格式，放置在 <code>${TEXLIVE}/texmf-dist/doc</code> 目录下。直接输入 <code>texdoc &lt;package&gt;</code>，<code>texdoc</code> 会使用默认的 PDF 阅读器直接打开相应的 PDF 文档。如果想进行模糊搜索可以使用 <code>-s</code> 参数：</p>
+
+<pre><code class="language-shell">$ texdoc -s ctex
+ 1 /usr/local/texlive/2018basic/texmf-dist/doc/latex/ctex/ctex.pdf
+   = [zh] Package documentation
+ 2 /usr/local/texlive/2018basic/texmf-dist/doc/latex/ctex/README.md
+   = Readme
+Enter number of file to view, RET to view 1, anything else to skip:
+</code></pre>
+
+<h3 id="texhash">texhash</h3>
+
+<p>有时，你可能会手动安装一个文件到 TeX Live 的文件树中，但是 TeX Live 并不能找到，需要使用以下命令刷新索引：</p>
+
+<pre><code class="language-shell">$ texhash
+</code></pre>
+
+<p>比如安装符合国家标准的文献著录样式：<a href="https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style">GBT7714-2005-BibTeX-Style</a></p>
+
+<h3 id="latexit">LaTeXiT</h3>
+
+<p>这是一个 GUI 工具，完整版的 MacTeX 是默认安装的。利用它可以将 LaTeX 公式转换为 pdf、png、eps 等格式，非常方便。我觉得可以手动安装一个。</p>
+
+<h3 id="pdffonts">pdffonts</h3>
+
+<p>不知道你有没有遇到过这种情况，PDF 文件在自己电脑上好好的，到别人电脑上查看就乱码了。这是因为使用了无法嵌入的字体（或者压根没有嵌入字体），这种字体往往是有版权的，当然，能嵌入也不一定代表没版权。<code>pdffonts</code> 可以快速的让你知道 PDF 文件中的各种字体的嵌入情况。例如</p>
+
+<pre><code class="language-shell">$ pdffonts index.pdf
+name                                       type              encoding         emb sub uni object ID
+------------------------------------------ ----------------- ---------------- --- --- --- ---------
+FTNAMI+TimesNewRomanPSMT                   CID TrueType      Identity-H       yes yes yes      6  0
+UMRIQY+SourceHanSerifCN-Regular-Identity-H CID Type 0C       Identity-H       yes yes yes      8  0
+</code></pre>
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/latex">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>latex</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/getting-started">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>getting-started</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2018-05-04 16:14:24</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../migrate-to-https/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>启用 HTTPS</span>
+            </a>
+            <span class="clearfix"></span>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

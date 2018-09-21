@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cube on 海边的石头</title>
+    <link>http://stonebythesea.org/tags/cube/</link>
+    <description>Recent content in Cube on 海边的石头</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Feb 2018 10:59:45 +0800</lastBuildDate>
+    
+	<atom:link href="http://stonebythesea.org/tags/cube/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>8X8X8 光立方制作流程</title>
+      <link>http://stonebythesea.org/posts/cube8/</link>
+      <pubDate>Mon, 19 Feb 2018 10:59:45 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/cube8/</guid>
+      <description>&lt;p&gt;学完最基础的 8051 单片机后，我开始着手制作这个光立方。从电路原理到 PCB，从焊接组装到程序编写，本文作一个记录。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

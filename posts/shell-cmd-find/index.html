@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>find - 在 Linux 中自如地查找文件 - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="给出一个目录，find 命令能递归地罗列出目录下所有文档和目录，包括子目录下的文档和目录。如果再给出限制条件，就可以筛选出符合要求的文档或目录" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">find - 在 Linux 中自如地查找文件</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2017-05-30</span>
+</div>
+
+
+<div class="post-categories" style="order: 1;"><i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i><a href="../../categories/linux-的奇妙世界/index.html">Linux 的奇妙世界</a></div>
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>2803</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#最基本的命令">最基本的命令</a></li>
+<li><a href="index.html#选项">选项</a></li>
+<li><a href="index.html#操作符">操作符</a></li>
+<li><a href="index.html#预选项">预选项</a>
+<ul>
+<li><a href="index.html#按照文件类型查找">按照文件类型查找</a></li>
+<li><a href="index.html#按照文件大小查找">按照文件大小查找</a></li>
+<li><a href="index.html#按照时间筛选">按照时间筛选</a></li>
+<li><a href="index.html#按照权限查找">按照权限查找</a></li>
+<li><a href="index.html#限制查找的目录深度">限制查找的目录深度</a></li>
+<li><a href="index.html#对返回值进行处理">对返回值进行处理</a></li>
+</ul></li>
+<li><a href="index.html#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            
+
+<p>给出一个目录，find 命令能递归地罗列出目录下所有文档和目录，包括子目录下的文档和目录。如果再给出限制条件，就可以筛选出符合要求的文档或目录。如果给出一个文档呢？那么 find 就会在当前工作目录下查找该文档，没有找到会报错。find 支持正则表达式。find 返回的查找结果能传递给下一个命令，作为其参数，由此，find命令可以用来批量处理文档。</p>
+
+<blockquote>
+<p>Walk a file hierarchy</p>
+</blockquote>
+
+<!-- more -->
+
+<h2 id="最基本的命令">最基本的命令</h2>
+
+<pre><code class="language-bash">$ find &lt;path&gt;
+</code></pre>
+
+<p>这是 find 最简单的命令，递归地罗列出 <code>&lt;path&gt;</code> 下的所有文档和目录。比较一下 <code>find .</code> 和 <code>find *</code> 会有更好的理解。</p>
+
+<p>这条命令等同于</p>
+
+<pre><code class="language-bash">$ find &lt;path&gt; -print
+</code></pre>
+
+<p><code>-print</code> 参数表示将查询结果打印到标准输出，是默认参数。<code>-exec</code>, <code>-ls</code>, <code>-ok</code> 等参数会将该参数覆盖掉，如果没有这些参数，find 就会将查询结果打印出来。</p>
+
+<p>如果在特定目录下找某个文档，可以用 <code>-name</code> 参数，这是最常用到的。比如说要在 <code>/etc</code> 下找 hosts 这个文件：</p>
+
+<pre><code class="language-bash">$ find /etc -name hosts
+/etc/hosts
+</code></pre>
+
+<p>使用 <code>-iname</code> 会忽略大小写。</p>
+
+<p>find 只列出这一个文档，因为只有这个文档符合筛选条件。这些筛选条件称为 “Primary”，暂且翻译为 “预选项。”find 支持非常多的预选项，筛选的方法自然有很多种组合方式。</p>
+
+<p>再举个例子，找到空目录或空文档：</p>
+
+<pre><code class="language-bash">$ find /etc -empty
+</code></pre>
+
+<h2 id="选项">选项</h2>
+
+<p>如果在 Linux 下上面的命令是行得通的，在 macOS 下，你可能会发现它根本不起作用。这是因为 macOS 下，<code>/etc</code> 只是一个软链接，用 <code>ls -l</code> 命令查看一下就知道原因了：</p>
+
+<pre><code class="language-bash">$ ls -l /etc
+lrwxr-xr-x@ 1 root  wheel  11 Mar 12 12:50 /etc -&gt; private/etc
+</code></pre>
+
+<p>真实的目录是 <code>private/etc</code>。如果用 <code>find /private/etc -name hosts</code>，那就有用了。find 还有一个默认的 <code>-P</code> 选项，表示不追踪链接，所以上面的命令在 macOS 下就找不到东西。下面的命令就可以：</p>
+
+<pre><code class="language-bash">$ find -L /etc -name hosts
+/etc/hosts
+</code></pre>
+
+<p><code>man find</code> 给出的 find 语法是</p>
+
+<pre><code>find [-H | -L | -P] [-EXdsx] [-f path] path ... [expression]
+find [-H | -L | -P] [-EXdsx] -f path [path ...] [expression]
+</code></pre>
+
+<p><code>[-H | -L | -P] [-EXdsx]</code> 这些就是 find 的可选选项。</p>
+
+<pre><code>-P：不跟踪连接，默认选项
+-L：跟踪连接
+-H：不跟踪连接，除非链接是作为参数的
+-E：将 -regex 解释为扩展正则表达式，而不是基本正则表达式
+-X：允许 find 安全地配合使用 xargs，跳过名字里有界定符的文件
+-d：先列出目录内文件再列出目录本身。find 默认先列出目录本身
+-s：按照字典顺序列出文件
+</code></pre>
+
+<h2 id="操作符">操作符</h2>
+
+<p>可以对预选项做逻辑操作，拓展筛选的能力。</p>
+
+<p><code>(expr)</code>：括号内的 expression 具有优先级</p>
+
+<p><code>!expr</code>：逻辑非，等价于 <code>-not expr</code></p>
+
+<p><code>expr1 -and expr2</code>：逻辑与，等价于 <code>expr1 -a expr2</code>，也等价于 <code>expr1 expr2</code></p>
+
+<p><code>expr1 -or expr2</code>：逻辑或，等价于 <code>expr1 -o expr2</code></p>
+
+<h2 id="预选项">预选项</h2>
+
+<p>前面的内容是预热，下面的内容才是 find 最有意思的地方。预选项就相当于 “Filter”，用来筛选符合条件的文件。find 更高级的用法是将查找结果传递给下一个命令，作为其参数，这样就可以实现进一步操作，或者是批量操作。</p>
+
+<h3 id="按照文件类型查找">按照文件类型查找</h3>
+
+<p>下面的命令表示在 <code>/etc</code>下查找名字是 hosts 的链接：</p>
+
+<pre><code class="language-bash">$ find /etc -name hosts -type l
+</code></pre>
+
+<p>自然是找不到结果的，因为 /etc 下只有名为 hosts 这个文件，并没有名为 hosts 的链接文件。</p>
+
+<p>可选的类型有：</p>
+
+<pre><code>b：块设备。比如硬盘、光驱
+c：字符设备。比如鼠标、虚拟终端
+d：目录
+f：普通文件
+l：符号链接
+p：FIFO
+s：socket
+</code></pre>
+
+<h3 id="按照文件大小查找">按照文件大小查找</h3>
+
+<p>下面的命令表示在 /etc 下查找大小为 2 blocks 的文件</p>
+
+<pre><code class="language-bash">$ find /etc -size 2
+</code></pre>
+
+<p>默认情况下，<code>-size</code> 后面数字使用的单位是 block，一般磁盘一个 block 的大小是 512 bytes，使用 <code>ls -i</code> 可以查看这个大小，但是使用这个单位往往是不准的。在文末的 Reference 里的那篇文章有更详细的解释。其实用我们常用的单位也是可以的。比如查找 2 KB 的文件：</p>
+
+<pre><code class="language-bash">$ find /etc -size 2k
+</code></pre>
+
+<p>其他单位还有：</p>
+
+<pre><code>c: bytes
+M: megabytes
+G: gigabytes
+T: terabytes
+P: petabytes
+</code></pre>
+
+<p>当然要找到大小恰好是 2 KB 的文件，当真不容易，实际的应用场景也不多。所以使用 “+”、“-”号可以筛选特定范围。比如查找小于 2 KB 的文件：</p>
+
+<pre><code class="language-bash">$ find /etc -size -2k
+</code></pre>
+
+<p>结合逻辑操作符可以设置上下限：</p>
+
+<pre><code class="language-bash">$ find /etc -size +2k -a -size -4k
+</code></pre>
+
+<p>你说 <code>-a</code> 加不加无所谓，那我也是没话说的。</p>
+
+<h3 id="按照时间筛选">按照时间筛选</h3>
+
+<p>Linux 上每个文件都有 3 个时间，分别是</p>
+
+<ul>
+<li>Modify time（mtime）：文件内容最后一次被修改的时间</li>
+<li>Change time（ctime）：文件属性最后一次被更改的时间</li>
+<li>Access time（atime）：文件最后一次被访问的时间</li>
+</ul>
+
+<p>使用<code>stat</code> 命令可以查看这三个时间：</p>
+
+<pre><code class="language-bash">$ stat -x /etc/hosts
+  File: &quot;/etc/hosts&quot;
+  Size: 143393       FileType: Regular File
+  Mode: (0644/-rw-r--r--)         Uid: (    0/    root)  Gid: (    0/   wheel)
+Device: 1,4   Inode: 6485970    Links: 1
+Access: Tue May 30 21:27:06 2017
+Modify: Sun May 28 15:16:30 2017
+Change: Sun May 28 15:16:30 2017
+</code></pre>
+
+<p>比如我要查找 2 天前（当前时间 20170530）内容被修改的文件，看看能不能把 hosts 找出来：</p>
+
+<pre><code class="language-bash">$ find /etc -mtime 2
+/etc/hosts
+</code></pre>
+
+<p>确实找出来了。默认的单位是天（进位取整 24 小时）。可以使用的单位有：</p>
+
+<pre><code>s: second
+m: minute
+h: hour
+d: day
+w: week
+</code></pre>
+
+<p>可以使用 “+” 和 “-” 表示一个范围。<code>-ctime</code>、<code>-atime</code> 同理。比如说查找有没有 1 小时 30 分钟以内属性被修改的文件：</p>
+
+<pre><code class="language-bash">$ find /etc -ctime -1h30m
+</code></pre>
+
+<p>说到时间肯定会有一个参考时间点，以上都是拿现在的时间作为参考点。<code>-newer</code> 则可以使用某一文件的时间作为参考点。比如查找比 hosts 的 mtime 更晚的文件：</p>
+
+<pre><code class="language-bash">$ find /etc -newer hosts
+</code></pre>
+
+<p><code>-newer</code> 对比的是 mtime，<code>-cnewer</code> 对比 ctime，<code>-anewer</code> 对比 atime。</p>
+
+<p>如果我要把当前文件的 mtime 和参考文件的 ctime 对比怎么办呢？<code>-newer</code> 还可以这么用：</p>
+
+<pre><code>-newerXY file
+</code></pre>
+
+<p><code>X</code> 表示要查找文件的时间，<code>Y</code> 表示参考文件的时间，使用以下代号就可以表示不同类型的时间：</p>
+
+<ul>
+<li>a: atime</li>
+<li>c: ctime</li>
+<li>m: mtime</li>
+<li>B: inode creation time （真正的文件创建时间）</li>
+</ul>
+
+<p><code>Y</code> 还有一个特殊的值 <code>t</code>，表示参考文件的时间被解释成 CVS 能理解的时间格式</p>
+
+<h3 id="按照权限查找">按照权限查找</h3>
+
+<p>查找属于 root 用户的文件：</p>
+
+<pre><code class="language-bash">$ find /etc -user root
+</code></pre>
+
+<p>同样，<code>-group</code> 可以查找某个用户组的文件。不仅仅可以用名字，ID 也是适用的。</p>
+
+<p>还可以查找权限为 644 的文件：</p>
+
+<pre><code class="language-bash">$ find /etc -perm 644
+</code></pre>
+
+<p>如果要表示一个范围可以使用 “+”、“-”。“+” 号表示后面的权限只要有一位被满足就行；“-” 号表示后面的权限所有位都至少要被满足。</p>
+
+<h3 id="限制查找的目录深度">限制查找的目录深度</h3>
+
+<p>只在从当前工作目录数起的第 2 层子目录查找：</p>
+
+<pre><code class="language-bash">$ find /etc -name hosts -depth 2
+</code></pre>
+
+<p><code>-depth 0</code> 表示什么？是当前工作目录这一级的目录，只有当前工作目录本身。</p>
+
+<p>如果要限制的是一个范围要怎么办呢？这里就不是使用 “+”、“-” 啦，而是有特定的上下限：<code>-maxdepth</code>、<code>-mindepth</code>。</p>
+
+<p>还有一个预选项：<code>-prune</code> ，表示到当前工作目录就停止，不再递归地找下去了。</p>
+
+<pre><code class="language-bash">$ find /etc -name hosts -prune
+</code></pre>
+
+<h3 id="对返回值进行处理">对返回值进行处理</h3>
+
+<p>看下面这个例子：</p>
+
+<pre><code class="language-bash">$ find /etc -name hosts -ls
+6485970      288 -rw-r--r--    1 root      wheel      143393 May 28 15:16 /etc/hosts
+</code></pre>
+
+<p>这相当于，find 找到结果之后，没有急着打印到标准输出，而是将返回值传递给了 <code>-ls</code> 处理，然后打印出详细信息。</p>
+
+<p>这和使用 <code>xargs</code> 命令的作用类似。比如</p>
+
+<pre><code class="language-bash">$ find /etc -name hosts | xargs ls -gilds
+</code></pre>
+
+<p><code>xargs</code> 能将前一个命令的标准输出，通过管线命令，作为后一个命令的参数。find 和配合 xargs 不仅仅可以实现 ls 命令，其他类似的命令也能够实现，这就实现了对返回值的进一步加工。但是呢，这样做在碰到返回的文件路径中包含界定符的时候就不行了，这时候可以思考下最前面选项那里的 <code>-X</code>，可以避免出错，但是仍旧不能处理有界定符的文件。</p>
+
+<p>find 自带了一个参数：<code>-exec</code>，不仅能实现 xargs 的功能，还能避免上面的问题。举个例子：</p>
+
+<pre><code class="language-bash">$ find /etc -name hosts -exec ls -l {} \;
+-rw-r--r--@ 1 root  wheel  143393 May 28 15:16 /etc/hosts
+</code></pre>
+
+<p><code>{}</code> 会被替换成 find 的返回值，然后作为 <code>-exec</code> 后面接的命令的输入参数，最后不要忘了加上 <code>;</code>，表示命令结束，因为 <code>;</code> 在 shell 里有特殊含义，所以要使用转义符 <code>\</code>，或者使用引号。</p>
+
+<p>那能不能用另一个命令的输出作为 find 的输入呢？能，利用反引号。</p>
+
+<pre><code class="language-bash">$ find `pwd` -name file -exec ls -l {} ';'
+</code></pre>
+
+<h2 id="reference">Reference</h2>
+
+<p><a href="http://www.grymoire.com/Unix/Find.html">find - Grymoire</a></p>
+
+        </div>
+
+        <footer class="post-footer">
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2017-05-30 20:26:34</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../zhanmei-n3050-htpc/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>占美 N3050 迷你主机入手体验</span>
+            </a>
+            <span class="clearfix"></span>
+            <a class="post-next" href="../qqbot-ip-change-notice/index.html">
+                <span>利用 QQbot 实现服务器即时通知我 IP 变动</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

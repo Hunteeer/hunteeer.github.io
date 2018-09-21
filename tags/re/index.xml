@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Re on 海边的石头</title>
+    <link>http://stonebythesea.org/tags/re/</link>
+    <description>Recent content in Re on 海边的石头</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Feb 2017 15:25:11 +0800</lastBuildDate>
+    
+	<atom:link href="http://stonebythesea.org/tags/re/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Regular Expression</title>
+      <link>http://stonebythesea.org/posts/regular-expression/</link>
+      <pubDate>Fri, 17 Feb 2017 15:25:11 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/regular-expression/</guid>
+      <description>字母（a-z、A-Z），数字（0-9），下划线（_），汉字等，标点符号（无特殊含义） 1.2 特殊字符 1.2.1 有特殊含义的字符 字符 描述 ^ 字符串开始位置；取</description>
+    </item>
+    
+  </channel>
+</rss>

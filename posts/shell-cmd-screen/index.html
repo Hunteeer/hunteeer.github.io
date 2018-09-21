@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>screen - 命令行窗口管理器 - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="之前用 SSH 连接 VPS，执行需要较长运行时间的任务的时候，我就曾陷入这样的僵局：既不能关闭这个窗口，也不能在这个窗口中做其他的事情。Screen 就可以解决这个问题。它相当于一个窗口管理器，能够创建和管理独立于当前窗口的的命令行窗口。把命令放在一个 Screen 窗口中运行，然后将它分离（相当于 daemon 的运行方式），继续回到原来的窗口做其他事情，甚至关闭 SSH 连接。一段时间后再次连接，查看他的运行状态。
+
+" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">screen - 命令行窗口管理器</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2018-02-28</span>
+</div>
+
+
+<div class="post-categories" style="order: 1;"><i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i><a href="../../categories/linux-的奇妙世界/index.html">Linux 的奇妙世界</a></div>
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>911</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#使用-screen">使用 Screen</a></li>
+<li><a href="index.html#管理窗口">管理窗口</a></li>
+<li><a href="index.html#关闭窗口">关闭窗口</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            <p>之前用 SSH 连接 VPS，执行需要较长运行时间的任务的时候，我就曾陷入这样的僵局：既不能关闭这个窗口，也不能在这个窗口中做其他的事情。Screen 就可以解决这个问题。它相当于一个窗口管理器，能够创建和管理独立于当前窗口的的命令行窗口。把命令放在一个 Screen 窗口中运行，然后将它分离（相当于 daemon 的运行方式），继续回到原来的窗口做其他事情，甚至关闭 SSH 连接。一段时间后再次连接，查看他的运行状态。</p>
+
+<p></p>
+
+<h2 id="使用-screen">使用 Screen</h2>
+
+<p>使用命令 <code>screen</code> 就可以新建窗口并进入。使用按键 <kbd>ctrl + a</kbd><kbd>d</kbd> 可以从这个窗口分离，回到之前的窗口。在这个窗口运行的命令是独立于之前的窗口的。我来做一个测试。通过 SSH 连接 VPS 后，用 <code>pstree</code> 命令显示进程树：</p>
+
+<pre><code class="language-bash">$ pstree
+systemd─┬─agetty
+        ├─atd
+        ├─chronyd
+        ├─crond
+        ...
+        ├─sshd───sshd───sshd───zsh───pstree
+        ...
+</code></pre>
+
+<p>可以看到 <code>sshd───sshd───sshd───zsh───pstree</code> 显示的进程之间的父子关系，如果断开 SSH 连接，当前 <code>zsh</code> 终端也会被关闭。运行 <code>screen</code> 命令，再次查看：</p>
+
+<pre><code class="language-bash">$ pstree
+systemd─┬─agetty
+        ├─aria2c
+        ├─atd
+        ├─chronyd
+        ...
+        ├─sshd───sshd───sshd───zsh───screen───screen───zsh───pstree
+        ...
+</code></pre>
+
+<p>使用按键 <kbd>ctrl + a</kbd><kbd>d</kbd> 分离后，再次查看：</p>
+
+<pre><code class="language-bash">$ pstree
+systemd─┬─agetty
+        ├─aria2c
+        ├─atd
+        ├─chronyd
+        ...
+        ├─screen───zsh
+        ├─sshd───sshd───sshd───zsh───pstree
+        ...
+</code></pre>
+
+<p>这时就会发现 <code>screen</code> 已经独立于 SSH，由 Screen 创建的窗口依附于 <code>screen</code>。</p>
+
+<p>可以用 Screen 开启多个相互独立的窗口，将它们罗列出来：</p>
+
+<pre><code class="language-bash">$ screen -ls
+There are screens on:
+	9377.pts-0.vultr	(Detached)
+	9271.pts-0.vultr	(Detached)
+2 Sockets in /var/run/screen/S-xhl.
+</code></pre>
+
+<p>Screen 以 <code>&lt;pid&gt;.&lt;tty&gt;.&lt;host&gt;</code> 的格式命名窗口。再次连接某个窗口：</p>
+
+<pre><code class="language-bash">$ screen -r &lt;pid&gt;
+</code></pre>
+
+<p>可以给窗口命名以方便再次连接：</p>
+
+<pre><code class="language-bash">$ screen -S sockname
+</code></pre>
+
+<p>这时 <code>screen -ls</code> 就会以 <code>&lt;pid&gt;.sockname</code> 的格式显示这个窗口，可以用 <code>screen -r sockname</code> 来连接。</p>
+
+<p>直接新建一个分离的窗口：</p>
+
+<pre><code class="language-bash">$ screen -dmS name
+</code></pre>
+
+<h2 id="管理窗口">管理窗口</h2>
+
+<p>进入 Screen 窗口后，要想对窗口本身进行管理，就需要使用 <kbd>ctrl + a</kbd> 激活。</p>
+
+<ul>
+<li><kbd>ctrl + a</kbd><kbd>d</kbd>：从当前窗口分离</li>
+<li><kbd>ctrl + a</kbd><kbd>?</kbd>：显示所有可用的按键控制</li>
+<li><kbd>ctrl + a</kbd><kbd>c</kbd>：创建新的窗口</li>
+</ul>
+
+<h2 id="关闭窗口">关闭窗口</h2>
+
+<ol>
+<li>进入 Screen 窗口后，使用 <code>exit</code> 命令退出并清除这个窗口</li>
+<li><code>kill &lt;pid&gt;</code> 直接杀死</li>
+<li><code>screen -S sockname -X quit</code></li>
+</ol>
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/screen">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>screen</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/shell">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>shell</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2018-02-28 09:31:00</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../cube8/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>8X8X8 光立方制作流程</span>
+            </a>
+            <span class="clearfix"></span>
+            <a class="post-next" href="../latex-fonts-setup/index.html">
+                <span>LaTeX 字体设置</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

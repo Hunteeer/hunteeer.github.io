@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on 海边的石头</title>
+    <link>http://stonebythesea.org/tags/android/</link>
+    <description>Recent content in Android on 海边的石头</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Apr 2017 21:54:58 +0800</lastBuildDate>
+    
+	<atom:link href="http://stonebythesea.org/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>更改 Android 字体</title>
+      <link>http://stonebythesea.org/posts/replace-android-fonts/</link>
+      <pubDate>Sat, 01 Apr 2017 21:54:58 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/replace-android-fonts/</guid>
+      <description>本篇记录手动更改 Android 字体的过程，简单几步即可实现，体会 Android 的乐趣。 前提 前面某篇文章我提到了本博客的字体问题，这几天想更改下手机的字体。我的目标是</description>
+    </item>
+    
+  </channel>
+</rss>

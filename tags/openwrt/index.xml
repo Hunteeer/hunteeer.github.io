@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openwrt on 海边的石头</title>
+    <link>http://stonebythesea.org/tags/openwrt/</link>
+    <description>Recent content in Openwrt on 海边的石头</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Jun 2017 10:21:34 +0800</lastBuildDate>
+    
+	<atom:link href="http://stonebythesea.org/tags/openwrt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>编程器刷固件，救砖小米路由器青春版</title>
+      <link>http://stonebythesea.org/posts/burn-fireware-for-xiaomi-router-nano/</link>
+      <pubDate>Fri, 16 Jun 2017 10:21:34 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/burn-fireware-for-xiaomi-router-nano/</guid>
+      <description>刷错包了，路由器报废。最后用编程器救回。 这台小米路由器青春版是在 2015 年 9 月买的，不说别的，做工、用料挺好的，用到现在还是很新。所以当它被我刷砖</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>怎样读懂 Manual Pages - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="Liunx 命令有上千条，逐个记忆是不现实的，幸好有非常好用的 Manual Pages。第一次使用它的时候非常苦恼，因为内容多、看不懂。但是多次使用之后，会发现 Manual" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">怎样读懂 Manual Pages</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2017-02-21</span>
+</div>
+
+
+
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>1700</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#1-如何浏览-manual-pages">1. 如何浏览 Manual Pages</a></li>
+<li><a href="index.html#2-man页面的构成">2. man页面的构成</a></li>
+<li><a href="index.html#3-下达命令的一般规则">3. 下达命令的一般规则</a>
+<ul>
+<li><a href="index.html#options-选项">options/选项</a></li>
+<li><a href="index.html#arguments-参数">arguments/参数</a></li>
+</ul></li>
+<li><a href="index.html#4-读懂-man-页面">4. 读懂 man 页面</a>
+<ul>
+<li><a href="index.html#4-1-第一行">4.1 第一行</a></li>
+<li><a href="index.html#4-2-语法摘要和完整描述">4.2 语法摘要和完整描述</a></li>
+</ul></li>
+<li><a href="index.html#5-举例">5. 举例</a>
+<ul>
+<li><a href="index.html#5-1-以-ls-命令为例">5.1 以 ls 命令为例</a></li>
+<li><a href="index.html#5-2-以-find-为例">5.2 以 find 为例</a></li>
+</ul></li>
+<li><a href="index.html#6-参考文档">6. 参考文档</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            
+
+<p>Liunx 命令有上千条，逐个记忆是不现实的，幸好有非常好用的 Manual Pages。第一次使用它的时候非常苦恼，因为内容多、看不懂。但是多次使用之后，会发现 Manual Pages 是 Linux 上不可或缺的、人性化的功能之一。</p>
+
+<blockquote>
+<p>官方文档最靠谱。</p>
+</blockquote>
+
+<!-- more -->
+
+<h2 id="1-如何浏览-manual-pages">1. 如何浏览 Manual Pages</h2>
+
+<p>要查阅某个命令的手册页，使用命令：</p>
+
+<pre><code class="language-bash">$ man &lt;command&gt;
+</code></pre>
+
+<p>信息输出采用的是类似 <code>less</code> 命令的终端分页器。因此只要掌握 <code>less</code> 命令的用法即可自由浏览man页面。简单列一下基本快捷键和用法。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">按键</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">Space</td>
+<td align="center">向下翻页</td>
+</tr>
+
+<tr>
+<td align="center">Up/Down</td>
+<td align="center">向上翻行/向下翻行</td>
+</tr>
+
+<tr>
+<td align="center">/string/?string</td>
+<td align="center">向下搜寻/向上搜寻</td>
+</tr>
+
+<tr>
+<td align="center">n/N</td>
+<td align="center">搜寻完成后向下/向上查找下一个</td>
+</tr>
+
+<tr>
+<td align="center">q</td>
+<td align="center">退出</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>man</code> 本身是一个命令，它也有一些高级的用法，那么可以通过下面的命令深入了解man的用法。</p>
+
+<pre><code class="language-bash">$ man man
+</code></pre>
+
+<h2 id="2-man页面的构成">2. man页面的构成</h2>
+
+<p>man 页面一般有一下几个部分。重点关注前几个部分。</p>
+
+<ul>
+<li><strong>NAME/名称用途</strong></li>
+<li><strong>SYNOPSIS/语法摘要</strong></li>
+<li><strong>DESCRIPTION/完整描述</strong></li>
+<li><strong>EXAMPLES/举例</strong></li>
+<li>OPTIONS/选项</li>
+<li>FILES/相关文件</li>
+<li>ENVIRONMENT/环境变量</li>
+<li>SEE ALSO/相关参考</li>
+<li>HISTORY/历史</li>
+<li>BUGS/漏洞错误</li>
+<li>AUTHOR/作者</li>
+</ul>
+
+<h2 id="3-下达命令的一般规则">3. 下达命令的一般规则</h2>
+
+<p>Linux 中的命令下达一般遵循相同的规则，名称后面接上选项，例如</p>
+
+<pre><code class="language-bash">$ ls -a # 列出当前目录下的所有文件，包括隐藏文件。单独一个 ls 仅列出可见文件
+</code></pre>
+
+<h3 id="options-选项">options/选项</h3>
+
+<p>命令选项有两种形式：</p>
+
+<ul>
+<li><code>-</code> 后接单字符。例如 <code>-h</code></li>
+<li><code>--</code> 后接完整单词。例如 <code>--help</code></li>
+</ul>
+
+<p><code>-h</code> 和 <code>--help</code> 意义相同。</p>
+
+<p>一次下达命令可以使用多个选项，用空格隔开。短选项可以合并到一起，例如 <code>ls -al</code> &lt;==&gt; <code>ls -a -l</code>。可想而知，长选项要是合在一起可能会有歧义，因此不能合并。</p>
+
+<h3 id="arguments-参数">arguments/参数</h3>
+
+<p>一个命令可能有不同的 option，一个 option 可以有自己的 argument。不同选项形式使用 argument 的方式也不同：</p>
+
+<ul>
+<li>短选项：空格隔开即可。例如 <code>mkdir -m 700 dirname</code></li>
+<li>长选项：使用 <code>=</code> 连接选项和参数。 例如 <code>mkdir --mode=700 dirname</code></li>
+</ul>
+
+<h2 id="4-读懂-man-页面">4. 读懂 man 页面</h2>
+
+<h3 id="4-1-第一行">4.1 第一行</h3>
+
+<p>以 <code>ls</code> 命令为例，man 页面第一行内容如下</p>
+
+<pre><code class="language-bash">$ man ls
+LS(1)                     BSD General Commands Manual                    LS(1)
+</code></pre>
+
+<p>LS后面的(1)表示的是Section 1里的 <code>ls</code> 命令。Manual Pages被划分为8个区段：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Section</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">一般使用者可调用命令</td>
+</tr>
+
+<tr>
+<td align="center">2</td>
+<td align="center">供系统核心调用的命令</td>
+</tr>
+
+<tr>
+<td align="center">3</td>
+<td align="center">常用库函数。大部分为C的函数库</td>
+</tr>
+
+<tr>
+<td align="center">4</td>
+<td align="center">设备文件和驱动程序</td>
+</tr>
+
+<tr>
+<td align="center">5</td>
+<td align="center">文件格式和说明</td>
+</tr>
+
+<tr>
+<td align="center">6</td>
+<td align="center">游戏、屏保</td>
+</tr>
+
+<tr>
+<td align="center">7</td>
+<td align="center">杂项、说明文件</td>
+</tr>
+
+<tr>
+<td align="center">8</td>
+<td align="center">系统管理员可调用的命令、守护进程</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="4-2-语法摘要和完整描述">4.2 语法摘要和完整描述</h3>
+
+<p>语法摘要主要按照正则表达式的规则，如果了解了正则表达式，就能读懂语法摘要，读懂了语法摘要，基本相当于读懂了man page。简要列举会出现的规则：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">规则</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">[]</td>
+<td align="center">方括号内的选项都是可选的</td>
+</tr>
+
+<tr>
+<td align="center">{}</td>
+<td align="center">花括号内的选项必须使用</td>
+</tr>
+
+<tr>
+<td align="center">&hellip;</td>
+<td align="center">参数可以重复添加</td>
+</tr>
+
+<tr>
+<td align="center">&#124;</td>
+<td align="center">或的关系，可以选择其中之一</td>
+</tr>
+
+<tr>
+<td align="center">加粗</td>
+<td align="center">必须准确无误的输入加粗的部分</td>
+</tr>
+
+<tr>
+<td align="center">斜体/下划线</td>
+<td align="center">必须用适当的值代替</td>
+</tr>
+
+<tr>
+<td align="center">绑定</td>
+<td align="center">单独的选项和参数组合在一起，则必须同时使用</td>
+</tr>
+</tbody>
+</table>
+
+<p>语法摘要告诉读者如何使用，完整描述则主要告诉读者有何用处。两者配合阅读就能了解命令的用法和作用。</p>
+
+<h2 id="5-举例">5. 举例</h2>
+
+<h3 id="5-1-以-ls-命令为例">5.1 以 ls 命令为例</h3>
+
+<pre><code class="language-bash">$ man ls
+LS(1)                     BSD General Commands Manual                    LS(1)
+
+NAME
+     ls -- list directory contents
+
+SYNOPSIS
+     ls [-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1] [file ...]
+
+DESCRIPTION
+	 ...
+</code></pre>
+
+<p>NAME 简要说明了 ls 命令的作用就是罗列目录里的内容。</p>
+
+<p>ls 后面接了 [<strong>-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1</strong>]，这些选项都是包含在方括号里，说明是可选的，而且都加了粗，说明必须照原样输入，大写和小写意义是不同的。每个选项色具体作用就要查看后面的 DESCRIPTION。</p>
+
+<p>再后面接的是 [<u>file</u> <u>…</u>]，同样是可选的 argument，加了下划线也就是说需要替换成具体情况下的参数。<code>...</code> 说明可以添加多个 argument。比如，我只要罗列当前目录下名称为 <code>file1</code>、<code>file2</code> 的文件的详细信息：</p>
+
+<pre><code>$ ls -l file1 file2
+</code></pre>
+
+<p>那么，ls 只会列出这两个文件的详细信息。</p>
+
+<h3 id="5-2-以-find-为例">5.2 以 find 为例</h3>
+
+<pre><code class="language-bash">$ man find
+FIND(1)                   BSD General Commands Manual                  FIND(1)
+
+NAME
+     find -- walk a file hierarchy
+
+SYNOPSIS
+     find [-H | -L | -P] [-EXdsx] [-f path] path ... [expression]
+     find [-H | -L | -P] [-EXdsx] -f path [path ...] [expression]
+
+DESCRIPTION
+	 ...
+</code></pre>
+
+<p>[<strong>-H</strong> | <strong>-L</strong> | <strong>-P</strong>] 说明这3个选项是可选的，而且是差不多的。</p>
+
+<p>[<strong>-f</strong> <u>path</u>]，选项和参数组合在一起，说明两者要同时使用。path 要替换为具体路径。</p>
+
+<p>第一行语法中，<u>path</u> <u>&hellip;</u> 未加方括号，则不可缺少这一参数。</p>
+
+<p>[expression]代表用来查找的表达式。</p>
+
+<h2 id="6-参考文档">6. 参考文档</h2>
+
+<ol>
+<li><a href="http://linux.vbird.org/linux_basic/0160startlinux.php#manual">Linux 系统的线上求助 man page 与 info page@鸟哥 - 鸟哥的Linux私房菜</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%89%8B%E5%86%8C%E9%A1%B5">手册页 - 维基百科</a></li>
+<li><a href="http://www.lai18.com/content/1010397.html">Linux man 命令（一）：如何看懂 man 手册@jiangming7 - IT技术文章收藏夹</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_7060d5a50100oazk.html">如何看懂 man 手册 2@bull - bull 的博客</a>​</li>
+</ol>
+
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/linux">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>linux</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/manual">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>manual</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2017-02-21 16:39:44</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../regular-expression/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>Regular Expression</span>
+            </a>
+            <span class="clearfix"></span>
+            <a class="post-next" href="../mathjax-support/index.html">
+                <span>Mathjax：让博客支持 LaTeX 公式</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

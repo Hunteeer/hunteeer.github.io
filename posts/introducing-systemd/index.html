@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>了解 Systemd - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="systemd 在 CentOS 中是很庞大的一部分，很多 Linux 发行版都整合了 systemd，而且和 macOS 上的 launchd 有点类似。
+
+" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">了解 Systemd</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2017-04-30</span>
+</div>
+
+
+
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>2735</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#introduction">Introduction</a>
+<ul>
+<li><a href="index.html#开发者">开发者</a></li>
+<li><a href="index.html#重要特性-1-3">重要特性[1][3]</a></li>
+<li><a href="index.html#争议">争议</a></li>
+</ul></li>
+<li><a href="index.html#基本工具">基本工具</a>
+<ul>
+<li><a href="index.html#systemctl">systemctl</a></li>
+<li><a href="index.html#journalctl">journalctl</a></li>
+</ul></li>
+<li><a href="index.html#单元文件的编写">单元文件的编写</a>
+<ul>
+<li><a href="index.html#编写一个-service-单元文件-5">编写一个 .service 单元文件[5]</a>
+<ul>
+<li><a href="index.html#unit">[Unit]</a></li>
+<li><a href="index.html#service">[Service]</a></li>
+<li><a href="index.html#install">[Install]</a></li>
+</ul></li>
+</ul></li>
+<li><a href="index.html#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            <p>systemd 在 CentOS 中是很庞大的一部分，很多 Linux 发行版都整合了 systemd，而且和 macOS 上的 launchd 有点类似。</p>
+
+<p></p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>systemd 是 Linux 下的一款系统和服务管理器，<a href="https://en.wikipedia.org/wiki/Init">init system</a>。到 2015 年，大部分发行版已经将 systemd 作为其默认的 init system，取代了 SysV 和 LSB initscripts。</p>
+
+<h3 id="开发者">开发者</h3>
+
+<p>systemd 由 Red Hat 公司软件工程师 <a href="https://en.wikipedia.org/wiki/Lennart_Poettering">Lennart Poettering</a> 和 <a href="https://en.wikipedia.org/wiki/Kay_Sievers">Kay Sievers</a> 开发，最初目的是想提高系统启动的效率。systemd 很多概念来源于 macOS 上的 launchd（确实挺像，至少在使用上）[1]。Poettering 后来进一步定义 systemd 的设计目标是通过提供以下三个基本功能”实现发行版之间的无差别”[2]：</p>
+
+<ul>
+<li>一个系统和服务的管理器：通过应用各种配置管理系统和服务</li>
+<li>一个软件平台：作为开发其他软件的基础服务</li>
+<li>应用进程和内核之间的胶水：提供各种内核提供的功能的接口</li>
+</ul>
+
+<h3 id="重要特性-1-3">重要特性[1][3]</h3>
+
+<ul>
+<li>兼容性：兼容 SysV 和 LSB 启动脚本，使 systemd 能够取代之前的 init system 工作，而不对现有软件造成过多影响</li>
+<li>并行启动：systemd 将大量的启动工作解除了依赖，使得它们可以并发启动。加快系统启动速度</li>
+<li>按需启动：某个服务被真正请求时才会启动它，服务结束时停止它</li>
+<li>采用 Linux 的 Cgroup 特性跟踪、管理进程的生命周期</li>
+<li>维护挂载点和自动挂载</li>
+</ul>
+
+<h3 id="争议">争议</h3>
+
+<p>据说太复杂了，和 Unix 哲学相悖。我也不是很懂哈。</p>
+
+<h2 id="基本工具">基本工具</h2>
+
+<p>systemd 是 PID=1 的系统守护进程（deamon），最先被启动。值得注意的是，systemd 不仅仅指的是这个守护进程，它还包括一系列 daemon ，比如 journald、logind、networkd，和低级别组件。Poettering 将其定义为”软件套装“（全，，全家桶？）。</p>
+
+<h3 id="systemctl">systemctl</h3>
+
+<p>这是查看和监控 systemd，管理系统和服务的命令。下面是Systemd 命令和 SysVinit 命令的对照表[1]。</p>
+
+<table>
+<thead>
+<tr>
+<th>Sysvinit 命令</th>
+<th align="left">Systemd 命令</th>
+<th>备注</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>service foo start</td>
+<td align="left">systemctl start foo.service</td>
+<td>用来启动一个服务 (并不会重启现有的)</td>
+</tr>
+
+<tr>
+<td>service foo stop</td>
+<td align="left">systemctl stop foo.service</td>
+<td>用来停止一个服务 (并不会重启现有的)。</td>
+</tr>
+
+<tr>
+<td>service foo restart</td>
+<td align="left">systemctl restart foo.service</td>
+<td>用来停止并启动一个服务。</td>
+</tr>
+
+<tr>
+<td>service foo reload</td>
+<td align="left">systemctl reload foo.service</td>
+<td>当支持时，重新装载配置文件而不中断等待操作。</td>
+</tr>
+
+<tr>
+<td>service foo condrestart</td>
+<td align="left">systemctl condrestart foo.service</td>
+<td>如果服务正在运行那么重启它。</td>
+</tr>
+
+<tr>
+<td>service foo status</td>
+<td align="left">systemctl status foo.service</td>
+<td>汇报服务是否正在运行。</td>
+</tr>
+
+<tr>
+<td>ls /etc/rc.d/init.d/</td>
+<td align="left">systemctl list-unit-files &ndash;type=service</td>
+<td>用来列出可以启动或停止的服务列表。</td>
+</tr>
+
+<tr>
+<td>chkconfig foo on</td>
+<td align="left">systemctl enable foo.service</td>
+<td>在下次启动时或满足其他触发条件时设置服务为启用</td>
+</tr>
+
+<tr>
+<td>chkconfig foo off</td>
+<td align="left">systemctl disable foo.service</td>
+<td>在下次启动时或满足其他触发条件时设置服务为禁用</td>
+</tr>
+
+<tr>
+<td>chkconfig foo</td>
+<td align="left">systemctl is-enabled foo.service</td>
+<td>用来检查一个服务在当前环境下被配置为启用还是禁用。</td>
+</tr>
+
+<tr>
+<td>chkconfig –list</td>
+<td align="left">systemctl list-unit-files &ndash;type=service</td>
+<td>输出在各个运行级别下服务的启用和禁用情况</td>
+</tr>
+
+<tr>
+<td>chkconfig foo –list</td>
+<td align="left">ls /etc/systemd/system/*.wants/foo.service</td>
+<td>用来列出该服务在哪些运行级别下启用和禁用。</td>
+</tr>
+
+<tr>
+<td>chkconfig foo –add</td>
+<td align="left">systemctl daemon-reload</td>
+<td>当您创建新服务文件或者变更设置时使用。</td>
+</tr>
+
+<tr>
+<td>telinit 3</td>
+<td align="left">systemctl isolate multi-user.target (OR systemctl isolate runlevel3.target OR telinit 3)</td>
+<td>改变至多用户运行级别。</td>
+</tr>
+</tbody>
+</table>
+
+<p>此外，systemd 也包含电源管理的功能，支持的命令[1]：</p>
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>systemctl reboot</td>
+<td>重启机器</td>
+</tr>
+
+<tr>
+<td>systemctl poweroff</td>
+<td>关机</td>
+</tr>
+
+<tr>
+<td>systemctl suspend</td>
+<td>待机</td>
+</tr>
+
+<tr>
+<td>systemctl hibernate</td>
+<td>休眠</td>
+</tr>
+
+<tr>
+<td>systemctl hybrid-sleep</td>
+<td>混合休眠模式（同时休眠到硬盘并待机）</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="journalctl">journalctl</h3>
+
+<p>这是管理 systemd 日志系统的命令。systemd 是用二进制格式保存日志的，用户要使用 journalctl 命令来读取日志信息。journald 的配置文件是 /etc/systemd/journald.conf，日志文件保存在 /var/log/journal，如果该目录不存在，systemd 会将日志保存在 /run/systemd/journal，意味着系统重启后日志将会消失[3]。</p>
+
+<p>查看一下是否如此：</p>
+
+<pre><code class="language-bash">$ ls -l /run/systemd/journal
+total 4
+-rw-r--r--. 1 root root 0 Apr 28 14:33 flushed
+-rw-r--r--. 1 root root 8 Apr 28 14:33 kernel-seqnum
+srw-rw-rw-. 1 root root 0 Apr 28 14:33 socket
+srw-rw-rw-. 1 root root 0 Apr 28 14:33 stdout
+</code></pre>
+
+<p>常用的命令有：</p>
+
+<pre><code class="language-bash">$ journalctl -u netcfg	#显示指定单元的日志
+$ journalctl _PID=1	#显示指定进程的日志
+$ journalctl -f	#显示当前日志(动态)
+$ journalctl -b	#显示本次启动后的所有日志
+$ journalctl -b -1	#显示上次启动的所有日志
+$ journalctl -p err	#显示特定级别的日志(err 级)
+$ journalctl -p 3	#显示特定级别的日志(err 级)，和上一条等同
+</code></pre>
+
+<h2 id="单元文件的编写">单元文件的编写</h2>
+
+<p>systemd 的功能繁多，不仅用来管理服务，还可以管理挂载点，定义定时任务等。这些工作都是由编辑相应的配置单元文件完成的[1]。单元文件（unit）就是配置文件，用来保存各种类型的单元的信息，方便 systemd 作统一的管理。这样做对使用者来说其实更加方便。单元文件存放的目录主要有（优先级从高到低）[4]：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Path</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">/etc/systemd/system</td>
+<td>Local configuration</td>
+</tr>
+
+<tr>
+<td align="left">/run/systemd/system</td>
+<td>Runtime units</td>
+</tr>
+
+<tr>
+<td align="left">/usr/lib/systemd/system</td>
+<td>Units of installed packages</td>
+</tr>
+</tbody>
+</table>
+
+<p>单元文件主要有以下几个种类：</p>
+
+<ul>
+<li>service：encodes information about a process controlled and supervised by systemd</li>
+<li>socket：encodes information about an IPC or network socket or a file system FIFO controlled and supervised by systemd, for socket-based activation</li>
+<li>device：encodes information about a device unit as exposed in the sysfs/<a href="https://www.freedesktop.org/software/systemd/man/udev.html#">udev(7)</a> device tree</li>
+<li>mount：encodes information about a file system mount point controlled and supervised by systemd</li>
+<li>automount：encodes information about a file system automount point controlled and supervised by systemd</li>
+<li>swap: encodes information about a swap device or file for memory paging controlled and supervised by systemd</li>
+<li>target: encodes information about a target unit of systemd, which is used for grouping units and as well-known synchronization points during start-up</li>
+<li>path: encodes information about a path monitored by systemd, for path-based activation</li>
+<li>timer: encodes information about a timer controlled and supervised by systemd, for timer-based activation</li>
+<li>slice: encodes information about a slice which is a concept for hierarchically managing resources of a group of processes</li>
+</ul>
+
+<p>单元文件的编写分为三个部分，以下两个部分是所有的单元文件都有的：</p>
+
+<ul>
+<li>[Unit]：单元文件的声明</li>
+<li>[Install]：安装服务</li>
+</ul>
+
+<p>此外，还有一个部分可以用来明确单元文件的类别，是最主要的。比如 service 单元就有一个 [Service]。</p>
+
+<h3 id="编写一个-service-单元文件-5">编写一个 .service 单元文件[5]</h3>
+
+<p>.service 单元文件的编写是最常用到的。单元文件的语法格式属于声明性语言。以上一篇博客 <a href="http://stonebythesea.org/2017/04/28/aria2-%E7%9B%AE%E5%89%8D%E6%88%91%E8%AE%A4%E4%B8%BA%E6%9C%80%E5%A5%BD%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/">aria2，目前我认为最好的下载工具</a> 提到的 aria2 的单元文件为例。</p>
+
+<h4 id="unit">[Unit]</h4>
+
+<p>是单元文件的声明，包含了对单元文件的描述：</p>
+
+<pre><code>[Unit]
+Description=The next generation download utility	#描述可以随便写
+</code></pre>
+
+<p>[Unit] 还包含一些单元之间的依赖关系：</p>
+
+<pre><code>Requires=	#对添加的单元具有依赖性。只有需要的单元运行，它才能运行
+Wants=	#推荐使用。本单元启动了，它“想要”的单元也会被启动。但是启动不成功，对本单元没有影响
+Conflicts=	#一个单元的启动会停止与它“冲突”的单元
+</code></pre>
+
+<p>还能规定单元之间的启动顺序：</p>
+
+<pre><code>Before=	#在&quot;Before&quot;的单元之前启动。
+After=network.target	#在&quot;After&quot;的单元之后启动。在例子中，aria2 是下载工具，很明显需要网络的有效性，所以安排在 network.target 之后启动。但是就算还是没网，aria2.service 也还是会启动
+</code></pre>
+
+<p><em>注意是先启动而不是启动成功，因为失败也是一种状态，一定要成功才启动另一个服务是通过依赖关系定义的。反之 After 亦然</em></p>
+
+<h4 id="service">[Service]</h4>
+
+<p>定义服务的本体。</p>
+
+<pre><code>Type=	#声明服务的类型。有 simple, forking, oneshot, dbus,notify, idle。默认是 simple
+PIDFile=	#指明 PID 文件的绝对路径。推荐当 service 的 Type=forking 时使用
+ExecStart=/usr/bin/aria2c --conf-path=$HOME/.aria2/aria2.conf	#启动服务的命令。除了 oneshot 之外，必须且只能给出一行命令来启动服务。在例子中给出了以配置文件启动 aria2 的命令
+ExecStartPre=	#启动服务之前预先需要执行的命令
+</code></pre>
+
+<p><em>更多详细信息参考 man systemd.service(5)</em></p>
+
+<h4 id="install">[Install]</h4>
+
+<p>在指定位置放置并编写了单元文件，并不代表就能够用了。比如在例子中 aria2.service 放置在 /usr/lib/systemd/system。还需要在 systemd 内部对它进行加载。</p>
+
+<pre><code>[Install]
+WantedBy=multi-user.target	#表示本服务被多用户系统所需要。这样在 multi-user.target 启用时，服务也就会被启用
+Alias=	#设置别名。使用 systemctl 的时候可以使用别名
+Also=	#安装本服务还需要安装什么别的服务。它管理的不是运行时候的依赖，而是安装的时候
+</code></pre>
+
+<h2 id="reference">Reference</h2>
+
+<ol>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/1407_liuming_init3/">浅析 Linux 初始化 init 系统，第 3 部分: Systemd - IBM DeveloperWorks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Systemd#card_1493513334500_7085">systemd - Wikipedia</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/systemd">Systemd (简体中文) - ArchWiki</a></li>
+<li>man systemd.unit(5)</li>
+<li><a href="https://zh.opensuse.org/openSUSE:How_to_write_a_systemd_service">openSUSE:How to write a systemd service - openSUSE</a></li>
+</ol>
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/linux">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>linux</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/systemd">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>systemd</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/centos">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>centos</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2018-02-05 10:41:12</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../using-aria2/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>Aria2，目前我认为最好的下载工具</span>
+            </a>
+            <span class="clearfix"></span>
+            <a class="post-next" href="../baidu-ime-theme-for-mecos/index.html">
+                <span>做了款百度输入法 for macOS 的皮肤</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

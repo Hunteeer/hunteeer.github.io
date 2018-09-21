@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8X8X8 光立方制作流程 - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="学完最基础的 8051 单片机后，我开始着手制作这个光立方。从电路原理到 PCB，从焊接组装到程序编写，本文作一个记录。
+
+" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">8X8X8 光立方制作流程</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2018-02-19</span>
+</div>
+
+
+
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>2020</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#概述">概述</a></li>
+<li><a href="index.html#电路原理">电路原理</a></li>
+<li><a href="index.html#材料准备">材料准备</a></li>
+<li><a href="index.html#焊接">焊接</a></li>
+<li><a href="index.html#程序编写">程序编写</a></li>
+<li><a href="index.html#patternflow">Patternflow</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            <p>学完最基础的 8051 单片机后，我开始着手制作这个光立方。从电路原理到 PCB，从焊接组装到程序编写，本文作一个记录。</p>
+
+<p></p>
+
+<h2 id="概述">概述</h2>
+
+<p>我在制作光立方的过程中，大致经历了以下步骤：</p>
+
+<ol>
+<li>确定要采用的基本电路原理，用 <a href="https://www.labcenter.com/">Proteus</a> 画出仿真电路进行模拟；</li>
+<li>使用 <a href="http://www.altium.com/">Altium Designer</a> 绘制 PCB 电路板，确定需要使用的电子元件；</li>
+<li>采购元件、工具，定做 PCB 板；</li>
+<li>材料到手后，开始焊接电路板，焊接 LED；</li>
+<li>测试焊接完成后的电路是否有效和可靠；</li>
+<li>编写光立方驱动程序，编写动画；</li>
+<li>使用 Python + Qt5 写了一个简单的光立方取模软件，Patternflow；</li>
+</ol>
+
+<p>其中比较煎熬的步骤：</p>
+
+<ul>
+<li>焊接 512 个 LED；</li>
+<li>编写驱动程序初期 debug；</li>
+<li>编写动画；</li>
+</ul>
+
+<p>使用到的工具有：</p>
+
+<ul>
+<li>电烙铁（包括焊锡、松香等）</li>
+<li>万用表</li>
+<li>镊子、剥线钳、水口钳等</li>
+<li><a href="http://www.keil.com/c51/">Keil C51</a></li>
+<li><a href="https://www.labcenter.com/">Proteus</a></li>
+<li><a href="http://www.altium.com/">Altium Designer</a></li>
+</ul>
+
+<p>所有文件（包括原理图、仿真、PCB、驱动程序、取模软件）都开源：<a href="https://github.com/xinhangliu/cube8">cube8 - Github</a>。</p>
+
+<h2 id="电路原理">电路原理</h2>
+
+<p>我采用 ULN2803 + 74HC573 + STC89C516RD+ 的原理，共阴极方式。512 个 LED 划分为 8 页（page），每页划分为 8 行（row），每行 8 个 LED 共阴极，行与行之间每个 LED 的阳极对应相连，由此得到一页。每页分别有 8 个阳极和 8 个阴极引出，页与页之间阴极对应相连，由此得到 8X8X8 立方体。立方体底部共有 64 个阳极，侧面共有 8 个阴极。</p>
+
+<p><img src="../../media/cube8/led-arrangement.png" alt="LED 排列方式" /></p>
+
+<p>侧面的 8 个阴极与 ULN2803 的八个输出引脚连接，ULN2803 能够支持较大的灌电流输入。底部 8 行共 64 个阳极与 8 个 74HC573 并行锁存器的引脚连接。需要注意的是阳极和 74HC573 之间需要串联限流电阻，不然很容易将 LED 灯烧坏。以下分别是电路原理图和仿真图：</p>
+
+<p><img src="../../media/cube8/schematic.png" alt="Schematic" /></p>
+
+<p><img src="../../media/cube8/simulation.png" alt="Simulation" /></p>
+
+<p>直插式 LED 工作电流一般在 20 mA 左右，工作电压 2 - 3 V，锁存器输出电压 5 V 左右，大致估算限流电阻为 125 欧姆左右。实际情况下，都是层扫描显示，每个 LED 点亮时间极短，电阻可再适当调小。我使用 100 欧姆的限流电阻，测试后发现合适。</p>
+
+<h2 id="材料准备">材料准备</h2>
+
+<p>确定好电路原理图，就开始准备采购元件和工具了。以下是 BOM 清单：</p>
+
+<table>
+<thead>
+<tr>
+<th>Comment</th>
+<th>Description</th>
+<th>Value</th>
+<th>Quantity</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>瓷片电容</td>
+<td>晶振电容</td>
+<td>30 pF</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>电解电容</td>
+<td>/</td>
+<td>10 uF</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>LED (3 mm)</td>
+<td>电源指示灯</td>
+<td>/</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>8P 排针</td>
+<td>8 层共阴极</td>
+<td>/</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>4P 排针</td>
+<td>串行口</td>
+<td>/</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>20P 排针</td>
+<td>单片机引脚</td>
+<td>/</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>1P 排母</td>
+<td>64 个共阳极</td>
+<td>/</td>
+<td>64</td>
+</tr>
+
+<tr>
+<td>6x6 轻触开关</td>
+<td>/</td>
+<td>TS-1109</td>
+<td>4</td>
+</tr>
+
+<tr>
+<td>7x7 自锁开关</td>
+<td>电源开关</td>
+<td>KFT-7.0</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>MINI-B 母座</td>
+<td>电源接口</td>
+<td>MINI-B</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td><sup>1</sup>&frasl;<sub>4</sub> 金属膜电阻</td>
+<td>电源指示灯限流电阻</td>
+<td>1 K</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td><sup>1</sup>&frasl;<sub>4</sub> 金属膜电阻</td>
+<td>限流电阻</td>
+<td>100 Ω</td>
+<td>65</td>
+</tr>
+
+<tr>
+<td>9P 排阻</td>
+<td>上拉电阻</td>
+<td>10 K</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>74HC573</td>
+<td>阳极锁存</td>
+<td>DIP20</td>
+<td>8</td>
+</tr>
+
+<tr>
+<td>ULN2803APG</td>
+<td>阴极灌电流</td>
+<td>DIP18</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>STC89C516RD+</td>
+<td>单片机</td>
+<td>DIP40</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>晶振</td>
+<td>/</td>
+<td>10 MHz</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>20P IC 插座</td>
+<td>74HC573</td>
+<td>/</td>
+<td>8</td>
+</tr>
+
+<tr>
+<td>18P IC 插座</td>
+<td>ULN2803APG</td>
+<td>/</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>40P IC 插座</td>
+<td>STC89C516RD+</td>
+<td>/</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>晶振插座（3P 排母）</td>
+<td>/</td>
+<td>/</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>LED</td>
+<td>/</td>
+<td>5 mm</td>
+<td>512</td>
+</tr>
+
+<tr>
+<td>母对母杜邦线</td>
+<td>连接共阴极和 ULN2803</td>
+<td>/</td>
+<td>8</td>
+</tr>
+
+<tr>
+<td>MINI-B 数据线</td>
+<td>/</td>
+<td>/</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>PL2303 烧录器</td>
+<td>烧录单片机</td>
+<td>/</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>之后绘制 PCB 板，交给某宝商家制作：</p>
+
+<p><img src="../../media/cube8/pcb-without-polygon.png" alt="PCB（未铺铜）" /></p>
+
+<p>人生第二次画 PCB，心里还是挺忐忑的，毕竟板子不便宜，提交前检查了好几遍，没想到还是出了错误。画自锁开关的时候一时没找到原理图，想当然就开始画，结果自然是出错。还好只是开关引脚顺序的问题，用飞线补救回来了。写本文的时候已经修复了电路图里的这个错误。</p>
+
+<h2 id="焊接">焊接</h2>
+
+<p>焊接 LED 真是一个非常煎熬的过程，除了数量多之外，还得保证 LED 之间的距离保持基本不变，否则最后得到的立方体恐怕是歪歪扭扭的。</p>
+
+<p>焊接的时候也有点小技巧。每个 LED 都要把阴极弯折 90 度。第一步，将 8 个 LED 的阴极焊接在一起，形成一行。我是利用 PCB 板上的孔洞，将 LED 阳极分别插入 8 个孔，这样既保证了 LED 之间的距离相等，也保证了 LED 与 PCB 的匹配。为了避免损坏 PCB，垫了一张纸。排列好后，焊接起来非常方便。</p>
+
+<p><img src="../../media/cube8/01-weld-row-1.jpg" alt="" /></p>
+
+<p>将 64 行全部焊完，并测试能否点亮之后，就可以焊接页了。本来想用硬纸板做一个模板来固定，但是当时找不出啥可用的材料。索性在桌面上贴了一块胶布，在上面画两条平行的线段，作为行与行之间间距的标准。用镊子夹住两行的引脚进行焊接，焊接完两端，距离也就定下了。</p>
+
+<p><img src="../../media/cube8/05-weld-page.jpg" alt="" /></p>
+
+<p>每个页面焊接完成后都要进行测试：</p>
+
+<p><img src="../../media/cube8/06-test-page.jpg" alt="" /></p>
+
+<p>最后来个 8 页合影：</p>
+
+<p><img src="../../media/cube8/07-pages.jpg" alt="" /></p>
+
+<p>其他部份的焊接就不说了。</p>
+
+<p>全部完成后的照片：</p>
+
+<p><img src="../../media/cube8/09-overview.jpg" alt="" /></p>
+
+<p><img src="../../media/cube8/10-detials.jpg" alt="" /></p>
+
+<h2 id="程序编写">程序编写</h2>
+
+<p>点亮 512 个 LED 的时候，心里特激动。终于可以开始编写程序了。程序的原理还算简单。通过 8 个 74HC573 锁存器向光立方输出 64 个电平信号，通过 ULN2803 的 8 个引脚控制哪一层的 64 个 LED 能生效。显示完一层后，延时，显示下一层。一层一层不断循环，人眼看起来就像是 512 个 LED 同时在起作用。这就是最基本、最核心的显示函数。</p>
+
+<p>我先写驱动函数，各种动画只要调用这些函数就可以实现了。大致写了以下函数：</p>
+
+<pre><code class="language-c">// 扫描显示函数。将接收的矩阵一层层显示出来
+void display(uchar *pattern)
+
+// 全亮、全灭
+void cube(bit status);
+
+// 实心长方体显示函数
+void box(uchar x0, uchar y0, uchar z0, uchar x1, uchar y1, uchar z1, bit status);
+
+// 点显示函数
+void dot(uchar x, uchar y, uchar z, bit status);
+
+// 行显示函数
+void linex(uchar y, uchar z, uchar line);
+void liney(uchar x, uchar z, uchar line);
+void linez(uchar x, uchar y, uchar line);
+
+// 面显示函数
+void surfacexy(uchar z, bit status);
+void surfaceyz(uchar x, bit status);
+void surfacexz(uchar y, bit status);
+
+// 整体平移函数
+void shift_x(char step, bit patch);
+void shift_y(char step, bit patch);
+void shift_z(char step, bit patch);
+
+// 整体循环移位函数
+void circshift_x(char step);
+void circshift_y(bit direction);
+void circshift_z(bit direction);
+
+// 空心长方体显示
+void frame(uchar x0, uchar y0, uchar z0, uchar x1, uchar y1, uchar z1);
+</code></pre>
+
+<p>最后就是写动画啦。这是件需要创意的事情，要想做得炫酷新奇着实不容易。我当时趁着热劲还没消退写了 1 分多钟的动画，本想这几天继续下去，但一个多月过后真的没有啥心力再写下去了。动画就不献丑了，不过代码都在。</p>
+
+<h2 id="patternflow">Patternflow</h2>
+
+<p>等材料送达那几天，闲着没事写了一个取模软件，用 Python 和 Qt5 写的，macOS、Windows 上都能用。基本功能也就是：</p>
+
+<ul>
+<li>点、行、列、页点亮或熄灭</li>
+<li>输出十进制、十六进制格式</li>
+<li>从代码 restore 图案</li>
+</ul>
+
+<p><img src="../../media/cube8/patternflow.png" alt="" /></p>
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/cube">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>cube</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/led">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>LED</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/光立方">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>光立方</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/pcb">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>PCB</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/单片机">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>单片机</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/mcu">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>MCU</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2018-02-19 10:59:45</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../blog-migration/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>博客迁移至 Hugo</span>
+            </a>
+            <span class="clearfix"></span>
+            <a class="post-next" href="../shell-cmd-screen/index.html">
+                <span>screen - 命令行窗口管理器</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

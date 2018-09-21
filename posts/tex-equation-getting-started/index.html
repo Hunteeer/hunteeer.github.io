@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用 TeX 编写公式：符号和用法总结 - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="TeX 是流行于学术界的优秀排版软件，由美国计算机教授 Donald Ervin Knuth 花了十多年时间编写，直到1989年 TeX 才最终停止修改。功能强大，但是使用起来并不简单。由" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">使用 TeX 编写公式：符号和用法总结</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2017-03-03</span>
+</div>
+
+
+
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>3611</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#contents">Contents</a></li>
+<li><a href="index.html#level-1">Level_1</a>
+<ul>
+<li><a href="index.html#运算符-operators">运算符/Operators</a></li>
+<li><a href="index.html#关系符-relations">关系符/Relations</a></li>
+<li><a href="index.html#括号-brackets">括号/Brackets</a></li>
+<li><a href="index.html#上下标-powers-and-indics">上下标/Powers and indics</a></li>
+<li><a href="index.html#accents">Accents</a></li>
+<li><a href="index.html#特殊符号">特殊符号</a></li>
+<li><a href="index.html#常用符号列表">常用符号列表</a>
+<ul>
+<li><a href="index.html#greek-letters">Greek letters</a></li>
+<li><a href="index.html#relation-symbols">Relation Symbols</a></li>
+<li><a href="index.html#binary-operators">Binary Operators</a></li>
+</ul></li>
+</ul></li>
+<li><a href="index.html#level-2">Level_2</a>
+<ul>
+<li><a href="index.html#分数-frations">分数/Frations</a></li>
+<li><a href="index.html#根式-radicals">根式/Radicals</a></li>
+<li><a href="index.html#常用函数-functions">常用函数/Functions</a></li>
+<li><a href="index.html#方程组-system-of-equations">方程组/System of equations</a></li>
+</ul></li>
+<li><a href="index.html#level-3">Level_3</a>
+<ul>
+<li><a href="index.html#累加-sum-累乘-prod">累加/Sum &amp; 累乘/Prod</a></li>
+<li><a href="index.html#极限-limit">极限/Limit</a></li>
+<li><a href="index.html#积分-integral">积分/Integral</a></li>
+<li><a href="index.html#矩阵-matrix">矩阵/Matrix</a></li>
+<li><a href="index.html#表格-table">表格/Table</a></li>
+<li><a href="index.html#标签与引用-tags-and-references">标签与引用/Tags and References</a></li>
+</ul></li>
+<li><a href="index.html#level-4">Level_4</a>
+<ul>
+<li><a href="index.html#字体-fonts">字体/Fonts</a></li>
+<li><a href="index.html#颜色-colors">颜色/Colors</a></li>
+<li><a href="index.html#空间-space">空间/Space</a></li>
+<li><a href="index.html#大小-size">大小/Size</a></li>
+<li><a href="index.html#对齐-align">对齐/Align</a></li>
+</ul></li>
+<li><a href="index.html#references">References</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            
+
+<p>TeX 是流行于学术界的优秀排版软件，由美国计算机教授 Donald Ervin Knuth 花了十多年时间编写，直到1989年 TeX 才最终停止修改。功能强大，但是使用起来并不简单。由于我是为了在 Markdown 里插入公式而配合 MathJax 使用的，本文仅整理了部分常见的 TeX 编写数学公式方面的用法，未涉及其他方面。如果你也出于和我一样的目的，请参考 MathJax 官方给出的对 TeX、LaTeX 符号和语法支持的说明文档：<a href="http://docs.mathjax.org/en/latest/tex.html#supported-latex-commands">Supported LaTeX commands - MathJax documentation</a>。另外也可以查看我的上篇关于使用 MathJax 的博文：<a href="../mathjax-support/index.html">Mathjax：让博客支持 LaTeX 公式</a>。</p>
+
+<!-- more -->
+
+<h2 id="contents">Contents</h2>
+
+<p>本文分为4个部分：</p>
+
+<ul>
+<li>Level_1：基本可以编写小学里学到的公式，包含常用的符号</li>
+<li>Level_2：基本可以编写中学里学到的公式</li>
+<li>Level_3：基本可以编写大学里学到的公式，试试挑战 Microsoft Office Word 的<code>插入公式</code></li>
+<li>Level_4：杂项，让排版更加 Elegant</li>
+</ul>
+
+<h2 id="level-1">Level_1</h2>
+
+<h3 id="运算符-operators">运算符/Operators</h3>
+
+<p>一些基本的运算符是通用的<code>+ - * / = ()</code>，例如 <code>x = a + (b * c)</code> ==&gt; \(x = a + (b * c)\)</p>
+
+<p>TeX 中大部分符号都是需要使用代码的，例如 <code>x = a \pm (b \times c)</code> ==&gt; \(x = a \pm (b \times c)\)</p>
+
+<p>更多符号查看下文的<strong>常用符号列表</strong>。</p>
+
+<h3 id="关系符-relations">关系符/Relations</h3>
+
+<p>表示大小关系，例如 <code>a &lt; b \leq c</code> ==&gt; \(a &lt; b \leq c\)</p>
+
+<p>表示集合关系，例如 <code>a \subset b</code> ==&gt; \(a \subset b\)</p>
+
+<p>表示位置关系，例如 <code>AB \parallel CD, AB \perp EF</code> ==&gt; \(AB \parallel CD, AB \perp EF\)</p>
+
+<h3 id="括号-brackets">括号/Brackets</h3>
+
+<p>小括号和中括号可以直接使用，例如 <code>[(x + y)^2]</code> ==&gt; \([(x + y)^2]\)</p>
+
+<p>花括号由于具有分组的功能，使用时需要转义。可以用 <code>\{...\}</code> 或 <code>\lbrace...\rbrace</code>，例如 <code>\{a + b\}</code> ==&gt; \(\{a + b\}\)</p>
+
+<p>尖括号使用 <code>\langle...\rangle</code> 表示</p>
+
+<h3 id="上下标-powers-and-indics">上下标/Powers and indics</h3>
+
+<p>使用 <code>^</code> 表示上标，使用 <code>_</code> 表示小标，例如 <code>x_1^2</code> ==&gt; \(x_1^2\)</p>
+
+<p>如果上下标中包含多个字符，需使用花括号，例如 <code>x^{y^2} + 2</code> ==&gt; \(x^{y^2} + 2\)</p>
+
+<h3 id="accents">Accents</h3>
+
+<p>加点加帽子，例如 <code>\dot{a}, \ddot{a}, \hat{a}, \tilde{a}</code> ==&gt; \(\dot{a}, \ddot{a}, \hat{a}, \tilde{a}\)</p>
+
+<p>表示向量，例如 <code>\vec{a} = \vec{BC}</code> ==&gt; \(\vec{a} = \vec{BC}\)</p>
+
+<p>类似于拼音音标，例如 <code>\bar{a}, \acute{a}, \check{a}, \grave{a}</code> ==&gt; \(\bar{a}, \acute{a}, \check{a}, \grave{a}\)</p>
+
+<h3 id="特殊符号">特殊符号</h3>
+
+<p>表示因为、所以，例如 <code>\because, \therefore</code> ==&gt; \( \because, \therefore \)</p>
+
+<p>表示空集、无穷，例如 <code>\emptyset, \varnothing, \infty</code> ==&gt; \( \emptyset, \varnothing, \infty \)</p>
+
+<p>表示任意、存在，例如 <code>\forall, \exists</code> ==&gt; \( \forall, \exists \)</p>
+
+<p>表示箭头/Arrows，例如 <code>\leftarrow, \Rightarrow, \leftrightarrow</code> ==&gt; \(\leftarrow, \Rightarrow, \leftrightarrow\)</p>
+
+<p>表示点/Dots，例如 <code>\vdots, \cdots, \ddots, \ldots</code> ==&gt; \(\vdots, \cdots, \ddots, \ldots\)</p>
+
+<p>表示希腊字符/Greek Letters，例如 <code>\alpha, \beta, \theta, \Pi</code> ==&gt; \( \alpha, \beta, \theta, \Pi \)</p>
+
+<p>表示单位/Units（涉及到物理单位，mathJax 并不支持），例如 <code>37 \celsius, 22 \perthousand, 28 \degree, 2.0 \ohm</code> ==&gt; \(37 \celsius, 22 \perthousand, 28 \degree, 2.0 \ohm \)</p>
+
+<p>表示扑克牌，例如 <code>\clubsuit, \diamondsuit, \heartsuit,\spadesuit</code> ==&gt; \( \clubsuit, \diamondsuit, \heartsuit, \spadesuit \)</p>
+
+<h3 id="常用符号列表">常用符号列表</h3>
+
+<p><em>包含常用的部分符号，整理自 <a href="http://mirrors.ctan.org/info/symbols/math/maths-symbols.pdf">[PDF] maths-symbols.pdf - The Comprehensive TeX Archive Network</a>。完整的 TeX 符号列表参考 <a href="http://mirrors.ctan.org/info/symbols/comprehensive/symbols-a4.pdf">[PDF] LaTeX symbols-a4.pdf - The Comprehensive TeX Archive Network</a></em></p>
+
+<h4 id="greek-letters">Greek letters</h4>
+
+<table>
+<thead>
+<tr>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>\alpha</code> ==&gt; \( \alpha \)</td>
+<td align="center"><code>\theta</code> ==&gt; \( \theta \)</td>
+<td align="center"><code>o</code> ==&gt; \( o \)</td>
+<td align="center"><code>\tau</code> ==&gt; \( \tau \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\beta</code> ==&gt; \( \beta \)</td>
+<td align="center"><code>\vartheta</code> ==&gt; \( \vartheta \)</td>
+<td align="center"><code>\pi</code> ==&gt; \( \pi \)</td>
+<td align="center"><code>\upsilon</code> ==&gt; \( \upsilon \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\gamma</code> ==&gt; \( \gamma \)</td>
+<td align="center"><code>\iota</code> ==&gt; \( \iota \)</td>
+<td align="center"><code>\varpi</code> ==&gt; \( \varpi \)</td>
+<td align="center"><code>\phi</code> ==&gt; \( \phi \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\delta</code> ==&gt; \( \delta \)</td>
+<td align="center"><code>\kappa</code> ==&gt; \( \kappa \)</td>
+<td align="center"><code>\rho</code> ==&gt; \( \rho \)</td>
+<td align="center"><code>\varphi</code> ==&gt; \( \varphi \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\epsilon</code> ==&gt; \( \epsilon \)</td>
+<td align="center"><code>\lambda</code> ==&gt; \( \lambda \)</td>
+<td align="center"><code>\varrho</code> ==&gt; \( \varrho \)</td>
+<td align="center"><code>\chi</code> ==&gt; \( \chi \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\varepsilon</code> ==&gt; \( \varepsilon \)</td>
+<td align="center"><code>\mu</code> ==&gt; \( \mu \)</td>
+<td align="center"><code>\sigma</code> ==&gt; \( \sigma \)</td>
+<td align="center"><code>\psi</code> ==&gt; \( \psi \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\zeta</code> ==&gt; \( \zeta \)</td>
+<td align="center"><code>\nu</code> ==&gt; \( \nu \)</td>
+<td align="center"><code>\varsigma</code> ==&gt; \( \varsigma \)</td>
+<td align="center"><code>\omega</code> ==&gt; \( \omega \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\eta</code> ==&gt; \( \eta \)</td>
+<td align="center"><code>\xi</code> ==&gt; \( \xi \)</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>\Gamma</code> ==&gt; \( \Gamma \)</td>
+<td align="center"><code>\Lambda</code> ==&gt; \( \Lambda \)</td>
+<td align="center"><code>\Sigma</code> ==&gt; \(  \Sigma\)</td>
+<td align="center"><code>\Psi</code> ==&gt; \( \Psi \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\Delta</code> ==&gt; \( \Delta \)</td>
+<td align="center"><code>\Xi</code> ==&gt; \( \Xi \)</td>
+<td align="center"><code>\Upsilon</code> ==&gt; \( \Upsilon \)</td>
+<td align="center"><code>\Omega</code> ==&gt; \( \Omega \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\Theta</code> ==&gt; \( \Theta \)</td>
+<td align="center"><code>\Pi</code> ==&gt; \(  \Pi\)</td>
+<td align="center"><code>\Phi</code> ==&gt; \( \Phi \)</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="relation-symbols">Relation Symbols</h4>
+
+<table>
+<thead>
+<tr>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>\leq</code> ==&gt; \( \leq \)</td>
+<td align="center"><code>\geq</code> ==&gt; \( \geq \)</td>
+<td align="center"><code>\doteq</code> ==&gt; \( \doteq \)</td>
+<td align="center"><code>\neq</code> ==&gt; \( \neq \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\ll</code> ==&gt; \( \ll \)</td>
+<td align="center"><code>\gg</code> ==&gt; \( \gg \)</td>
+<td align="center"><code>\equiv</code> ==&gt; \( \equiv \)</td>
+<td align="center"><code>\frown</code> ==&gt; \( \frown \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\subset</code> ==&gt; \( \subset \)</td>
+<td align="center"><code>\supset</code> ==&gt; \( \supset \)</td>
+<td align="center"><code>\approx</code> ==&gt; \( \approx \)</td>
+<td align="center"><code>\mid</code> ==&gt; \( \mid \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\subseteq</code> ==&gt; \( \subseteq \)</td>
+<td align="center"><code>\supseteq</code> ==&gt; \( \supseteq \)</td>
+<td align="center"><code>\cong</code> ==&gt; \( \cong \)</td>
+<td align="center"><code>\parallel</code> ==&gt; \( \parallel \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\nsubseteq</code> ==&gt; \( \nsubseteq \)</td>
+<td align="center"><code>\nsupseteq</code> ==&gt; \( \nsupseteq \)</td>
+<td align="center"><code>\sim</code> ==&gt; \( \sim \)</td>
+<td align="center"><code>\perp</code> ==&gt; \( \perp \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\in</code> ==&gt; \( \in \)</td>
+<td align="center"><code>\notin</code> ==&gt; \( \notin \)</td>
+<td align="center"><code>\simeq</code> ==&gt; \( \simeq \)</td>
+<td align="center"><code>\propto</code> ==&gt; \( \propto \)</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="binary-operators">Binary Operators</h4>
+
+<table>
+<thead>
+<tr>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+<th align="center">Symbol</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>\pm</code> ==&gt; \( \pm \)</td>
+<td align="center"><code>\cap</code> ==&gt; \( \cap \)</td>
+<td align="center"><code>\diamond</code> ==&gt; \( \diamond \)</td>
+<td align="center"><code>\oplus</code> ==&gt; \( \oplus \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\mp</code> ==&gt; \( \mp \)</td>
+<td align="center"><code>\cup</code> ==&gt; \( \cup \)</td>
+<td align="center"><code>\bigtriangleup</code> ==&gt; \( \bigtriangleup \)</td>
+<td align="center"><code>\ominus</code> ==&gt; \( \ominus \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\times</code> ==&gt; \( \times \)</td>
+<td align="center"><code>\uplus</code> ==&gt; \( \uplus \)</td>
+<td align="center"><code>\bigtriangledown</code> ==&gt; \( \bigtriangledown \)</td>
+<td align="center"><code>\otimes</code> ==&gt; \( \otimes \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\div</code> ==&gt; \( \div \)</td>
+<td align="center"><code>\sqcap</code> ==&gt; \( \sqcap \)</td>
+<td align="center"><code>\triangleleft</code> ==&gt; \( \triangleleft \)</td>
+<td align="center"><code>\oslash</code> ==&gt; \( \oslash \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\ast</code> ==&gt; \( \ast \)</td>
+<td align="center"><code>\sqcup</code> ==&gt; \( \sqcup \)</td>
+<td align="center"><code>\triangleright</code> ==&gt; \( \triangleright \)</td>
+<td align="center"><code>\odot</code> ==&gt; \( \odot \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\star</code> ==&gt; \( \star \)</td>
+<td align="center"><code>\vee</code> ==&gt; \( \vee \)</td>
+<td align="center"><code>\lhd</code> ==&gt; \( \lhd \)</td>
+<td align="center"><code>\bigcirc</code> ==&gt; \( \bigcirc \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\circ</code> ==&gt; \( \circ \)</td>
+<td align="center"><code>\wedge</code> ==&gt; \( \wedge \)</td>
+<td align="center"><code>\rhd</code> ==&gt; \( \rhd \)</td>
+<td align="center"><code>\dagger</code> ==&gt; \( \dagger \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\bullet</code> ==&gt; \( \bullet \)</td>
+<td align="center"><code>\setminus</code> ==&gt; \( \setminus \)</td>
+<td align="center"><code>\unlhd</code> ==&gt; \( \unlhd \)</td>
+<td align="center"><code>\ddagger</code> ==&gt; \( \ddagger \)</td>
+</tr>
+
+<tr>
+<td align="center"><code>\cdot</code> ==&gt; \( \cdot \)</td>
+<td align="center"><code>\wr</code> ==&gt; \( \wr \)</td>
+<td align="center"><code>\unrhd</code> ==&gt; \( \unrhd \)</td>
+<td align="center"><code>\amalg</code> ==&gt; \( \amalg \)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="level-2">Level_2</h2>
+
+<h3 id="分数-frations">分数/Frations</h3>
+
+<p>直接使用 <code>/</code> 表示分数，例如 <code>^1/_2</code> ==&gt; \(^1/_2\)</p>
+
+<p>使用 <code>\over</code> 表示分数，例如 <code>1 \over {x + 2}</code> ==&gt; \(1 \over {x + 2}\)</p>
+
+<p>使用 <code>\frac{numerator}{denominator}</code> 表示分数，可以写出更高级的形式。例如 <code>\frac{\sin x}{x + y}</code> ==&gt; \(\frac{\sin x}{x + y}\)</p>
+
+<p>可以嵌套使用，例如 <code>\frac{\frac{1}{\sin x} + x}{x + y}</code> ==&gt; \(\frac{\frac{1}{\sin x} + x}{x + y}\)</p>
+
+<p>注意到嵌套使用时，嵌套越深，字符越小。使用 <code>\tfrac</code>、<code>\dfrac</code> 强制使用各自的风格 <code>\textstyle</code>、<code>displaystyle</code>。例如 <code>\dfrac{\dfrac{1}{\sin x} + x}{x + y}</code> ==&gt; \(\dfrac{\dfrac{1}{\sin x} + x}{x + y}\)</p>
+
+<p>对于连分数，使用 <code>\cfrac</code> 保持大小合适。例如 <code>x = a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cfrac{1}{a_4}}}}</code> ==&gt; \(x = a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cfrac{1}{a_4}}}}\)</p>
+
+<h3 id="根式-radicals">根式/Radicals</h3>
+
+<p>使用 <code>\sqrt</code> 表示开方。例如 <code>\sqrt{x + y}</code> ==&gt; \(\sqrt{x + y}\)</p>
+
+<p>当需要指定根式的次数时，使用 <code>[]</code>。例如 <code>\sqrt[n]{x + y}</code> ==&gt; \(\sqrt[n]{x + y}\)</p>
+
+<h3 id="常用函数-functions">常用函数/Functions</h3>
+
+<p>表示三角函数，加个 <code>\</code> 就可以了，例如 <code>\sin{(\aplha + \beta)} = \sin \alpha \cos \beta + \cos \alpha \sin \beta</code> ==&gt; \(\sin{(\alpha + \beta)} = \sin \alpha \cos \beta + \cos \alpha \sin \beta\)</p>
+
+<p>表示对数函数，同理，例如 <code>\log_2{(x + y)}</code> ==&gt; \(\log_2{(x + y)}\)</p>
+
+<h3 id="方程组-system-of-equations">方程组/System of equations</h3>
+
+<p>使用 <code>\begin{cases}...\end{cases}</code> 表示，例如</p>
+
+<pre><code class="language-tex">\left \{
+\begin{cases}
+	a_1x + b_1y + c_1z = \alpha \\
+	a_2x + b_2y + c_2z = \beta \\
+	a_3x + b_3y + c_3z = \gamma
+\end{cases}
+\right.
+</code></pre>
+
+<p>$$
+\begin{cases}
+    a_1x + b_1y + c_1z = \alpha \\<br />
+    a_2x + b_2y + c_2z = \beta \\<br />
+    a_3x + b_3y + c_3z = \gamma
+\end{cases}
+$$</p>
+
+<p><code>\begin{cases}...\end{cases}</code> 还可以用来表示分情况讨论的情形，例如</p>
+
+<pre><code class="language-tex">f(x) =
+\begin{cases}
+	x + 2	&amp;	\text{if } x \leq 0 \\
+	x^2	&amp;	\text{if } x &gt; 0
+\end{cases}
+</code></pre>
+
+<p>$$
+f(x) =
+\begin{cases}
+    x + 2   &amp;    \text{if } x \leq 0 \\<br />
+    x^2 &amp;    \text{if } x &gt; 0
+\end{cases}
+$$</p>
+
+<p>使用 <code>\begin{array}...\end{array}</code> 也可以表示，例如</p>
+
+<pre><code class="language-tex">\begin{array}{c}
+	a_1x + b_1y + c_1z = \alpha \\
+	a_2x + b_2y + c_2z = \beta \\
+	a_3x + b_3y + c_3z = \gamma
+\end{array}
+</code></pre>
+
+<p>$$
+\begin{array}{c}
+    a_1x + b_1y + c_1z = \alpha \\<br />
+    a_2x + b_2y + c_2z = \beta \\<br />
+    a_3x + b_3y + c_3z = \gamma
+\end{array}
+$$</p>
+
+<p>但是没有花括号看起来不舒服，使用 <code>\left...\right.</code> 给整体加个大花括号</p>
+
+<pre><code class="language-tex">\left \{
+\begin{array}{c}
+	a_1x + b_1y + c_1z = \alpha \\
+	a_2x + b_2y + c_2z = \beta \\
+	a_3x + b_3y + c_3z = \gamma
+\end{array}
+\right.
+</code></pre>
+
+<p>$$
+\left \{
+\begin{array}{c}
+    a_1x + b_1y + c_1z = \alpha \\<br />
+    a_2x + b_2y + c_2z = \beta \\<br />
+    a_3x + b_3y + c_3z = \gamma
+\end{array}
+\right.
+$$</p>
+
+<p>如果想要对齐方程组，可以使用 <code>\begin{aligned}...\end{aligned}</code> 和 <code>\begin{array}{ll}...\end{array}</code>，分别用来对齐等号和项。右键点击公式会显示 MathJax 的选项，可以选择查看代码。例如
+$$
+\left \{
+\begin{aligned}
+    a_1x + b_1y + c_1z = \alpha \\<br />
+    a_2x + b_2y = \beta \\<br />
+    a_3x = \gamma
+\end{aligned}
+\right.
+$$</p>
+
+<p>$$
+\left \{
+\begin{array}{ll}
+    a_1x + b_1y + c_1z = \alpha \\<br />
+    a_2x + b_2y = \beta \\<br />
+    a_3x = \gamma
+\end{array}
+\right.
+$$</p>
+
+<h2 id="level-3">Level_3</h2>
+
+<h3 id="累加-sum-累乘-prod">累加/Sum &amp; 累乘/Prod</h3>
+
+<p>使用 <code>\sum</code>、<code>\prod</code> 分别表示，支持上下标。例如  <code>\sum_{i=0}^n x_i</code> ==&gt;\(\sum_{i=0}^n x_i\)，<code>\sum_{i=1}^n x_i</code> ==&gt; \(\sum_{i=1}^n x_i\)</p>
+
+<p>配合使用 <code>\displaystyle</code>，例如  <code>\displaystyle \sum_{i=0}^n x_i</code> ==&gt;\(\displaystyle \sum_{i=0}^n x_i\)，<code>\displaystyle \sum_{i=1}^n x_i</code> ==&gt; \(\displaystyle \sum_{i=1}^n x_i\)</p>
+
+<p>配合使用 <code>\substack</code> 命令可以表示这样的表达式：</p>
+
+<pre><code class="language-tex">\sum_{\substack{
+   0&lt;i&lt;m \\
+   0&lt;j&lt;n
+  }}
+ P(i, j)
+</code></pre>
+
+<p>$$
+\sum_{\substack{
+   0&lt;i&lt;m \<br />
+   0&lt;j&lt;n
+  }}
+ P(i, j)
+$$</p>
+
+<h3 id="极限-limit">极限/Limit</h3>
+
+<p>使用 <code>\lim</code> 表示，支持下标，例如 <code>\lim_{x \to +\infty} {1 \over x}</code> ==&gt; \(\lim_{x \to +\infty} {1 \over x}\)</p>
+
+<h3 id="积分-integral">积分/Integral</h3>
+
+<p>使用 <code>\int</code> 表示，支持上下标。二重积分可以用 <code>\iint</code> 表示，以此类推。例如 <code>\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x</code> ==&gt; \(\int_{-\infty}^{+\infty} \mathrm{e}^{-x}\,\mathrm{d}x\)</p>
+
+<p><code>\mathrm</code> 可以使字符符合数学使用的风格，<code>\,</code>可以用来留出一定的小空间。</p>
+
+<h3 id="矩阵-matrix">矩阵/Matrix</h3>
+
+<p>使用 <code>\begin{matrix}...\end{matrix}</code> 表示，例如</p>
+
+<pre><code class="language-tex">\begin{matrix}
+	a	&amp;	b \\
+	c	&amp;	d
+\end{matrix}
+</code></pre>
+
+<p>$$
+\begin{matrix}
+    a   &amp;   b \\<br />
+    c   &amp;   d
+\end{matrix}
+$$</p>
+
+<p>配合使用 <code>\left...\right.</code> 给矩阵加括号，例如</p>
+
+<pre><code class="language-tex">\left |
+\begin{matrix}
+	a	&amp;	b \\
+	c	&amp;	d
+\end{matrix}
+\right |
+</code></pre>
+
+<p>$$
+\left |
+\begin{matrix}
+    a   &amp;   b \\<br />
+    c   &amp;   d
+\end{matrix}
+\right |
+$$</p>
+
+<p>TeX 本身就有自带各种括号的矩阵 <code>pmatrix, bmatrix, Bmatri, vmatrix, Vmatrix</code>，分别表示</p>
+
+<p>$$
+\begin{pmatrix}
+    a   &amp;   b \\<br />
+    c   &amp;   d
+\end{pmatrix}
+,\quad
+\begin{bmatrix}
+    a   &amp;   b \\<br />
+    c   &amp;   d
+\end{bmatrix}
+,\quad
+\begin{Bmatrix}
+    a   &amp;   b \\<br />
+    c   &amp;   d
+\end{Bmatrix}
+,\quad
+\begin{vmatrix}
+    a   &amp;   b \\<br />
+    c   &amp;   d
+\end{vmatrix}
+,\quad
+\begin{Vmatrix}
+    a   &amp;   b \\<br />
+    c   &amp;   d
+\end{Vmatrix}
+$$
+省略形式的矩阵表示
+$$
+\begin{pmatrix}
+    a   &amp;   a   &amp;   \cdots  &amp;   a \\<br />
+    b   &amp;   b   &amp;   \cdots  &amp;   b \\<br />
+    \vdots  &amp;   \vdots  &amp;   \ddots  &amp;   \vdots \\<br />
+    n   &amp;   n   &amp;   \cdots  &amp;   n
+\end{pmatrix}
+$$
+使用 <code>\begin{array}{cc|c}...\end{array}</code> 表示增广矩阵
+$$
+\left [
+ \begin{array}{cc|c}
+    a   &amp;   b   &amp;   e \\<br />
+    c   &amp;   d   &amp;   f
+ \end{array}
+\right ]
+$$
+使用 <code>smallmatrix</code> 表示行内小矩阵，例如\(\left [ \begin{smallmatrix} a &amp; b \\ c &amp; d \end{smallmatrix} \right ]\)</p>
+
+<h3 id="表格-table">表格/Table</h3>
+
+<p>使用 <code>\begin{array}{style}...\begin{array}</code> 表示，<code>style</code> 决定表格的列样式，<code>c l r</code> 分别表示居中、左对齐、右对齐，<code>|</code> 表示竖线。行的线条可以用 <code>\hline</code> 表示。列使用 <code>&amp;</code> 分隔，行使用 <code>\\</code> 分隔。可以发现上文有很多地方使用到 <code>array</code>。表示表格如下</p>
+
+<pre><code class="language-tex">\begin{array}{c|cc}
+	\text{Head}	&amp;	\text{C1}	&amp;	\text{C2}	&amp;	\text{C3} \\
+	\hline
+	\text{R1}	&amp;	a	&amp;	b	&amp;	c \\
+	\text{R2}	&amp;	d	&amp;	e	&amp;	f \\
+\end{array}
+</code></pre>
+
+<p>$$
+\begin{array}{c|cc}
+    \text{Head} &amp;   \text{C1}   &amp;   \text{C2}   &amp;   \text{C3} \\<br />
+    \hline
+    \text{R1}   &amp;   a   &amp;   b   &amp;   c \\<br />
+    \text{R2}   &amp;   d   &amp;   e   &amp;   f
+\end{array}
+$$</p>
+
+<h3 id="标签与引用-tags-and-references">标签与引用/Tags and References</h3>
+
+<p>使用 <code>\label</code> 给公式添加标签，添加 <code>\tag</code> 会将标签显示在行末。使用 <code>\eqref</code> 引用公式。例如</p>
+
+<pre><code class="language-tex">$$x = \frac{1}{y} \tag{1.1}\label{1.1}$$
+引用1.1式：
+$$x * y \stackrel{\eqref{1.1}}= 1$$
+</code></pre>
+
+<p>$$
+x = \frac{1}{y} \tag{1.1}\label{1.1}
+$$
+引用1.1式：
+$$
+x * y \stackrel{\eqref{1.1}}= 1
+$$</p>
+
+<h2 id="level-4">Level_4</h2>
+
+<h3 id="字体-fonts">字体/Fonts</h3>
+
+<table>
+<thead>
+<tr>
+<th align="center">Command</th>
+<th align="center">Sample</th>
+<th align="center">Description</th>
+<th align="center">Usage</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>\mathnormal</code></td>
+<td align="center">\(ABCD \, abcd \, 1234\)</td>
+<td align="center">默认</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"><code>\mathrm</code></td>
+<td align="center">\(\mathrm{ABCD \,abcd \,1234}\)</td>
+<td align="center">普通</td>
+<td align="center">单位，单字函数</td>
+</tr>
+
+<tr>
+<td align="center"><code>\mathit</code></td>
+<td align="center">\(\mathit{ABCD \,abcd \,1234}\)</td>
+<td align="center">意大利体</td>
+<td align="center">变量</td>
+</tr>
+
+<tr>
+<td align="center"><code>\mathbf</code></td>
+<td align="center">\(\mathbf{ABCD \,abcd \,1234}\)</td>
+<td align="center">黑体</td>
+<td align="center">矢量</td>
+</tr>
+
+<tr>
+<td align="center"><code>\mathsf</code></td>
+<td align="center">\(\mathsf{ABCD \,abcd \,1234}\)</td>
+<td align="center">Sans-serif</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"><code>\mathtt</code></td>
+<td align="center">\(\mathtt{ABCD \,abcd \,1234}\)</td>
+<td align="center">等宽字体</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"><code>\mathfrak</code></td>
+<td align="center">\(\mathfrak{ABCD \,abcd \,1234}\)</td>
+<td align="center">德国字体</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"><code>\mathcal</code></td>
+<td align="center">\(\mathcal{ABCD \,abcd \,1234}\)</td>
+<td align="center">书法体</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="center"><code>\mathbb</code></td>
+<td align="center">\(\mathbb{ABCD \,abcd \,1234}\)</td>
+<td align="center">黑板黑体</td>
+<td align="center">集合</td>
+</tr>
+
+<tr>
+<td align="center"><code>\mathscr</code></td>
+<td align="center">\(\mathscr{ABCD \,abcd \,1234}\)</td>
+<td align="center">手写体</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="颜色-colors">颜色/Colors</h3>
+
+<p>使用 <code>\color{}</code> 表示，例如 <code>\color{blue}{\sin \dfrac{\pi}{2}} = 1</code> ==&gt; \(\color{blue}{\sin \dfrac{\pi}{2}} = 1\)</p>
+
+<p>颜色值可以用16进制 RGB 值表示，例如 <code>#ff0000</code> 可以表示红色。由于 Hexo 的 Bug（{ 和 #放在一起就。。），此处不演示。</p>
+
+<h3 id="空间-space">空间/Space</h3>
+
+<p>使用 <code>\quad</code> 表示一个和当前字体大小相同的空间，<code>qquad</code> 表示两倍。例如</p>
+
+<pre><code class="language-tex">a b \\
+a \quad b \\
+a \qquad b \\
+</code></pre>
+
+<p>$$
+a b \\<br />
+a \quad b \\<br />
+a \qquad b
+$$</p>
+
+<p>还有小空间可以使用</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Command</th>
+<th align="center">Description</th>
+<th align="center">Size(quad)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>\,</code></td>
+<td align="center">Small</td>
+<td align="center"><sup>3</sup>&frasl;<sub>18</sub></td>
+</tr>
+
+<tr>
+<td align="center"><code>\:</code></td>
+<td align="center">Medium</td>
+<td align="center"><sup>4</sup>&frasl;<sub>18</sub></td>
+</tr>
+
+<tr>
+<td align="center"><code>\;</code></td>
+<td align="center">Large</td>
+<td align="center"><sup>5</sup>&frasl;<sub>18</sub></td>
+</tr>
+
+<tr>
+<td align="center"><code>\!</code></td>
+<td align="center">Negative</td>
+<td align="center">-<sup>3</sup>&frasl;<sub>18</sub></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="大小-size">大小/Size</h3>
+
+<p>当公式有多行时，例如嵌套的分式，若想对整体使用括号，则需要使用 <code>\left \middle \ right</code>。例如
+$$
+\begin{array}{cc}
+    Y   &amp;   N \\<br />
+    \hline
+    \left ( \sqrt{x \over y} \right )   &amp;   (\sqrt{x \over y})
+\end{array}
+$$
+如果只需要给单侧加括号，另一侧使用 <code>.</code>，例如 <code>\left. \dfrac{1}{x} \right|_a^b</code> ==&gt; \(\left. \dfrac{x}{y} \right|_a^b\)</p>
+
+<p>还有一种方式可以手动调整括号大小，使用 <code>( \big( \Big( \bigg( \Bigg(</code> ==&gt; \(( \big( \Big( \bigg( \Bigg(\)</p>
+
+<p>使用 <code>\mid</code> 代替公式中的分隔符 <code>|</code>，虽然 <code>|</code> 也能用，但是空间会过于狭窄。例如
+$$
+\begin{array}{cc}
+    \text{\mid}    &amp;   \text{|} \\<br />
+    \hline
+    \{x \mid x^2 \in \mathbb{Z}\} &amp;   \{x | x^2 \in \mathbb{Z}\}
+\end{array}
+$$</p>
+
+<h3 id="对齐-align">对齐/Align</h3>
+
+<p>使用 <code>align</code> 命令可以创建对齐的公式，使用 <code>&amp;</code> 标记要对其的位置。例如</p>
+
+<pre><code class="language-tex">\begin{align}
+	\sqrt{37} &amp; = \sqrt{\frac{73^2-1}{12^2}} \\
+   &amp; = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\
+   &amp; = \sqrt{\frac{73^2}{12^2}}\sqrt{\frac{73^2-1}{73^2}} \\
+   &amp; = \frac{73}{12}\sqrt{1 - \frac{1}{73^2}} \\
+   &amp; \approx \frac{73}{12}\left(1 - \frac{1}{2\cdot73^2}\right)
+\end{align}
+</code></pre>
+
+<p>$$
+\begin{align}
+    \sqrt{37} &amp; = \sqrt{\frac{73^2-1}{12^2}} \\<br />
+   &amp; = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\<br />
+   &amp; = \sqrt{\frac{73^2}{12^2}}\sqrt{\frac{73^2-1}{73^2}} \\<br />
+   &amp; = \frac{73}{12}\sqrt{1 - \frac{1}{73^2}} \\<br />
+   &amp; \approx \frac{73}{12}\left(1 - \frac{1}{2\cdot73^2}\right)
+\end{align}
+$$</p>
+
+<h2 id="references">References</h2>
+
+<ol>
+<li><a href="https://zh.wikipedia.org/wiki/TeX">TeX - 维基百科</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/LaTeX">LaTeX - 维基百科</a></li>
+<li><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#Plus_and_minus_signs">LaTeX/Mathematics - Wikibooks</a></li>
+<li><a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference/5044">MathJax basic tutorial and quick reference - StackExchange</a></li>
+<li><a href="http://docs.mathjax.org/en/latest/tex.html#supported-latex-commands">Supported LaTeX commands - MathJax documentation</a></li>
+<li><a href="http://mirrors.ctan.org/info/symbols/comprehensive/symbols-a4.pdf">[PDF] LaTeX symbols-a4.pdf - The Comprehensive TeX Archive Network</a></li>
+</ol>
+
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/tex">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>tex</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/latex">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>latex</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/math">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>math</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/mathjax">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>mathjax</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/markdown">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>markdown</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/blog">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>blog</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2017-03-03 15:16:09</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../mathjax-support/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>Mathjax：让博客支持 LaTeX 公式</span>
+            </a>
+            <span class="clearfix"></span>
+            <a class="post-next" href="../usinglocal-google-fonts/index.html">
+                <span>使用本地 Google Fonts</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},showProcessingMessages: false,
+        messageStyle: 'none'
+      });
+    </script>
+    
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

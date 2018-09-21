@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编程器刷固件，救砖小米路由器青春版 - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="刷错包了，路由器报废。最后用编程器救回。 这台小米路由器青春版是在 2015 年 9 月买的，不说别的，做工、用料挺好的，用到现在还是很新。所以当它被我刷砖" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">编程器刷固件，救砖小米路由器青春版</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2017-06-16</span>
+</div>
+
+
+
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>1669</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#说说为什么要救它">说说为什么要救它</a></li>
+<li><a href="index.html#救砖准备">救砖准备</a></li>
+<li><a href="index.html#开始救砖">开始救砖</a>
+<ul>
+<li><a href="index.html#拆卸-flash">拆卸 flash</a></li>
+<li><a href="index.html#刷写-flash">刷写 flash</a></li>
+</ul></li>
+<li><a href="index.html#刷-pandorabox">刷 Pandorabox</a>
+<ul>
+<li><a href="index.html#install">Install</a></li>
+<li><a href="index.html#fix">Fix</a></li>
+<li><a href="index.html#settings">Settings</a></li>
+</ul></li>
+<li><a href="index.html#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            
+
+<p>刷错包了，路由器报废。最后用编程器救回。</p>
+
+<!-- more -->
+
+<p><img src="../../media/burn-fireware-for-xiaomi-router-nano/miwifi-nano-0.webp" alt="" /></p>
+
+<p>这台小米路由器青春版是在 2015 年 9 月买的，不说别的，做工、用料挺好的，用到现在还是很新。所以当它被我刷砖之后，我很是可惜。</p>
+
+<h2 id="说说为什么要救它">说说为什么要救它</h2>
+
+<p>一个原因就是上面说的：可惜。向来对外观完好的东西下不了狠手，如果不小心磕出个大坑，不用等它坏，我自己都得嫌弃它。</p>
+
+<p>在它坏了的这段时间里，为了让小服务器再次运行起来，我买了个二手的小米路由器 mini，一直以为青春版和 mini 是一样大的，到手才发现青春版才是真迷你，足足小一圈。这让我觉得救它更有必要。</p>
+
+<p>青春版没有 USB 口，被我刷砖之后，唯一的办法就是拆机，用编程器刷写 flash。林林总总算下来，买装备修理它花费的钱差不多可以买台新的。即使这样，我还是打算救它。因为校园网，买路由器必须要考虑 L2TP 能否登录的问题，目前我只知道小米路由器的固件是可以正常登录 L2TP 的 VPN 的，对于其他牌子的路由器不了解，这也是我第二台路由器选择小米路由器 mini 的原因。OpenWrt 肯定能够实现 L2TP 客户端登录，但是对这个我就更不了解了。如果能把青春版修好，那么就可以在它身上进行测试。搞定了 L2TP 的问题，以后选择路由器就没有这么大的局限性了，可以更多地往性能方面考虑。</p>
+
+<h2 id="救砖准备">救砖准备</h2>
+
+<p>必要的装备有：</p>
+
+<ul>
+<li>编程器：XTW100</li>
+<li>转接座</li>
+<li>电烙铁</li>
+</ul>
+
+<p>一开始我只买了一个编程器，然后用飞线直接连接板子上的芯片，但是一直刷不进去。可能是板子上的电路有影响、或者接线接的不好：</p>
+
+<p><img src="../../media/burn-fireware-for-xiaomi-router-nano/miwifi-nano-1.webp" alt="" /></p>
+
+<p>编程器和转接座就是下面这东西：</p>
+
+<p><img src="../../media/burn-fireware-for-xiaomi-router-nano/miwifi-nano-2.webp" alt="" /></p>
+
+<h2 id="开始救砖">开始救砖</h2>
+
+<h3 id="拆卸-flash">拆卸 flash</h3>
+
+<p>小米路由器青春版都是卡扣结构，可以无损拆装，这点不得不说设计得很好。卸下后面板，就可以看到 16 M flash 芯片，牌子是 <code>winbond</code>，型号是 <code>25Q128FVSG</code>。</p>
+
+<p><img src="../../media/burn-fireware-for-xiaomi-router-nano/miwifi-nano-3.webp" alt="" /></p>
+
+<p>用电烙铁把芯片焊下来，这一步挺折磨人的，焊了老半天终于拆下来，幸好没有伤到其他部分。</p>
+
+<h3 id="刷写-flash">刷写 flash</h3>
+
+<p>电脑要事先安装好编程器的驱动，一般卖家都会给。需要注意的是，高版本的 Windows 需要关闭数字签名认证，否则驱动装不上去。装好之后，能够识别编程器即可。</p>
+
+<p>将拆下的 flash 用转换座连接到编程器，连接电脑，就可以正式开始了。</p>
+
+<p><strong>刷之前一定要用编程器备份 flash 里面的固件！</strong>识别芯片之后，选择 “读取芯片”，然后将读取出来的文件 “保存”。这一步不可省略，因为尽管备份出来的固件是坏的，但是里面包含了出厂时的无线校调信息、SN、MAC 地址等，都是独一无二的。SN 和 MAC 地址还好办，可以从包装或贴纸上面找到。但是原厂的校调信息如果没了，对信号会有影响。只要做了备份，到时候可以将里面的信息提取出来替换到其他固件里。我也是太天真，一上手就给它擦除了，后悔莫及。</p>
+
+<p>什么样的固件才能刷，这也是非常重要的问题。只有<strong>编程器固件</strong>刷进去才有用。编程器固件里面包含了 bootloader、firmware、art 等路由器所需的所有内容，如果单单刷个升级包，可想而知，连 bootloader 都没有，怎么启动嘛。判断是不是编程器固件一个简单的办法是看大小。它正好是 flash 的大小，比如小米路由器青春版的是 16 M。做过备份就可以发现，备份出来的文件大小也是 16 M。如果这个备份本身是好的，那么你再把它刷进去就能完全恢复之前的状态。</p>
+
+<p><img src="../../media/burn-fireware-for-xiaomi-router-nano/miwifi-nano-4.webp" alt="" /></p>
+
+<p>刷了小米官方的开发版包之后，路由器灯都不会亮。查了查，终于发现是固件的问题，然后反应过来忘记备份了。最后在小米论坛里找到了别人提供的备份包。擦除、写入、校验，装好芯片，路由器复活了：</p>
+
+<p><img src="../../media/burn-fireware-for-xiaomi-router-nano/miwifi-nano-5.webp" alt="" /></p>
+
+<p>用十六进制编辑器修改别人包内的 SN、MAC 地址等，改成自己的，以免影响别人。校调信息已经刷没了，也不能去考虑了。</p>
+
+<h2 id="刷-pandorabox">刷 Pandorabox</h2>
+
+<p>有了编程器，这回真的可以放心大胆地刷路由器了。将路由器设置好并做了备份之后刷入 Pandorabox，在 mini 的帮助下，青春版顺利联网，按照别人的方法也解决了 L2TP 登录的问题。</p>
+
+<h3 id="install">Install</h3>
+
+<p>需要安装这些模块。</p>
+
+<ul>
+<li>xl2tpd</li>
+<li>kmod-l2tp</li>
+<li>ppp-mod-pppol2tp</li>
+</ul>
+
+<p>xl2tpd 需要手动安装，<a href="http://downloads.pandorabox.com.cn/pandorabox/packages/mt7628/packages/packages/xl2tpd_1.3.6-5619e1771048e74b729804e8602f409af0f3faea_ralink.ipk">下载地址</a></p>
+
+<pre><code>$ opkg install /path/to/xl2tpd
+</code></pre>
+
+<h3 id="fix">Fix</h3>
+
+<ol>
+<li>把 <code>/lib/netifd/proto</code> 中的 <code>l2tp.sh</code> 替换为 <a href="https://github.com/dangowrt/packages/tree/e9e24008a76689f8d7b6de7c70c7d114b7f41d0b/net/xl2tpd/files">dangowrt/&hellip;/files</a> 这里的</li>
+<li>将 <code>/lib</code> 中的 <code>libc.so.0</code> 做个软链接到 <code>/lib/libc.so.1</code>:
+<code>
+$ ln -s /lib/libc.so.0 /lib/libc.so.1
+</code></li>
+</ol>
+
+<h3 id="settings">Settings</h3>
+
+<ol>
+<li>进入 Pandorabox 设置界面，在 <code>网络 &gt; 接口</code> 里添加新的 <code>l2tp</code> 接口，<strong>防火墙区域修改为 <code>WAN</code></strong></li>
+<li>修改 <code>MTU</code> 为 1452</li>
+<li>在 <code>网络 &gt; DHCP/DNS</code> 取消勾选 <code>重绑定保护（丢弃RFC1918上行响应数据）</code></li>
+</ol>
+
+<h2 id="reference">Reference</h2>
+
+<ol>
+<li><a href="http://lyic.ecy.ren/archives/199/zucc-dorm-router-configure-guide-pandorabox/">ZUCC学生公寓路由器配置指南（PandoraBox版）- lyic&rsquo;s</a></li>
+<li><a href="http://right.com.cn/forum/thread-188057-1-1.html">极路由1s（5661a）刷Pandora，连不上l2tp校园网 - 恩山无线论坛</a></li>
+</ol>
+
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/router">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>router</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/xiaomi">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>xiaomi</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/openwrt">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>openwrt</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/firmware">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>firmware</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2017-06-16 10:21:34</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../using-fail2ban/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>使用 Fail2ban（支持 Firewalld） 防御 VPS 被 SSH 暴力扫描</span>
+            </a>
+            <span class="clearfix"></span>
+            <a class="post-next" href="../shell-cmd-awk/index.html">
+                <span>awk - 像处理表格一样处理文本</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

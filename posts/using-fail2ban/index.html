@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用 Fail2ban（支持 Firewalld） 防御 VPS 被 SSH 暴力扫描 - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="今天看了一下 VPS 上的日志，发现大量的莫名 IP 尝试暴力登录 SSH，震惊！我以为被攻击了，查了之后发现其实是有人在不断地扫描各个 IP 段的 22 端口，企图暴" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">使用 Fail2ban（支持 Firewalld） 防御 VPS 被 SSH 暴力扫描</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2017-06-01</span>
+</div>
+
+
+
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>1196</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#谁在扫描我的-vps">谁在扫描我的 VPS？</a></li>
+<li><a href="index.html#安装配置-fail2ban">安装配置 fail2ban</a></li>
+<li><a href="index.html#启用-fail2ban">启用 fail2ban</a></li>
+<li><a href="index.html#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            
+
+<p>今天看了一下 VPS 上的日志，发现大量的莫名 IP 尝试暴力登录 SSH，震惊！我以为被攻击了，查了之后发现其实是有人在不断地扫描各个 IP 段的 22 端口，企图暴力破解，寻找肉鸡。并不是针对我的。不过这倒是提醒我要注意 VPS 的安全。</p>
+
+<!-- more -->
+
+<p>fail2ban 可以将重复登录失败的 IP 拉黑，在一段时间内禁止登录，保护服务器免受攻击。需要配合 iptables 使用。fail2ban 也支持配合 firewalld 使用，我选择后者咯。</p>
+
+<h2 id="谁在扫描我的-vps">谁在扫描我的 VPS？</h2>
+
+<p>我的系统版本是 CentOS 7，SSH 登录失败的日志信息保存在 <code>/var/log/secure</code>，查看了大小，有 34 M！</p>
+
+<pre><code class="language-bash">$ ls -lh /var/log/secure
+-rw-------. 1 root root 34M Jun  1 02:35 /var/log/secure
+</code></pre>
+
+<p>把里面的 IP 抓出来看看，</p>
+
+<pre><code class="language-bash">$ grep 'Failed password for root from' /var/log/secure | awk '{print $11}' | sort | uniq -c | sort -nr | more
+  22466 61.177.172.55
+  22465 61.177.172.34
+   9644 116.31.116.11
+   7626 123.183.209.135
+   6240 59.63.166.81
+   4172 116.31.116.18
+   2645 202.109.143.117
+   1695 117.21.191.228
+   1550 113.195.145.21
+   1398 202.109.143.105
+   1258 202.109.143.113
+    817 202.109.143.15
+    727 222.186.190.156
+    376 89.87.134.19
+    364 113.195.145.52
+    159 112.74.63.26
+     90 193.105.134.184
+     42 61.219.166.125
+     30 168.90.120.43
+     30 117.204.128.249
+     ...
+</code></pre>
+
+<p>最多的暴力登录次数有 22466 次！我到现在才发现这个问题，想想都怕。查询了前几名 IP 地址的物理位置，好奇为什么都是中国的。。</p>
+
+<p><img src="../../media/using-fail2ban/ip_location_1900x330.png" alt="" /></p>
+
+<p>查询工具：<a href="http://ip.chinaz.com/ipbatch">IP 批量查询 - 站长工具</a></p>
+
+<h2 id="安装配置-fail2ban">安装配置 fail2ban</h2>
+
+<p>epel 源里有 fail2ban，yum 安装：</p>
+
+<pre><code class="language-bash">$ sudo yum install fail2ban
+</code></pre>
+
+<p>fail2ban 配置文件在 <code>/etc/fail2ban</code>。里面有个 jail.conf，配置禁止 IP 的，这名字听着就舒服。不建议在这个配置文件里面修改，因为更新之后会被覆盖掉。合理的方法是新建 <code>/etc/fail2ban/jail.local</code>，作为自定义的的配置文件，里面的内容参考 jail.conf 里的。以下是 ssh 的配置：</p>
+
+<pre><code class="language-bash">$ cat /etc/fail2ban/jail.local
+# 用于指定哪些地址可以忽略 fail2ban 防御
+ignoreip = 127.0.0.1 172.31.0.0/24 10.10.0.0/24 192.168.0.0/24
+# 客户端主机被禁止的时长（秒）
+bantime = 86400
+# 客户端失败多少次后将会被禁
+maxretry = 3
+# 查找失败次数的时长（秒）
+findtime = 600
+禁止的动作。action_mwl 这个动作表示禁止并邮件通知
+action = %(action_mwl)s
+
+[sshd]
+enabled = true
+</code></pre>
+
+<p>fail2ban 已经支持 firewalld，如果按照上面的配置写就是配合 firewalld 的。在配置目录下有个文件可以证明：</p>
+
+<pre><code class="language-bash">$ cat /etc/fail2ban/jail.d/00-firewalld.conf
+[DEFAULT]
+banaction = firewallcmd-ipset
+</code></pre>
+
+<p>本来是要安装 fail2ban-firewalld 版本才支持，现在不需要了。</p>
+
+<h2 id="启用-fail2ban">启用 fail2ban</h2>
+
+<p>设置开机启动，并启用：</p>
+
+<pre><code class="language-bash">$ sudo systemctl enable fail2ban.service
+$ sudo systemctl start fail2ban
+</code></pre>
+
+<p>怎么知道 fail2ban 有没有用呢？</p>
+
+<p>我在配置里面设置的动作是禁止之后邮件通知我，因为没有设置邮箱，默认就发送到 VPS 上 root 用户的邮箱里了，不一会儿就收到了邮件通知：</p>
+
+<pre><code class="language-bash">$ sudo mail
+&quot;/var/spool/mail/root&quot;: 17 messages 4 new 14 unread
+...
+ U 13 Fail2Ban              Thu Jun  1 02:09  36/1243  &quot;[Fail2Ban] sshd: banned 181.113.190.57 from vultr.guest&quot;
+&gt;N 14 Fail2Ban              Thu Jun  1 02:31  35/1227  &quot;[Fail2Ban] sshd: banned 60.165.208.28 from vultr.guest&quot;
+ N 15 Fail2Ban              Thu Jun  1 02:31  36/1219  &quot;[Fail2Ban] sshd: banned 180.76.152.71 from vultr.guest&quot;
+ N 16 Fail2Ban              Thu Jun  1 02:35  34/1065  &quot;[Fail2Ban] sshd: banned 151.235.187.158 from vultr.guest&quot;
+...
+</code></pre>
+
+<p>如果不想要邮件通知，可以将 <code>action_mwl</code> 换成 <code>action_</code>，查看下 jail.conf 就知道了。当然也可以设置发送到外部邮箱。</p>
+
+<p>fail2ban 也有默认的管理工具 <code>fail2ban-client</code>，查看是否在运行：</p>
+
+<pre><code class="language-bash">$ fail2ban ping
+Server replied: pong
+</code></pre>
+
+<p>在运行的话会返回 “pong”。</p>
+
+<p>确认下 firewalld 是否真的在禁止这些 IP 了：</p>
+
+<pre><code class="language-bash">$ sudo firewall-cmd --direct --get-all-rules
+ipv4 filter INPUT 0 -p tcp -m multiport --dports ssh -m set --match-set fail2ban-sshd src -j REJECT --reject-with icmp-port-unreachable
+</code></pre>
+
+<p>可以看到 fail2ban-sshd 这个 ipset 已经生效了，里面的 IP 会被禁。查看里面的 IP：</p>
+
+<pre><code class="language-bash">$ ipset list fail2ban-sshd
+Name: fail2ban-sshd
+Type: hash:ip
+Revision: 1
+Header: family inet hashsize 1024 maxelem 65536 timeout 86400
+Size in memory: 1240
+References: 1
+Members:
+210.186.134.78 timeout 84437
+181.113.190.57 timeout 81481
+190.48.137.74 timeout 81367
+180.76.152.71 timeout 82802
+112.74.63.26 timeout 81106
+60.165.208.28 timeout 82783
+223.229.210.132 timeout 80972
+151.235.187.158 timeout 83014
+116.31.116.11 timeout 80977
+59.63.166.81 timeout 80975
+123.183.209.135 timeout 80926
+109.203.179.252 timeout 80920
+</code></pre>
+
+<h2 id="reference">Reference</h2>
+
+<ol>
+<li><a href="https://devops.profitbricks.com/tutorials/install-fail2ban-on-centos-7-to-protect-ssh-via-firewalld/">Install Fail2ban on Centos 7 to Protect SSH via firewalld @eknauer - Profit Bricks</a></li>
+<li><a href="https://fedoraproject.org/wiki/Fail2ban_with_FirewallD">Fail2ban with FirewallD - Fedora Wiki</a></li>
+<li><a href="https://linux.cn/article-5067-1.html">如何使用 fail2ban 防御 SSH 服务器的暴力破解攻击 @Dan Nanni - Linux 中国（译文）</a></li>
+</ol>
+
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/ssh">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>ssh</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/vps">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>vps</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/secure">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>secure</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/attack">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>attack</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2017-06-01 10:38:01</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <a class="post-prev" href="../qqbot-ip-change-notice/index.html">
+                <i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>
+                <span>利用 QQbot 实现服务器即时通知我 IP 变动</span>
+            </a>
+            <span class="clearfix"></span>
+            <a class="post-next" href="../burn-fireware-for-xiaomi-router-nano/index.html">
+                <span>编程器刷固件，救砖小米路由器青春版</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

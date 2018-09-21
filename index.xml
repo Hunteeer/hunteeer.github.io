@@ -1,37 +1,291 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>一苇间</title>
-    <link>https://hunteeer.github.io/</link>
-    <description>Recent content on 一苇间</description>
+    <title>海边的石头</title>
+    <link>http://stonebythesea.org/</link>
+    <description>Recent content on 海边的石头</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Wed, 05 Sep 2018 18:25:22 +0530</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Feb 2018 22:42:18 +0800</lastBuildDate>
     
-	<atom:link href="https://hunteeer.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://stonebythesea.org/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>手机摄影的优劣势分析</title>
-      <link>https://hunteeer.github.io/post/work1/</link>
-      <pubDate>Wed, 05 Sep 2018 18:25:22 +0530</pubDate>
+      <title>About</title>
+      <link>http://stonebythesea.org/about/</link>
+      <pubDate>Mon, 05 Feb 2018 22:42:18 +0800</pubDate>
       
-      <guid>https://hunteeer.github.io/post/work1/</guid>
-      <description>&lt;p&gt;在这里，我试图探讨手机摄影的优劣势所在。&lt;/p&gt;
+      <guid>http://stonebythesea.org/about/</guid>
+      <description>我的个人博客。</description>
+    </item>
+    
+    <item>
+      <title>LaTeX 环境搭建（macOS）</title>
+      <link>http://stonebythesea.org/posts/latex-getting-started/</link>
+      <pubDate>Fri, 04 May 2018 16:14:24 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/latex-getting-started/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>启用 HTTPS</title>
+      <link>http://stonebythesea.org/posts/migrate-to-https/</link>
+      <pubDate>Sat, 31 Mar 2018 21:43:38 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/migrate-to-https/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s Encrypt 的免费证书，几步便可为博客开启 HTTPS。&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://hunteeer.github.io/about/</link>
-      <pubDate>Mon, 10 Sep 2018 20:20:40 +0800</pubDate>
+      <title>LaTeX 字体设置</title>
+      <link>http://stonebythesea.org/posts/latex-fonts-setup/</link>
+      <pubDate>Sat, 10 Mar 2018 14:42:25 +0800</pubDate>
       
-      <guid>https://hunteeer.github.io/about/</guid>
-      <description>&lt;p&gt;记录想法、过程、结果。&lt;/p&gt;
+      <guid>http://stonebythesea.org/posts/latex-fonts-setup/</guid>
+      <description>&lt;p&gt;开始使用 LaTeX。&lt;/p&gt;
 
-&lt;p&gt;记录生活。
-&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>screen - 命令行窗口管理器</title>
+      <link>http://stonebythesea.org/posts/shell-cmd-screen/</link>
+      <pubDate>Wed, 28 Feb 2018 09:31:00 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/shell-cmd-screen/</guid>
+      <description>&lt;p&gt;之前用 SSH 连接 VPS，执行需要较长运行时间的任务的时候，我就曾陷入这样的僵局：既不能关闭这个窗口，也不能在这个窗口中做其他的事情。Screen 就可以解决这个问题。它相当于一个窗口管理器，能够创建和管理独立于当前窗口的的命令行窗口。把命令放在一个 Screen 窗口中运行，然后将它分离（相当于 daemon 的运行方式），继续回到原来的窗口做其他事情，甚至关闭 SSH 连接。一段时间后再次连接，查看他的运行状态。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>8X8X8 光立方制作流程</title>
+      <link>http://stonebythesea.org/posts/cube8/</link>
+      <pubDate>Mon, 19 Feb 2018 10:59:45 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/cube8/</guid>
+      <description>&lt;p&gt;学完最基础的 8051 单片机后，我开始着手制作这个光立方。从电路原理到 PCB，从焊接组装到程序编写，本文作一个记录。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>博客迁移至 Hugo</title>
+      <link>http://stonebythesea.org/posts/blog-migration/</link>
+      <pubDate>Sun, 18 Feb 2018 22:18:19 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/blog-migration/</guid>
+      <description>&lt;p&gt;用了半个多月的时间，将博客从 Hexo 迁移至 Hugo。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>test - 条件判断命令</title>
+      <link>http://stonebythesea.org/posts/shell-cmd-test/</link>
+      <pubDate>Sat, 30 Sep 2017 08:19:42 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/shell-cmd-test/</guid>
+      <description>test 命令用于文件类型和属性测试，以及算术、字符串的比较，大部分 Unix-like 系统都支持这个命令。 test 命令是 shell 的内置命令： $ which test /bin/test 还有一个叫 [ 的命令和 test 是等效</description>
+    </item>
+    
+    <item>
+      <title>做了一个豆瓣搜索的 Workflow for Alfred</title>
+      <link>http://stonebythesea.org/posts/douban-search-workflow-for-alfred/</link>
+      <pubDate>Mon, 28 Aug 2017 08:44:11 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/douban-search-workflow-for-alfred/</guid>
+      <description>我刚刚开始学 Python，写了这个 Alfred workflow 练练手。平时喜欢看看豆瓣的评分，用 Alfred 查看方便不少。 Alfred 本身支持添加豆瓣的网址进行搜索，但是毕竟还是需要浏</description>
+    </item>
+    
+    <item>
+      <title>zsh 配置和使用</title>
+      <link>http://stonebythesea.org/posts/zsh-getting-started/</link>
+      <pubDate>Wed, 09 Aug 2017 07:53:55 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/zsh-getting-started/</guid>
+      <description>与 bash 相比，zsh 最让我喜欢的地方有命令补全、历史纪录搜索、提示符定制。这些功能 bash 都有，只不过 zsh 可定制性更高，可以配置出非常强大的功能。一开始</description>
+    </item>
+    
+    <item>
+      <title>awk - 像处理表格一样处理文本</title>
+      <link>http://stonebythesea.org/posts/shell-cmd-awk/</link>
+      <pubDate>Sun, 02 Jul 2017 14:57:39 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/shell-cmd-awk/</guid>
+      <description>awk 是处理文本和数据的命令行工具，是几乎所有的 Unix-like 系统的标准工具。实际上 awk 拥有自己的语言： AWK 程序设计语言，语法类似 C 语言，它具备了一个完整的语言</description>
+    </item>
+    
+    <item>
+      <title>编程器刷固件，救砖小米路由器青春版</title>
+      <link>http://stonebythesea.org/posts/burn-fireware-for-xiaomi-router-nano/</link>
+      <pubDate>Fri, 16 Jun 2017 10:21:34 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/burn-fireware-for-xiaomi-router-nano/</guid>
+      <description>刷错包了，路由器报废。最后用编程器救回。 这台小米路由器青春版是在 2015 年 9 月买的，不说别的，做工、用料挺好的，用到现在还是很新。所以当它被我刷砖</description>
+    </item>
+    
+    <item>
+      <title>使用 Fail2ban（支持 Firewalld） 防御 VPS 被 SSH 暴力扫描</title>
+      <link>http://stonebythesea.org/posts/using-fail2ban/</link>
+      <pubDate>Thu, 01 Jun 2017 10:38:01 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/using-fail2ban/</guid>
+      <description>今天看了一下 VPS 上的日志，发现大量的莫名 IP 尝试暴力登录 SSH，震惊！我以为被攻击了，查了之后发现其实是有人在不断地扫描各个 IP 段的 22 端口，企图暴</description>
+    </item>
+    
+    <item>
+      <title>利用 QQbot 实现服务器即时通知我 IP 变动</title>
+      <link>http://stonebythesea.org/posts/qqbot-ip-change-notice/</link>
+      <pubDate>Wed, 31 May 2017 20:43:30 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/qqbot-ip-change-notice/</guid>
+      <description>一个月前搭的那个小服务器，用着挺好。让我头疼的是校园网。我们学校使用 L2TP 的 VPN，每个人单独帐号，幸好是不加密的，用路由器可以解决，小服务器可</description>
+    </item>
+    
+    <item>
+      <title>find - 在 Linux 中自如地查找文件</title>
+      <link>http://stonebythesea.org/posts/shell-cmd-find/</link>
+      <pubDate>Tue, 30 May 2017 20:26:34 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/shell-cmd-find/</guid>
+      <description>给出一个目录，find 命令能递归地罗列出目录下所有文档和目录，包括子目录下的文档和目录。如果再给出限制条件，就可以筛选出符合要求的文档或目录</description>
+    </item>
+    
+    <item>
+      <title>占美 N3050 迷你主机入手体验</title>
+      <link>http://stonebythesea.org/posts/zhanmei-n3050-htpc/</link>
+      <pubDate>Mon, 15 May 2017 22:00:14 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/zhanmei-n3050-htpc/</guid>
+      <description>十天前入手这台迷你主机，现在写写体验。 价格篇 我一开始是打算买个树莓派用来做下载机的，但是性能不高。搜遍了某宝发现有迷你主机这种东西，Inte</description>
+    </item>
+    
+    <item>
+      <title>做了款百度输入法 for macOS 的皮肤</title>
+      <link>http://stonebythesea.org/posts/baidu-ime-theme-for-mecos/</link>
+      <pubDate>Thu, 04 May 2017 10:21:25 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/baidu-ime-theme-for-mecos/</guid>
+      <description>Mac 上拼音输入法只有几款。原生拼音输入法词库不行，鼠须管配置起来挺麻烦，懒得搞。先前一直在用搜狗输入法，但是打开菜单一大堆我用不上的功能，看着</description>
+    </item>
+    
+    <item>
+      <title>了解 Systemd</title>
+      <link>http://stonebythesea.org/posts/introducing-systemd/</link>
+      <pubDate>Sun, 30 Apr 2017 09:37:02 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/introducing-systemd/</guid>
+      <description>&lt;p&gt;systemd 在 CentOS 中是很庞大的一部分，很多 Linux 发行版都整合了 systemd，而且和 macOS 上的 launchd 有点类似。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Aria2，目前我认为最好的下载工具</title>
+      <link>http://stonebythesea.org/posts/using-aria2/</link>
+      <pubDate>Fri, 28 Apr 2017 10:36:52 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/using-aria2/</guid>
+      <description>aria2 是目前（20170428）我在各个平台上唯一使用的下载工具。足够，而且非常好用。关于它的使用教程烂大街了，而且感觉都差不太多。。我大概已经</description>
+    </item>
+    
+    <item>
+      <title>grep - 文档内部的搜索工具</title>
+      <link>http://stonebythesea.org/posts/shell-cmd-grep/</link>
+      <pubDate>Mon, 10 Apr 2017 19:08:13 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/shell-cmd-grep/</guid>
+      <description>grep 是一个文档内部的搜索工具。可以根据给定的正则表达式匹配文档内的的文本行。名称来自于g/re/p（Globally search a regular expression and print，以正</description>
+    </item>
+    
+    <item>
+      <title>更改 Android 字体</title>
+      <link>http://stonebythesea.org/posts/replace-android-fonts/</link>
+      <pubDate>Sat, 01 Apr 2017 21:54:58 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/replace-android-fonts/</guid>
+      <description>本篇记录手动更改 Android 字体的过程，简单几步即可实现，体会 Android 的乐趣。 前提 前面某篇文章我提到了本博客的字体问题，这几天想更改下手机的字体。我的目标是</description>
+    </item>
+    
+    <item>
+      <title>tar - 文件打包和压缩工具</title>
+      <link>http://stonebythesea.org/posts/shell-cmd-tar/</link>
+      <pubDate>Fri, 24 Mar 2017 21:37:36 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/shell-cmd-tar/</guid>
+      <description>tar 由自由软件基金会（Free Software Foundation, FSF）于2014年7月27日发布。最初的设计目的是将文件备份到磁带上，称为 tape archive。能够将多个文件</description>
+    </item>
+    
+    <item>
+      <title>使用本地 Google Fonts</title>
+      <link>http://stonebythesea.org/posts/usinglocal-google-fonts/</link>
+      <pubDate>Sun, 05 Mar 2017 10:24:11 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/usinglocal-google-fonts/</guid>
+      <description>&lt;p&gt;我的博客国内访问速度特别慢，今天仔细找了下原因，发现原来是主题使用了 Google Fonts。这已经是一个很普遍的老问题了，作为新人，我被这个小问题磨了好久啊，一度怀疑是不是服务器的问题。最终我将使用到的 Google Fonts 下载到服务器上从而解决了这个问题。在发现、分析、解决问题的过程中，接触到很多新的东西，所以我觉得有必要记录下来。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用 TeX 编写公式：符号和用法总结</title>
+      <link>http://stonebythesea.org/posts/tex-equation-getting-started/</link>
+      <pubDate>Fri, 03 Mar 2017 15:16:09 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/tex-equation-getting-started/</guid>
+      <description>TeX 是流行于学术界的优秀排版软件，由美国计算机教授 Donald Ervin Knuth 花了十多年时间编写，直到1989年 TeX 才最终停止修改。功能强大，但是使用起来并不简单。由</description>
+    </item>
+    
+    <item>
+      <title>Mathjax：让博客支持 LaTeX 公式</title>
+      <link>http://stonebythesea.org/posts/mathjax-support/</link>
+      <pubDate>Fri, 03 Mar 2017 10:07:10 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/mathjax-support/</guid>
+      <description>MathJax 是一个开源的 JavaScript 公式渲染引擎，支持 LaTeX, MathML, AsciMath 语法。支持所有现代化的浏览器，包括移动设备上的。将 MathJax 引入博客写作非常简单，配合 Markdown，写涉</description>
+    </item>
+    
+    <item>
+      <title>怎样读懂 Manual Pages</title>
+      <link>http://stonebythesea.org/posts/how-to-read-manual-pages/</link>
+      <pubDate>Tue, 21 Feb 2017 16:39:44 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/how-to-read-manual-pages/</guid>
+      <description>Liunx 命令有上千条，逐个记忆是不现实的，幸好有非常好用的 Manual Pages。第一次使用它的时候非常苦恼，因为内容多、看不懂。但是多次使用之后，会发现 Manual</description>
+    </item>
+    
+    <item>
+      <title>Regular Expression</title>
+      <link>http://stonebythesea.org/posts/regular-expression/</link>
+      <pubDate>Fri, 17 Feb 2017 15:25:11 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/regular-expression/</guid>
+      <description>字母（a-z、A-Z），数字（0-9），下划线（_），汉字等，标点符号（无特殊含义） 1.2 特殊字符 1.2.1 有特殊含义的字符 字符 描述 ^ 字符串开始位置；取</description>
+    </item>
+    
+    <item>
+      <title>关于使用 Google Search</title>
+      <link>http://stonebythesea.org/posts/google-search-getting-searted/</link>
+      <pubDate>Fri, 10 Feb 2017 22:01:23 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/google-search-getting-searted/</guid>
+      <description>使用Google搜索已经有一段时间了，总结记录一些使用方法和技巧。 1. 开始使用 开始使用之前，可以针对自己的使用习惯进行简单设置。 语言 语言设置有</description>
+    </item>
+    
+    <item>
+      <title>博客搭建记</title>
+      <link>http://stonebythesea.org/posts/blog-getting-started/</link>
+      <pubDate>Mon, 06 Feb 2017 14:36:41 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/blog-getting-started/</guid>
+      <description>&lt;p&gt;本文记录我搭建这个博客的过程。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

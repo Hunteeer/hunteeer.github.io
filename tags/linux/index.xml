@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 海边的石头</title>
+    <link>http://stonebythesea.org/tags/linux/</link>
+    <description>Recent content in Linux on 海边的石头</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Apr 2017 09:37:02 +0800</lastBuildDate>
+    
+	<atom:link href="http://stonebythesea.org/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>了解 Systemd</title>
+      <link>http://stonebythesea.org/posts/introducing-systemd/</link>
+      <pubDate>Sun, 30 Apr 2017 09:37:02 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/introducing-systemd/</guid>
+      <description>&lt;p&gt;systemd 在 CentOS 中是很庞大的一部分，很多 Linux 发行版都整合了 systemd，而且和 macOS 上的 launchd 有点类似。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>怎样读懂 Manual Pages</title>
+      <link>http://stonebythesea.org/posts/how-to-read-manual-pages/</link>
+      <pubDate>Tue, 21 Feb 2017 16:39:44 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/how-to-read-manual-pages/</guid>
+      <description>Liunx 命令有上千条，逐个记忆是不现实的，幸好有非常好用的 Manual Pages。第一次使用它的时候非常苦恼，因为内容多、看不懂。但是多次使用之后，会发现 Manual</description>
+    </item>
+    
+  </channel>
+</rss>

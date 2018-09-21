@@ -33,8 +33,7 @@ function searchBox() {
     /* Control search box behavior */
     const input = $("#search-input");
     const reset = $("#search-reset");
-    const results = $("#search-results");
-
+    const results = $('#search-results');
 
     $("#search-icon").click(function() {
         input.toggleClass('focus');

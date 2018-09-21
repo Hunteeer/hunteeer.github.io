@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fonts on 海边的石头</title>
+    <link>http://stonebythesea.org/tags/fonts/</link>
+    <description>Recent content in Fonts on 海边的石头</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Mar 2018 14:42:25 +0800</lastBuildDate>
+    
+	<atom:link href="http://stonebythesea.org/tags/fonts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LaTeX 字体设置</title>
+      <link>http://stonebythesea.org/posts/latex-fonts-setup/</link>
+      <pubDate>Sat, 10 Mar 2018 14:42:25 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/latex-fonts-setup/</guid>
+      <description>&lt;p&gt;开始使用 LaTeX。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>更改 Android 字体</title>
+      <link>http://stonebythesea.org/posts/replace-android-fonts/</link>
+      <pubDate>Sat, 01 Apr 2017 21:54:58 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/replace-android-fonts/</guid>
+      <description>本篇记录手动更改 Android 字体的过程，简单几步即可实现，体会 Android 的乐趣。 前提 前面某篇文章我提到了本博客的字体问题，这几天想更改下手机的字体。我的目标是</description>
+    </item>
+    
+    <item>
+      <title>使用本地 Google Fonts</title>
+      <link>http://stonebythesea.org/posts/usinglocal-google-fonts/</link>
+      <pubDate>Sun, 05 Mar 2017 10:24:11 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/usinglocal-google-fonts/</guid>
+      <description>&lt;p&gt;我的博客国内访问速度特别慢，今天仔细找了下原因，发现原来是主题使用了 Google Fonts。这已经是一个很普遍的老问题了，作为新人，我被这个小问题磨了好久啊，一度怀疑是不是服务器的问题。最终我将使用到的 Google Fonts 下载到服务器上从而解决了这个问题。在发现、分析、解决问题的过程中，接触到很多新的东西，所以我觉得有必要记录下来。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

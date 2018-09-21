@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客搭建记 - 海边的石头</title>
+    <meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.47.1">
+<meta name="author" content="xinhangliu" />
+<link rel="icon" href="../../favicon.png">
+<meta name="description" content="本文记录我搭建这个博客的过程。
+
+" />
+
+<meta name="keywords" content="blog, 博客, code" />
+
+
+<link rel="canonical" href="index.html" />
+
+<meta name="google-site-verification" content="2KbxoqJ04YaPi4V3Fi3C-LzCuY83KjL5ONZ-D-qtbYc" /><meta name="baidu-site-verification" content="BceYOO66dS" /><meta name="sogou_site_verification" content="7Tfeitzpca"/><link rel="stylesheet" href="../../css/style.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <header id="header" class="header"><div class="title-bar">
+    <a class="brand-wrapper" href="../../index.html">
+        <img src="../../favicon.svg">
+        <span>海边的石头</span>
+    </a>
+
+    <div class="clearfix"></div>
+
+    <div class="search-box">
+        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
+        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+    </div>
+
+    
+    <div class="custom-links">
+        
+        <div class="custom-link">
+            <a href="mailto:xhliume@gmail.com" target="_blank"title="Email me"><i class="icon icon-mail"><svg><use xlink:href="/icons.svg#icon-mail"></use></svg></i></a>
+        </div>
+        
+        <div class="custom-link">
+            <a href="../../index.xml" target="_blank"title="RSS"><i class="icon icon-rss"><svg><use xlink:href="/icons.svg#icon-rss"></use></svg></i></a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<nav class="navbar">
+    <ul class="menu">
+    
+        <li class="menu-item">
+            <a class="" href="../../index.html" >
+                <i class="icon icon-home"><svg><use xlink:href="/icons.svg#icon-home"></use></svg></i>
+                <span>HOME</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../index.html" >
+                <i class="icon icon-inbox"><svg><use xlink:href="/icons.svg#icon-inbox"></use></svg></i>
+                <span>ARCHIVES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../categories/index.html" >
+                <i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i>
+                <span>CATEGORIES</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../tags/index.html" >
+                <i class="icon icon-tag"><svg><use xlink:href="/icons.svg#icon-tag"></use></svg></i>
+                <span>TAGS</span>
+            </a>
+        </li>
+    
+        <li class="menu-item">
+            <a class="" href="../../about/index.html" >
+                <i class="icon icon-info"><svg><use xlink:href="/icons.svg#icon-info"></use></svg></i>
+                <span>ABOUT</span>
+            </a>
+        </li>
+    
+    </ul>
+</nav>
+        </header>
+        <main id="main" class="main">
+            <div class="content-wrapper">
+                <div id="search-results" class="search-results">
+                    <header>
+                        <div id="search-stats"></div>
+                        <div id="search-pagination"></div>
+                    </header>
+                    <main id="search-hits"></main>
+                </div>
+
+                
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">博客搭建记</h1>
+            <div class="post-meta">
+            
+<div class="post-time" style="order: 0;">
+    <i class="icon icon-clock"><svg><use xlink:href="/icons.svg#icon-clock"></use></svg></i>
+    <span>2017-02-06</span>
+</div>
+
+
+<div class="post-categories" style="order: 1;"><i class="icon icon-grid"><svg><use xlink:href="/icons.svg#icon-grid"></use></svg></i><a href="../../categories/折腾博客/index.html">折腾博客</a></div>
+
+
+<div class="post-wordcount" style="order: 2;">
+    <i class="icon icon-type"><svg><use xlink:href="/icons.svg#icon-type"></use></svg></i>
+    <span>3258</span>
+</div>
+
+
+
+
+
+
+<div class="post-pageview" style="order: 3;">
+    <i class="icon icon-eye"><svg><use xlink:href="/icons.svg#icon-eye"></use></svg></i>
+    <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+
+
+
+<div class="post-comments" style="order: 4;">
+    <i class="icon icon-message-square"><svg><use xlink:href="/icons.svg#icon-message-square"></use></svg></i>
+    <a href="index.html#isso-thread"></a>
+</div>
+
+
+
+            </div>
+        </header>
+
+        
+        <div class="post-toc">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="index.html#1-vps及域名">1. VPS及域名</a>
+<ul>
+<li><a href="index.html#1-1-vps-virtual-private-server">1.1 VPS（Virtual Private Server）</a></li>
+<li><a href="index.html#1-2-域名-dns">1.2 域名 DNS</a></li>
+</ul></li>
+<li><a href="index.html#2-工具和方案">2. 工具和方案</a>
+<ul>
+<li><a href="index.html#2-1-工具">2.1 工具</a></li>
+<li><a href="index.html#2-2-架构">2.2 架构</a></li>
+</ul></li>
+<li><a href="index.html#3-搭建流程">3. 搭建流程</a>
+<ul>
+<li><a href="index.html#3-1-本地端操作">3.1 本地端操作</a>
+<ul>
+<li><a href="index.html#3-1-1-hexo-安装-包括-node-js-git">3.1.1 Hexo 安装（包括 Node.js、Git）</a></li>
+<li><a href="index.html#3-1-2-设置我的本地博客">3.1.2 设置我的本地博客</a></li>
+</ul></li>
+<li><a href="index.html#3-2-服务端操作">3.2 服务端操作</a>
+<ul>
+<li><a href="index.html#3-2-1-nginx-安装和配置">3.2.1 Nginx 安装和配置</a></li>
+<li><a href="index.html#3-2-2-git-安装和配置">3.2.2 Git 安装和配置</a></li>
+</ul></li>
+<li><a href="index.html#3-3-部署网站">3.3 部署网站</a>
+<ul>
+<li><a href="index.html#3-3-1-网站根目录配置">3.3.1 网站根目录配置</a></li>
+<li><a href="index.html#3-3-2-git-hooks-配置">3.3.2 Git hooks 配置</a></li>
+<li><a href="index.html#3-3-3-本地-hexo-部署配置">3.3.3 本地 Hexo 部署配置</a></li>
+<li><a href="index.html#3-3-4-基本博客操作">3.3.4 基本博客操作</a></li>
+</ul></li>
+</ul></li>
+<li><a href="index.html#4-参考资料">4. 参考资料</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        
+
+        <div class="post-content">
+            <p>本文记录我搭建这个博客的过程。</p>
+
+<p></p>
+
+<h2 id="1-vps及域名">1. VPS及域名</h2>
+
+<h3 id="1-1-vps-virtual-private-server">1.1 VPS（Virtual Private Server）</h3>
+
+<p>我选择的是 <a href="https://www.vultr.com/">Vultr</a> 的虚拟主机。具体情况如下表。我买的时候正好有新活动，新用户充值多少送多少，最高到 $100。选择国外的服务器，最主要的目的是为了**，还有个好处是博客不需要备案。速度方面其实也不用担心，我一个小博客就是给自己记记东西的，不求访问量什么的。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Price</th>
+<th align="center">Location</th>
+<th align="center">CPU</th>
+<th align="center">RAM</th>
+<th align="center">Storage</th>
+<th align="center">Bandwidth</th>
+<th align="center">OS</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$5/Month</td>
+<td align="center">Tokyo</td>
+<td align="center">1 vCore</td>
+<td align="center">768MB</td>
+<td align="center">15GB SSD</td>
+<td align="center">1000GB/Month</td>
+<td align="center">CentOS  7 x64</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="1-2-域名-dns">1.2 域名 DNS</h3>
+
+<p>我注册了个免费的域名先试试水，可以用一年。免费的顶级域名只有几个，<code>.tk</code> 是托克劳国家及地区顶级域（ccTLD）的域名。到 <a href="http://www.freenom.com/en/index.html?lang=en">Freenom</a> 注册个账号，选个域名，最多免费用一年。Freenom 提供了免费的域名解析服务，如果想优化速度的话可以换成 <a href="http://www.cloudxns.net/">CloudXNS</a> 解析服务，也是免费的。具体流程参考 <a href="https://doub.io/dbwz-3/">教你申请.tk/.ml/.cf/.gq/.ga等免费域名 - 逗比根据地</a> 和 <a href="https://doub.io/dbwz-4/">使用 CloudXNS 接管 Freenom 的免费域名解析，加快国内生效速度！ - 逗比根据地</a>。</p>
+
+<h2 id="2-工具和方案">2. 工具和方案</h2>
+
+<h3 id="2-1-工具">2.1 工具</h3>
+
+<p>我选择的博客搭建方案是 Hexo + Git + Nginx。选择 Hexo 的原因是轻，原来用 WordPress 搭过本地博客，作为个人笔记。给我的感觉就是重、麻烦，马上转到了印象笔记去。用了一年多还是觉得不舒服，编辑器不好用，不支持 Markdown。不过收藏文章确实是非常棒。要用到的东西列在下面。</p>
+
+<ul>
+<li>本地电脑（macOS）</li>
+<li>远程服务器（CentOS 7）</li>
+<li><a href="https://hexo.io/zh-cn/">Hexo</a>：快速、简洁且高效的博客框架</li>
+<li><a href="https://git-scm.com/">Git</a>：Everything is local</li>
+<li><a href="https://nginx.org/en/">Nginx</a>：A free, open-source, high-performance server</li>
+<li><a href="http://nodejs.org/">Node.js</a>：Hexo 基于它</li>
+</ul>
+
+<h3 id="2-2-架构">2.2 架构</h3>
+
+<p>为什么需要以上工具？走完整个流程或者做足准备之后都能明白它们的作用和联系。既然是写总结，就先理一遍，一张图可以很好的解释。</p>
+
+<p><img src="../../media/blog-getting-started/Blog_framework.png" alt="" /></p>
+
+<p>这张图是我看了 <a href="https://segmentfault.com/a/1190000005723321">博客的架构@WensonSmith - segmentfault</a> 的图之后，自己动手用 Keynote 画了一遍，加深印象。简单用文字描述一下就是 hexo 只是在本地把写好的 Markdown 文件按照主题、格式等渲染成HTML文件，然后通过 Git 把网站文件 push 到远程仓库，Git还有自动部署的功能 git hooks。网站文件被 push 的时候，触发 git hooks 自动把它们部署到网站的根目录。之后就靠 Nginx 把网站呈现给访客。</p>
+
+<p>使用起来我感觉很方便，写好 Markdown，只需要几个命令就完成部署，而且都在本地完成！不需要登录远程服务器。</p>
+
+<h2 id="3-搭建流程">3. 搭建流程</h2>
+
+<h3 id="3-1-本地端操作">3.1 本地端操作</h3>
+
+<p>这一部分参考 <a href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a> 最清楚了。我记录下流程。</p>
+
+<h4 id="3-1-1-hexo-安装-包括-node-js-git">3.1.1 Hexo 安装（包括 Node.js、Git）</h4>
+
+<p>Git：macOS 已经自带。</p>
+
+<p>安装 nvm 以方便安装 Node.js</p>
+
+<pre><code class="language-shell">$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+</code></pre>
+
+<p>重启 Terminal，安装 Node.js</p>
+
+<pre><code class="language-Shell">$ nvm install stable
+</code></pre>
+
+<p>安装 Hexo。<code>-g</code> 代表全局安装。</p>
+
+<pre><code class="language-Shell">$ npm install -g hexo-cli
+</code></pre>
+
+<h4 id="3-1-2-设置我的本地博客">3.1.2 设置我的本地博客</h4>
+
+<p>工具都准备好了，下面开始搭建架在本地的 Hexo 博客。</p>
+
+<p>先确定好要把博客放在哪里。我把自己的用户目录下的 <code>Blog</code> 文件夹作为网站根目录。绝对路径如下</p>
+
+<pre><code class="language-Shell">$ pwd	#查看当前路径
+/Users/username/Blog
+</code></pre>
+
+<p>在 Blog 目录内，</p>
+
+<pre><code class="language-shell">$ hexo init
+$ npm install
+</code></pre>
+
+<p>Blog 目录内有以下结构</p>
+
+<pre><code>.
+├── _config.yml	#网站配置文件
+├── package.json
+├── scaffolds	#模板
+├── source	#原始Markdown文件、资源
+|   ├── _drafts
+|   └── _posts
+├── themes	#主题
+└── node_modules	#相关模块。之后安装 hexo-server 等也会安装在里面
+</code></pre>
+
+<p>Hexo 3.0 把服务器独立成了个别模块，需要手动安装。要确保在 <code>Blog</code> 目录内。</p>
+
+<pre><code class="language-Shell">$ pwd
+/Users/username/Blog
+$ npm install hexo-server --save
+</code></pre>
+
+<p>至此，本地的博客已经搭好了。启动吧！</p>
+
+<pre><code class="language-Shell">$ hexo server	#要在 Blog 目录内，否则命令无效
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.
+</code></pre>
+
+<p>有以上信息反馈说明运行正常。浏览器打开 <a href="http://localhost:4000/">http://localhost:4000/</a> 查看博客。</p>
+
+<p><img src="../../media/blog-getting-started/hexo_first_time.png" alt="" /></p>
+
+<p>之后参考 <a href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a> 自行设置博客。完全可以在本地把博客熟悉、打点好。</p>
+
+<h3 id="3-2-服务端操作">3.2 服务端操作</h3>
+
+<h4 id="3-2-1-nginx-安装和配置">3.2.1 Nginx 安装和配置</h4>
+
+<p>VPS 上装的是 CentOS 7 x64，我采用源码安装的方式。<a href="https://nginx.org/en/">Nginx官网</a> 下载 Tarball 包，参考 <a href="https://www.nginx.com/resources/wiki/?_ga=1.13081269.38781415.1486136808">官方Wiki</a> 基本可以搞定，还需要配置防火墙、开机自启、配置文件等。</p>
+
+<p>通过 SSH 远程 root 登录 VPS</p>
+
+<pre><code class="language-shell">$ ssh root@ip
+</code></pre>
+
+<p>下载 Nginx 源码，开始安装</p>
+
+<pre><code class="language-shell">$ wget http://nginx.org/download/nginx-x.xx.x.tar.gz
+$ tar -xvf nginx-x.xx.x.tar.gz
+$ cd nginx-x.xx.x
+$ ./configure
+$ make
+$ make install
+</code></pre>
+
+<p>Nginx 默认安装在 <code>／usr/local/nginx</code> 目录，<code>bin</code> 文件是 <code>/usr/local/nginx/sbin/nginx</code>，并不在系统环境变量里，添加一个链接：</p>
+
+<pre><code class="language-Shell">$ ln -s /usr/local/nginx/sbin/nginx /usr/sbin/nginx
+</code></pre>
+
+<p>直接输入命令 <code>nginx</code> 启动</p>
+
+<pre><code class="language-shell">$ nginx
+$ ps -A | grep nginx
+xxxx ?        00:00:00 nginx
+xxxy ?        00:00:00 nginx
+</code></pre>
+
+<p>然后在本地浏览器输入 VPS 的 ip 访问看看，如果出现 &ldquo;Welcome to Nginx!&rdquo; 页面，说明成功了。一般来说是不行的，因为有防火墙。要在防火墙中设置允许 <code>http</code> 外网才能访问。</p>
+
+<p>CentOS 7 中采用了 <code>firewalld</code> 代替原来的 <code>iptables</code> 作为系统防火墙。允许 <code>http</code> 和 <code>https</code>：</p>
+
+<pre><code class="language-Shell">$ firewall-cmd --permanent --zone=public --add-service=http
+$ firewall-cmd --permanent --zone=public --add-service=https
+$ firewall-cmd --reload
+</code></pre>
+
+<p>设置开机启动。CentOS 7 用了 <code>systemd</code>，因此做一个服务更为方便。参考 Wiki <a href="https://www.nginx.com/resources/wiki/start/topics/examples/systemd/">NGINX systemd service file</a>。写一个 <code>nginx.service</code> 文件放到 <code>/lib/systemd/system/</code> 下，内容要做适当修改，尤其是目录路径。修改后如下</p>
+
+<pre><code>[Unit]
+Description=The NGINX HTTP and reverse proxy server
+After=syslog.target network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/usr/local/nginx/logs/nginx.pid
+ExecStartPre=/usr/local/nginx/sbin/nginx -t
+ExecStart=/usr/local/nginx/sbin/nginx
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+
+<p>然后设置 Nginx 开机启动很方便了</p>
+
+<pre><code class="language-shell">$ systemctl enable nginx.service
+</code></pre>
+
+<p>列一下一些基本命令用法，更详细的内容就要深入了解下 <code>systemd</code></p>
+
+<pre><code class="language-shell">systemctl enable nginx.service #开机运行nginx
+systemctl disable nginx.service #取消开机运行nginx
+systemctl start nginx.service #启动nginx
+systemctl stop nginx.service #停止nginx
+systemctl restart nginx.service #重启nginx
+systemctl reload nginx.service #重新加载nginx配置文件
+systemctl status nginx.service #查询nginx运行状态
+</code></pre>
+
+<h4 id="3-2-2-git-安装和配置">3.2.2 Git 安装和配置</h4>
+
+<p>CentOS自带，省的安装了。这一节是写创建专门的 user 来进行操作，以及配置服务端与本地电脑的 SSH 免密链接。需要注意的点是<strong>权限</strong>。</p>
+
+<p>创建名叫 git 的用户</p>
+
+<pre><code class="language-shell">$ useradd git
+</code></pre>
+
+<p>给予 <code>sudo</code> 权限</p>
+
+<pre><code class="language-shell">$ chmod 740 /etc/sudoers
+$ vi /etc/sudoers
+...
+找到这个内容，并加上一行
+## Allow root to run any commands anywhere
+root    ALL=(ALL)     ALL
+git		ALL=(ALL)	  ALL	#手动加的一行
+
+$ chmod 400 /etc/sudoers
+</code></pre>
+
+<p>设置 git 用户的密码</p>
+
+<pre><code class="language-shell">$ passwd git
+</code></pre>
+
+<p>接下去配置 SSH 免密登录，才能实现 Hexo 自动部署。把本地电脑的 SSH 公钥加入到服务器里。<code>ls -a</code> 看看本地电脑用户目录下有没有 <code>.ssh</code> 这个隐藏目录，没有的话生成一对私钥和公钥。参考了 <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001374385852170d9c7adf13c30429b9660d0eb689dd43a000">廖雪峰的Git教程之远程仓库</a></p>
+
+<pre><code class="language-Shell">$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;
+</code></pre>
+
+<p>本地用户目录下的 <code>.ssh</code> 目录里有</p>
+
+<pre><code>.
+├── id_rsa	#私钥
+├── id_rsa.pub	#公钥
+└── known_hosts	#记录的是远程主机的公钥
+</code></pre>
+
+<p>然后就是要把公钥给 VPS 上的 git 用户，且是放在 <code>/home/git/.ssh/authrized_keys</code> 文件里面。有两种方法。</p>
+
+<p>第一种非常方便，本地电脑 Terminal 输入以下命令即可</p>
+
+<pre><code>$ ssh-copy-id git@ip
+</code></pre>
+
+<p>第二种就是手动复制，要注意权限。先复制 <code>id_rsa.pub</code> 里的内容</p>
+
+<pre><code class="language-Shell">$ cat ~/.ssh/id_rsa.pub
+</code></pre>
+
+<p>登录 VPS，切换到 git 用户</p>
+
+<pre><code class="language-Shell">$ su git
+$ mkdir /home/git/.ssh
+$ touch /home/git/.ssh/authorized_keys
+</code></pre>
+
+<p>然后用 vi 或 vim 把公钥复制进去。<strong>设置权限</strong>：</p>
+
+<pre><code class="language-Shell">$ chmod 700 /home/git/.ssh
+$ chmod 600 /home/git/.ssh/authorized_keys
+</code></pre>
+
+<p>完成后在本地电脑测试下看看是否能免密登录</p>
+
+<pre><code class="language-Shell">$ ssh git@ip
+</code></pre>
+
+<h3 id="3-3-部署网站">3.3 部署网站</h3>
+
+<h4 id="3-3-1-网站根目录配置">3.3.1 网站根目录配置</h4>
+
+<p>决定好要把网站放在那里。一般放置在 <code>/var/www/</code> 下，我取名为 <code>blog</code>，<code>cd</code> 到里面，此时路径为</p>
+
+<pre><code class="language-Shell">$ pwd
+/var/www/blog
+</code></pre>
+
+<p>一定要注意用户权限。为了之后 git hooks 能成功自动部署以及网站能被访问，需要修改目录用户和群组为 git，</p>
+
+<pre><code class="language-Shell">$ chown git:git /var/www/blog
+</code></pre>
+
+<p>other 要有访问权限，确保 <code>www</code> 和 <code>blog</code> 目录的 other 组权限为 <code>r-x</code>。</p>
+
+<p>都配置好之后如下</p>
+
+<pre><code class="language-Shell">$ ls -ld /var/www /var/www/blog
+drwxr-xr-x  x root root 4096 Feb  x xx:xx www
+drwxr-xr-x xx git  git  4096 Feb  x xx:xx www/blog
+</code></pre>
+
+<p>设置 Nginx 把该目录作为网站根目录。找到其配置文件 <code>nginx.conf</code>，路径为</p>
+
+<pre><code class="language-Shell">$ find / -name nginx.conf
+/usr/local/nginx/conf/nginx.conf
+</code></pre>
+
+<p>用 vi 编辑。默认是把 <code>/usr/local/nginx/html</code> 作为网站根目录的， <code>cd</code> 到里面就发现 <code>Welcome to nginx!</code> 的 <code>index.html</code> 文件啦。所以改配置文件只需要替换路径就可以了</p>
+
+<pre><code>http {
+	...
+    server {
+        listen       80;
+        server_name  localhost;
+		...
+        location / {
+            root   html;	#把 html 改成 /var/www/blog
+            index  index.html index.htm;
+        }
+	...
+</code></pre>
+
+<p>其他 404、50x 页面的地址可以不用改，暂时先用 Nginx 默认的。</p>
+
+<h4 id="3-3-2-git-hooks-配置">3.3.2 Git hooks 配置</h4>
+
+<p>首先要创建 Git 裸仓库。Git 裸仓库可以放置在 git 用户的用户目录里，并取名为 <code>blog.git</code>。<code>cd</code> 到仓库里，因此，我的路径为</p>
+
+<pre><code class="language-Shell">$ pwd
+/home/git/blog.git
+</code></pre>
+
+<p>配置下 git hooks 触发条件。<code>/home/git/hooks</code> 里面有很多样例。要用到的是 <code>post-receive</code>，没有的话新建一个，然后编辑其内容为</p>
+
+<pre><code class="language-shell">#!/bin/sh
+git --work-tree=/var/www/blog --git-dir=/home/git/blog.git checkout -f	#设置目录
+</code></pre>
+
+<p>加上可执行权限</p>
+
+<pre><code class="language-Shell">$ chmod +x /home/git/blog.git/hooks/post-receive
+</code></pre>
+
+<h4 id="3-3-3-本地-hexo-部署配置">3.3.3 本地 Hexo 部署配置</h4>
+
+<p>Hexo 集成了 Git 部署功能，所以设置起来很简单，参考 <a href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a>。</p>
+
+<p>编辑下配置文件 <code>_config.yml</code>，注意缩进。</p>
+
+<pre><code class="language-yaml"># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@ip:/home/git/blog.git	#远程仓库的地址
+</code></pre>
+
+<p>然后测试下能否被 push 并自动部署</p>
+
+<pre><code class="language-Shell">$ pwd
+/Users/username/Blog
+$ hexo clean	#清除旧文件
+$ hexo generate	#渲染
+$ hexo deploy	#push到远程仓库。push后git hooks会自动触发执行
+</code></pre>
+
+<p>一切顺利，赶紧打开浏览器，输入 VPS 的 ip 看看：&rdquo;Hello, World!&rdquo;</p>
+
+<h4 id="3-3-4-基本博客操作">3.3.4 基本博客操作</h4>
+
+<p>写一篇post需要以下步骤：</p>
+
+<ul>
+<li><pre><code class="language-Shell">$ hexo new &quot;post_title&quot;   #根据scaffolds里的模板，在source/_posts生成新文章post_title.md
+</code></pre></li>
+
+<li><p>用Markdown编辑器编辑写作</p></li>
+
+<li><pre><code class="language-shell">$ hexo clean
+$ hexo generate
+$ hexo deploy
+#可以整合为以下命令
+$ hexo clean;hexo g -d
+</code></pre></li>
+</ul>
+
+<h2 id="4-参考资料">4. 参考资料</h2>
+
+<ol>
+<li><a href="https://segmentfault.com/a/1190000005723321">阿里云VPS搭建自己的的Hexo博客@WensonSmith - segmentfault</a></li>
+<li><a href="http://www.jianshu.com/p/605c3d32cab9">在搬瓦工 VPS 上搭建 Hexo@骑摩托的托马斯 - 简书</a></li>
+<li><a href="https://my.oschina.net/letao/blog/701857">在 centos 7 中编译安装 nginx</a></li>
+<li><a href="https://mos.meituan.com/library/18/how-to-install-lnmp-on-centos7/">在CentOS 7上搭建LNMP环境@Chris - 美团云知识库</a></li>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程@廖雪峰 - 廖雪峰的官方网站</a></li>
+</ol>
+        </div>
+
+        <footer class="post-footer">
+        <ul class="post-tags">
+            <li>
+                <a href="../../tags/vps">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>vps</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/blog">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/git">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>git</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/hexo">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>hexo</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../tags/nginx">
+                    <i class="icon icon-hash"><svg><use xlink:href="/icons.svg#icon-hash"></use></svg></i>
+                    <span>nginx</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="post-copyright">
+            <p class="copyright-item">
+                <span class="item-title">Author:</span>
+                <span class="item-content">xinhangliu</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Lastmod:</span>
+                <span class="item-content">2018-02-05 10:38:32</span>
+            </p>
+            <p class="copyright-item">
+                <span class="item-title">Copyright:</span>
+                <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+            </p>
+        </div>
+        <div class="post-nav">
+            <span class="clearfix"></span>
+            <a class="post-next" href="../google-search-getting-searted/index.html">
+                <span>关于使用 Google Search</span>
+                <i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>
+            </a>
+        </div>
+        </footer>
+    </article>
+
+<section id="isso-thread"></section>
+            </div>
+        </main>
+        <footer id="footer" class="footer"><div class="footer-wrapper">
+    <div class="site-tools">
+    <span class="site-generator">Powered by<a href="https://gohugo.io" target="_blank">Hugo</a></span>
+    <span class="site-theme">Theme<a href="index.html#" target="_blank">Ink</a></span>
+    <span class="site-searcher">Search<a href="https://www.algolia.com/" target="_blank">Algolia</a></span>
+    <span class="site-comment">Comment<a href="https://github.com/posativ/isso" target="_blank">ISSO</a></span>
+    </div>
+    <div class="site-count">
+        
+        <span id="busuanzi_container_site_pv">PV <span id="busuanzi_value_site_pv"></span></span>
+        
+        
+        <span id="busuanzi_container_site_uv">UV <span id="busuanzi_value_site_uv"></span></span>
+        
+    </div>
+    
+
+    <div class="site-copyright">
+        <span class="site-since">&copy; 2017 - 2018</span>
+        <i class="icon icon-heart spacer"><svg><use xlink:href="/icons.svg#icon-heart"></use></svg></i>
+        <span class="site-author">xinhangliu</span>
+    </div>
+</div>
+
+        </footer>
+        <div id="back-to-top"><i class="icon icon-chevrons-up"><svg><use xlink:href="/icons.svg#icon-chevrons-up"></use></svg></i></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript" src="../../lib/highlight/highlight.pack.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.2.5/dist/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="../../js/ink.js"></script>
+
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.5.1/dist/instantsearch.min.js"></script>
+    <script type="text/javascript" src="../../lib/algolia/app.js"></script>
+
+
+
+<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script data-isso="/isso"data-isso-css="false"data-isso-lang="en"data-isso-reply-to-self="false"data-isso-require-author="false"data-isso-require-email="true"data-isso-max-comments-top="10"data-isso-max-comments-nested="5"data-isso-reveal-on-click="5"data-isso-avatar="true"data-isso-vote="false"src="http://stonebythesea.org/isso/js/embed.min.js"></script>
+
+</body>
+</html>

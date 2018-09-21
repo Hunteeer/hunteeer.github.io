@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google on 海边的石头</title>
+    <link>http://stonebythesea.org/tags/google/</link>
+    <description>Recent content in Google on 海边的石头</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Mar 2017 10:24:11 +0800</lastBuildDate>
+    
+	<atom:link href="http://stonebythesea.org/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用本地 Google Fonts</title>
+      <link>http://stonebythesea.org/posts/usinglocal-google-fonts/</link>
+      <pubDate>Sun, 05 Mar 2017 10:24:11 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/usinglocal-google-fonts/</guid>
+      <description>&lt;p&gt;我的博客国内访问速度特别慢，今天仔细找了下原因，发现原来是主题使用了 Google Fonts。这已经是一个很普遍的老问题了，作为新人，我被这个小问题磨了好久啊，一度怀疑是不是服务器的问题。最终我将使用到的 Google Fonts 下载到服务器上从而解决了这个问题。在发现、分析、解决问题的过程中，接触到很多新的东西，所以我觉得有必要记录下来。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>关于使用 Google Search</title>
+      <link>http://stonebythesea.org/posts/google-search-getting-searted/</link>
+      <pubDate>Fri, 10 Feb 2017 22:01:23 +0800</pubDate>
+      
+      <guid>http://stonebythesea.org/posts/google-search-getting-searted/</guid>
+      <description>使用Google搜索已经有一段时间了，总结记录一些使用方法和技巧。 1. 开始使用 开始使用之前，可以针对自己的使用习惯进行简单设置。 语言 语言设置有</description>
+    </item>
+    
+  </channel>
+</rss>

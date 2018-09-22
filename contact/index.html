@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="zh-cn">
 
 <head><meta charset="utf-8">
@@ -80,17 +79,13 @@ if (!doNotTrack) {
 </head>
 
 
-
 <body class="page-template-default page ct-body singular singular-page not-front standard">
   
-
-  <div id="overflow-container" class="overflow-container">
-
-    <a class="skip-content" href="#main">Skip to content</a>
-
-    <header id="site-header" class="site-header" role="banner">
-      <div class='top-navigation'>
-        <div class='container'>
+    <div id="overflow-container" class="overflow-container">
+        <a class="skip-content" href="#main">Skip to content</a>
+        <header id="site-header" class="site-header" role="banner">
+            <div class='top-navigation'>
+                <div class='container'>
 
   <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
     <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fa fa-plus"></i></button>
@@ -110,18 +105,20 @@ if (!doNotTrack) {
   <ul class="social-media-icons">
   
   <a>
-    <div class="search-box">
+    <ul class="search-box">
+      
       <li>
-        <input id="search-input" placeholder="Search ..." autocapitalize="on" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
-      </li>
-      <li>
-        <i id="search-icon" class="icon icon-search"><svg><use xlink:href="/icons.svg#icon-search"></use></svg></i>
+        <i id="search-icon" class="fa fa-search"></i>
       </li>
 
       <li>
-        <i id="search-reset" class="icon icon-x hidden"><svg><use xlink:href="/icons.svg#icon-x"></use></svg></i>
+        <input id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text" >
       </li>
-    </div>
+
+      <li>
+        <i id="search-reset" class="fa fa-remove"></i>
+      </li>
+    </ul>
   </a>
   
 
@@ -161,9 +158,9 @@ if (!doNotTrack) {
   </ul>
 </div>
 
-      </div>
-      <div class="container">
-        <div id="title-info" class="title-info">
+            </div>
+            <div class="container">
+                <div id="title-info" class="title-info">
   <div id='site-title' class='site-title'>
     
     <a href="/"> 一苇间 </a>
@@ -198,12 +195,16 @@ if (!doNotTrack) {
 
   </div>
 
-      </div>
-    </header>
-
-
-
-      
+            </div>
+        </header>
+        <div id="search-results" class="search-results">
+            <header>
+                <div id="search-stats"></div>
+                <div id="search-pagination"></div>
+            </header>
+            <main id="search-hits"></main>
+        </div>
+        
   <div id="main" class="main" role="main">
 
 
@@ -259,7 +260,6 @@ if (!doNotTrack) {
     </div>
     
     </div>
-
     <footer id="site-footer" class="site-footer" role="contentinfo">
 	<h1>
     
@@ -331,12 +331,13 @@ if (!doNotTrack) {
     
 </footer>
 
-  </div>
-  <script src="https://hunteeer.github.io/js/jquery.min.js"></script>
+    </div>
+    <script src="https://hunteeer.github.io/js/jquery.min.js"></script>
 <script src="https://hunteeer.github.io/js/jquerymigrate.js"></script>
 <script src="https://hunteeer.github.io/js/production.min.js"></script>
 <script src="https://hunteeer.github.io/js/app.js"></script>
 <script src="https://hunteeer.github.io/js/ink.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2"></script>
 </body>
+
 </html>

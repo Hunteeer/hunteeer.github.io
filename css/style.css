@@ -1677,17 +1677,17 @@ li.pingback:first-child {
   padding-bottom: 0;
 }
 
-.search .search-box {
+.search {
   padding: 1.5em;
   margin-bottom: 1.5em;
   background: white;
   text-align: center;
   clear: both;
 }
-.search .search-box .search-form-container {
+.search .search-form-container {
   margin-bottom: 1.5em;
 }
-.search .search-box.bottom {
+.search {
   margin-top: 1.5em;
 }
 

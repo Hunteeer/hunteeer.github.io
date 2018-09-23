@@ -1,9 +1,10 @@
 let search = instantsearch({
     // Replace with your own values
     appId: '1L1I8ZEYGB',
-    apiKey: '2422808fe4e37003bd73b4a94f520b56', // search only API key, no ADMIN key
+    apiKey: '7e6d7a46f2268d48331744557465374e', // search only API key, no ADMIN key
     indexName: 'reed_blog',
-    // urlSync: true,
+    urlSync: true,
+    routing: true,
     searchParameters: {
         hitsPerPage: 5
     },
@@ -45,8 +46,8 @@ search.addWidget(
         showFirstLast: false,
         autoHideContainer: true,
         labels: {
-            previous: '<i class="icon icon-chevron-left"><svg><use xlink:href="/icons.svg#icon-chevron-left"></use></svg></i>',
-            next: '<i class="icon icon-chevron-right"><svg><use xlink:href="/icons.svg#icon-chevron-right"></use></svg></i>'
+            previous: '<i class="fa fa-chevron-left"></i>',
+            next: '<i class="fa fa-chevron-right"></i>'
         }
     })
 );

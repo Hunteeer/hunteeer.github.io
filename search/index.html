@@ -14,7 +14,7 @@
         "articleSection" : "",
         "name" : "search in blog",
         "headline" : "search in blog",
-        "description" : "var search = instantsearch({ appId: '1L1I8ZEYGB', apiKey: '7e6d7a46f2268d48331744557465374e', // search only API key, no ADMIN key indexName: 'reed_blog', urlSync: true }); // 検索ボックスをDOMに設定 search.addWidget( instantsearch.widgets.searchBox({ container: '#search-box', placeholder: '記事を検索', poweredBy: true }) ); // 検索結果をDOMに設定 // 結果にはを",
+        "description" : "const instantsearch = require('instantsearch.js'); const search = instantsearch({ appId: '1L1I8ZEYGB', apiKey: '7e6d7a46f2268d48331744557465374e', // search only API key, no ADMIN key indexName: 'reed_blog', urlSync: true }); // 検索ボックスをDOMに設定 search.addWidget( instantsearch.widgets.searchBox({ container: '#search-box', placeholder: '記事を検索', poweredBy: true }) ); // 検索結果をDOMに設定 // 結",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -25,7 +25,7 @@
         "datePublished": "0001-01-01 00:00:00 &#43;0000 UTC",
         "dateModified" : "0001-01-01 00:00:00 &#43;0000 UTC",
         "url" : "https://hunteeer.github.io/search/",
-        "wordCount" : "138",
+        "wordCount" : "142",
         "image" : https://hunteeer.github.io/%!s(&lt;nil&gt;)",
         "keywords" : [ "Blog" ]   
     }
@@ -221,14 +221,10 @@ if (!doNotTrack) {
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p><form target="_blank" action="http://zhannei.baidu.com/cse/site">
-<input type="text" name="q" size="30">
-<input type="submit" value="搜索">
-<input type="hidden" name="cc" value="https%3A%2F%2Fhunteeer.github.io">
-</form>
-<div id="search-box">
+              <div id="search-box">
     <!-- 検索ボックス用の空DOM -->
-</div></p>
+</div>
+ 
 
 <ul id="hits">
     <!-- 検索結果用のDOM、各結果をliで置くためulにしている -->
@@ -241,7 +237,8 @@ if (!doNotTrack) {
  
 
 <script>
-var search = instantsearch({
+const instantsearch = require('instantsearch.js');
+const search = instantsearch({
     appId: '1L1I8ZEYGB',
     apiKey: '7e6d7a46f2268d48331744557465374e', // search only API key, no ADMIN key
     indexName: 'reed_blog',

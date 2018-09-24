@@ -39,11 +39,14 @@
 <meta name="description" content="个人技术博客。" />
 
 
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2/dist/instantsearch-theme-algolia.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
 <link rel="stylesheet" href="https://hunteeer.github.io/css/font-awesome.min.css" type='text/css' media='all'>
+
 
 <link href="https://hunteeer.github.io/css/style.css" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
 
@@ -94,23 +97,12 @@ if (!doNotTrack) {
     </div>
     <ul class="social-media-icons">
         
-            <li>
-                <a>
-                
-                    <i id="search-icon" class="fa fa-search"></i>
-                
-            </a>
-            </li>
-            <li>
-                <a>
-                    <searchinput id="search-input" placeholder="Search ..." autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" value="" class="search-input" type="text">
-                </a>
-            </li>
-            <li>
-                <a>
-                    <i id="search-reset" class="fa fa-remove hidden"></i>
-            </a>
-            </li>
+        <li>
+            <a href="/search/index.html">
+                <i class="fa fa-search"></i>
+                <span class="screen-reader-text">search</span>
+             </a>
+        </li>
              
         <li>
             <a href="mailto:reedincn@outlook.com" data-animate-hover="pulse" class="email">
@@ -315,6 +307,5 @@ if (!doNotTrack) {
 <script src="https://hunteeer.github.io/js/jquerymigrate.js"></script>
 <script src="https://hunteeer.github.io/js/production.min.js"></script>
 <script src="https://hunteeer.github.io/js/app.js"></script>
-<script src="https://hunteeer.github.io/js/ink.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2"></script>
   </body>

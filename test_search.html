@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Aravindh.net - wiki </title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.42.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<!-- <link href="/css/fonts.css" rel="stylesheet" /> -->
+      <div id="search-box"><!-- SearchBox widget will appear here --></div>
+      <!-- include algolia logo -->
+      <img src="https://www.algolia.com/static_assets/images/pricing/pricing_new/algolia-powered-by-14773f38.svg"></img>
+
+      <div id="hits" class="my-4">
+      <!-- Hits widget will appear here -->
+      </div>
+
+      <div id="pagination">
+      <!-- Pagination widget will appear here -->
+      </div>
+
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1/dist/instantsearch.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1/dist/instantsearch-theme-algolia.min.css">
+      <style>
+        mark {
+          padding: 0;
+        }
+      </style>
+      <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1"></script>
+      <script>
+        // initialize instantsearch
+        const search = instantsearch({
+          appId: '1L1I8ZEYGB',
+          apiKey: '7e6d7a46f2268d48331744557465374e',
+          indexName: 'reed_blog',
+          urlSync: true
+        });
+
+        search.addWidget(
+          instantsearch.widgets.searchBox({
+            container: '#search-box',
+            placeholder: 'Search'
+          })
+        );
+
+        search.addWidget(
+          instantsearch.widgets.hits({
+            container: '#hits',
+            templates: {
+               item: '<div class="hit"><p class="hit-name"><a href="{{{url}}}">{{{_highlightResult.title.value}}}</a><p>{{{_snippetResult.content.value}}}</p></p></div>',
+            empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
+            }
+          })
+        );
+
+        search.start();
+        </script>
+
+
+<body class="ma0 avenir bg-near-white">
+</body>

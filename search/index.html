@@ -14,7 +14,8 @@
         "articleSection" : "",
         "name" : "search in blog",
         "headline" : "search in blog",
-        "description" : "const instantsearch = require('instantsearch.js'); const search = instantsearch({ appId: '1L1I8ZEYGB', apiKey: '7e6d7a46f2268d48331744557465374e', // search only API key, no ADMIN key indexName: 'reed_blog', urlSync: true }); // 検索ボックスをDOMに設定 search.addWidget( instantsearch.widgets.searchBox({ container: '#search-box', placeholder: '記事を検索', poweredBy: true }) ); // 検索結果をDOMに設定 // 結",
+        "description" : "     mark { padding: 0; }    // initialize instantsearch const search = instantsearch({ appId: &lsquo;1L1I8ZEYGB&rsquo;, apiKey: &lsquo;7e6d7a46f2268d48331744557465374e&rsquo;, indexName: &lsquo;reed_blog&rsquo;, urlSync: true });
+ search.addWidget( instantsearch.widgets.searchBox({ container: '#search-box', placeholder: 'Search' }) ); search.addWidget( instantsearch.widgets.hits({ container: '#hits', templates: { empty: 'No results', item: '&lt;em&gt;Hit {{objectID}} {{title}}&lt;/em&gt;: {{{_highlightResult.permalink.value}}}' } }) ); search.start(); &lt;/script&gt;  ",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -25,7 +26,7 @@
         "datePublished": "0001-01-01 00:00:00 &#43;0000 UTC",
         "dateModified" : "0001-01-01 00:00:00 &#43;0000 UTC",
         "url" : "https://hunteeer.github.io/search/",
-        "wordCount" : "142",
+        "wordCount" : "48",
         "image" : https://hunteeer.github.io/%!s(&lt;nil&gt;)",
         "keywords" : [ "Blog" ]   
     }
@@ -39,9 +40,9 @@
 
 <meta name="description" content="个人技术博客。" />
 
-<meta name="baidu-site-verification" content="muAxygpEGO" />
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2/dist/instantsearch.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2/dist/instantsearch-theme-algolia.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1/dist/instantsearch-theme-algolia.min.css">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
@@ -60,6 +61,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2"></script>
 
 
 
@@ -107,7 +109,7 @@ if (!doNotTrack) {
 
     
     <li>
-      <a href="/search/index.html" data-animate-hover="pulse" class="search-in" target="_blank">
+      <a href="/test_search.html" data-animate-hover="pulse" class="search-in" target="_blank">
         <i class="fa fa-search" title="search"></i>
         <span class="screen-reader-text">search</span>
       </a>
@@ -221,62 +223,55 @@ if (!doNotTrack) {
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <div id="search-box">
-    <!-- 検索ボックス用の空DOM -->
-</div>
- 
+              <div id="search-box"><!-- SearchBox widget will appear here --></div>
+      <!-- include algolia logo -->
+      <img src="https://www.algolia.com/static_assets/images/pricing/pricing_new/algolia-powered-by-14773f38.svg"></img>
 
-<ul id="hits">
-    <!-- 検索結果用のDOM、各結果をliで置くためulにしている -->
-</ul>
- 
+<div id="hits" class="my-4">
+      <!-- Hits widget will appear here -->
+</div>
 
 <div id="pagination">
-    <!-- ページネーションがここに -->
-</div>
- 
+      <!-- Pagination widget will appear here -->
+      </div>
 
-<script>
-const instantsearch = require('instantsearch.js');
-const search = instantsearch({
-    appId: '1L1I8ZEYGB',
-    apiKey: '7e6d7a46f2268d48331744557465374e', // search only API key, no ADMIN key
-    indexName: 'reed_blog',
-    urlSync: true
-});
- 
-// 検索ボックスをDOMに設定
-search.addWidget(
-  instantsearch.widgets.searchBox({
-      container: '#search-box',
-      placeholder: '記事を検索',
-      poweredBy: true
-  })
-);
- 
-// 検索結果をDOMに設定
-// 結果には<li>を使うように
-search.addWidget(
-  instantsearch.widgets.hits({
-      container: '#hits',
-      templates: {
-      empty: '見つかりませんでした。',
-        item: '<li><code>{{ dateString }}</code> <a href="{{permalink}}">{{ title }}</a></li>'
-      }
-  })
-);
- 
-// 検索結果をページネーションするための設定
-search.addWidget(
-  instantsearch.widgets.pagination({
-      container: '#pagination',
-      maxPages: 20,
-      scrollTo: false
-  })
-);
- 
-search.start();
-</script>
+<p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1/dist/instantsearch.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1/dist/instantsearch-theme-algolia.min.css">
+      <style>
+        mark {
+          padding: 0;
+        }
+      </style>
+      <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1"></script>
+      <script>
+        // initialize instantsearch
+        const search = instantsearch({
+          appId: &lsquo;1L1I8ZEYGB&rsquo;,
+          apiKey: &lsquo;7e6d7a46f2268d48331744557465374e&rsquo;,
+          indexName: &lsquo;reed_blog&rsquo;,
+          urlSync: true
+        });</p>
+
+<pre><code>    search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '#search-box',
+        placeholder: 'Search'
+      })
+    );
+
+    search.addWidget(
+      instantsearch.widgets.hits({
+        container: '#hits',
+        templates: {
+          empty: 'No results',
+          item: '&lt;em&gt;Hit {{objectID}} {{title}}&lt;/em&gt;: {{{_highlightResult.permalink.value}}}'
+        }
+      })
+    );
+
+    search.start();
+    &lt;/script&gt;
+</code></pre>
 
             </article>
           </div>
@@ -402,7 +397,7 @@ search.start();
     <script src="https://hunteeer.github.io/js/jquery.min.js"></script>
 <script src="https://hunteeer.github.io/js/jquerymigrate.js"></script>
 <script src="https://hunteeer.github.io/js/production.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1"></script>
 </body>
 
 </html>

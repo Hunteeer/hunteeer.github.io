@@ -4,7 +4,6 @@ let search = instantsearch({
     apiKey: '7e6d7a46f2268d48331744557465374e', // search only API key, no ADMIN key
     indexName: 'reed_blog',
     urlSync: true,
-    routing: true,
     searchParameters: {
         hitsPerPage: 5
     },
@@ -22,7 +21,7 @@ let search = instantsearch({
 
 search.addWidget(
     instantsearch.widgets.searchBox({
-        container: $('#search-input').get(0),
+        container: '#search-box',
         wrapInput: false,
         autofocus: false,
         magnifier: false,
@@ -52,10 +51,5 @@ search.addWidget(
     })
 );
 
-search.addWidget(
-    instantsearch.widgets.stats({
-        container: '#search-stats'
-    })
-);
 
 search.start();

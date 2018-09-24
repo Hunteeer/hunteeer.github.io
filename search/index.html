@@ -14,7 +14,7 @@
         "articleSection" : "",
         "name" : "search in blog",
         "headline" : "search in blog",
-        "description" : "",
+        "description" : "var search = instantsearch({ appId: '1L1I8ZEYGB', apiKey: '7e6d7a46f2268d48331744557465374e', // search only API key, no ADMIN key indexName: 'reed_blog', urlSync: true }); // 検索ボックスをDOMに設定 search.addWidget( instantsearch.widgets.searchBox({ container: '#search-box', placeholder: '記事を検索', poweredBy: true }) ); // 検索結果をDOMに設定 // 結果にはを",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -25,7 +25,7 @@
         "datePublished": "0001-01-01 00:00:00 &#43;0000 UTC",
         "dateModified" : "0001-01-01 00:00:00 &#43;0000 UTC",
         "url" : "https://hunteeer.github.io/search/",
-        "wordCount" : "0",
+        "wordCount" : "138",
         "image" : https://hunteeer.github.io/%!s(&lt;nil&gt;)",
         "keywords" : [ "Blog" ]   
     }
@@ -226,14 +226,56 @@ if (!doNotTrack) {
 </div>
  
 
-<ul id="search-hits">
+<ul id="hits">
     <!-- 検索結果用のDOM、各結果をliで置くためulにしている -->
 </ul>
  
 
-<div id="search-pagination">
+<div id="pagination">
     <!-- ページネーションがここに -->
 </div>
+ 
+
+<script>
+var search = instantsearch({
+    appId: '1L1I8ZEYGB',
+    apiKey: '7e6d7a46f2268d48331744557465374e', // search only API key, no ADMIN key
+    indexName: 'reed_blog',
+    urlSync: true
+});
+ 
+// 検索ボックスをDOMに設定
+search.addWidget(
+  instantsearch.widgets.searchBox({
+      container: '#search-box',
+      placeholder: '記事を検索',
+      poweredBy: true
+  })
+);
+ 
+// 検索結果をDOMに設定
+// 結果には<li>を使うように
+search.addWidget(
+  instantsearch.widgets.hits({
+      container: '#hits',
+      templates: {
+      empty: '見つかりませんでした。',
+        item: '<li><code>{{ dateString }}</code> <a href="{{permalink}}">{{ title }}</a></li>'
+      }
+  })
+);
+ 
+// 検索結果をページネーションするための設定
+search.addWidget(
+  instantsearch.widgets.pagination({
+      container: '#pagination',
+      maxPages: 20,
+      scrollTo: false
+  })
+);
+ 
+search.start();
+</script>
 
             </article>
           </div>
@@ -359,7 +401,6 @@ if (!doNotTrack) {
     <script src="https://hunteeer.github.io/js/jquery.min.js"></script>
 <script src="https://hunteeer.github.io/js/jquerymigrate.js"></script>
 <script src="https://hunteeer.github.io/js/production.min.js"></script>
-<script src="https://hunteeer.github.io/js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2"></script>
 </body>
 

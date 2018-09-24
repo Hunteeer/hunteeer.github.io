@@ -40,7 +40,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hunteeer.github.io/search/</guid>
-      <description></description>
+      <description>var search = instantsearch({ appId: &#39;1L1I8ZEYGB&#39;, apiKey: &#39;7e6d7a46f2268d48331744557465374e&#39;, // search only API key, no ADMIN key indexName: &#39;reed_blog&#39;, urlSync: true }); // 検索ボックスをDOMに設定 search.addWidget( instantsearch.widgets.searchBox({ container: &#39;#search-box&#39;, placeholder: &#39;記事を検索&#39;, poweredBy: true }) ); // 検索結果をDOMに設定 // 結果にはを</description>
     </item>
     
   </channel>

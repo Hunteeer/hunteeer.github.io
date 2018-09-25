@@ -2,7 +2,7 @@
 <html lang="en-us">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>在博客中搜索 </title>
+<title>在博客中搜索</title>
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width,minimum-scale=1">
@@ -12,8 +12,6 @@
 <div id="search-box">
     <!-- SearchBox widget will appear here -->
 </div>
-<!-- include algolia logo -->
-<img src="https://www.algolia.com/static_assets/images/pricing/pricing_new/algolia-powered-by-14773f38.svg"></img>
 <div id="hits">
     <!-- Hits widget will appear here -->
 </div>
@@ -34,23 +32,26 @@ const search = instantsearch({
     appId: '1L1I8ZEYGB',
     apiKey: '7e6d7a46f2268d48331744557465374e',
     indexName: 'reed_blog',
-    urlSync: true,
+    // urlSync: true,
     route: true,
+    /*
     searchFunction: function(helper) {
         const searchResults = document.getElementById('hits');
         if (helper.state.query === '') {
             searchResults.style.display = 'none';
-            return;
+        } else {
+            searchResults.style.display = 'block';
+            helper.search();
         }
-        searchResults.style.display = 'block';
-        helper.search();
     }
+    */
 });
 
 search.addWidget(
     instantsearch.widgets.searchBox({
         container: '#search-box',
-        placeholder: 'Search'
+        placeholder: 'Search',
+        poweredBy: true
     })
 );
 
@@ -58,7 +59,7 @@ search.addWidget(
     instantsearch.widgets.hits({
         container: '#hits',
         templates: {
-            item: '<div class="hit"><p class="hit-name"><a href="{{{permalink}}}"> {{{_highlightResult.title.value}}}</a><p>{{{_snippetResult.content.value}}}</p></p></div>',
+            item: '<div class="hit"><p class="hit-name"><a href="{{permalink}}"> {{{_highlightResult.title.value}}}</a></p><p class="hit-content">{{{_snippetResult.content.value}}}</p></div>',
             empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
         }
     })

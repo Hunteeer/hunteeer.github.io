@@ -5,7 +5,7 @@
     <link>https://hunteeer.github.io/post/</link>
     <description>Recent content in Posts on 一苇间</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>en-us</language>
     <lastBuildDate>Wed, 05 Sep 2018 18:25:22 +0530</lastBuildDate>
     
 	<atom:link href="https://hunteeer.github.io/post/index.xml" rel="self" type="application/rss+xml" />
@@ -17,9 +17,8 @@
       <pubDate>Wed, 05 Sep 2018 18:25:22 +0530</pubDate>
       
       <guid>https://hunteeer.github.io/post/work1/</guid>
-      <description>&lt;p&gt;在这里，我试图探讨手机摄影的优劣势所在。&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;在这里，我试图探讨手机摄影的优劣势所在。
+&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -19,7 +19,7 @@
       <!-- include algolia logo -->
       <img src="https://www.algolia.com/static_assets/images/pricing/pricing_new/algolia-powered-by-14773f38.svg"></img>
 
-      <div id="hits" class="my-4">
+      <div id="hits">
       <!-- Hits widget will appear here -->
       </div>
 
@@ -27,14 +27,14 @@
       <!-- Pagination widget will appear here -->
       </div>
 
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1/dist/instantsearch.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1/dist/instantsearch-theme-algolia.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2/dist/instantsearch.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2/dist/instantsearch-theme-algolia.min.css">
       <style>
         mark {
           padding: 0;
         }
       </style>
-      <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1"></script>
+      <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2"></script>
       <script>
         // initialize instantsearch
         const search = instantsearch({
@@ -55,8 +55,8 @@
           instantsearch.widgets.hits({
             container: '#hits',
             templates: {
-               item: '<div class="hit"><p class="hit-name"><a href="{{{permalink}}}"> {{{_highlightResult.title.value}}}</a> <p>{{{_snippetResult.content.value}}}</p></p></div>',
-            empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
+              item: '<div class="hit"><p class="hit-name"><a href="{{{permalink}}}"> {{{_highlightResult.title.value}}}</a><p>{{{_snippetResult.content.value}}}</p></p></div>',
+              empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
             }
           })
         );

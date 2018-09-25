@@ -5,7 +5,7 @@
     <link>https://hunteeer.github.io/</link>
     <description>Recent content on 一苇间</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Wed, 05 Sep 2018 18:25:22 +0530</lastBuildDate>
     
 	<atom:link href="https://hunteeer.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -32,16 +32,6 @@
 
 &lt;p&gt;记录生活。
 &lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>search in blog</title>
-      <link>https://hunteeer.github.io/search/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hunteeer.github.io/search/</guid>
-      <description>     mark { padding: 0; }    // initialize instantsearch const search = instantsearch({ appId: &amp;lsquo;1L1I8ZEYGB&amp;rsquo;, apiKey: &amp;lsquo;7e6d7a46f2268d48331744557465374e&amp;rsquo;, indexName: &amp;lsquo;reed_blog&amp;rsquo;, urlSync: true });
- search.addWidget( instantsearch.widgets.searchBox({ container: &#39;#search-box&#39;, placeholder: &#39;Search&#39; }) ); search.addWidget( instantsearch.widgets.hits({ container: &#39;#hits&#39;, templates: { empty: &#39;No results&#39;, item: &#39;&amp;lt;em&amp;gt;Hit {{objectID}} {{title}}&amp;lt;/em&amp;gt;: {{{_highlightResult.permalink.value}}}&#39; } }) ); search.start(); &amp;lt;/script&amp;gt;  </description>
     </item>
     
   </channel>

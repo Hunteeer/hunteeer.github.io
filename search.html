@@ -33,7 +33,7 @@ const search = instantsearch({
     apiKey: '7e6d7a46f2268d48331744557465374e',
     indexName: 'reed_blog',
     // urlSync: true,
-    route: true,
+    // route: true,
     /*
     searchFunction: function(helper) {
         const searchResults = document.getElementById('hits');
@@ -59,7 +59,7 @@ search.addWidget(
     instantsearch.widgets.hits({
         container: '#hits',
         templates: {
-            item: '<div class="hit"><p class="hit-name"><a href="{{permalink}}"> {{{_highlightResult.title.value}}}</a></p><p class="hit-content">{{{_snippetResult.content.value}}}</p></div>',
+            item: '<div class="hit"><p class="hit-name"><a href="{{{permalink}}}"> {{{_highlightResult.title.value}}}</a></p><p class="hit-content">{{{_snippetResult.content.value}}}</p></div>',
             empty: "We didn't find any results for the search <em>\"{{query}}\"</em>"
         }
     })

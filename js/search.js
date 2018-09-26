@@ -15,7 +15,6 @@ const search = instantsearch({
             searchResults.style.display = 'block';
             helper.search();
         }
-
     }
 
 });

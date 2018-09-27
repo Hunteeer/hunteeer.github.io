@@ -20,22 +20,6 @@ Tracks is distributed under the terms of the GNU GPL
 /*===== Variables =====*/
 
 /* Theme Colors */
-#back-to-top {
-    position: fixed;
-    display: none;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 1000
-}
-
-#back-to-top:hover {
-    cursor: pointer
-}
-
-#back-to-top svg {
-    height: 1.5rem;
-    width: 1.5rem
-}
 
 .site-title,
 .toggle-navigation i {
@@ -391,6 +375,9 @@ article img {
 
 
 /* Form styles */
+#search-results {
+    padding: 1em;
+}
 
 input[type="text"],
 input[type="email"],
@@ -400,24 +387,19 @@ input[type="search"],
 input[type="tel"],
 input[type="url"],
 textarea {
-    padding: 0.8em;
     width: 100%;
     max-width: 27.75em;
-    min-height: 45px;
+    height: 35px;
     outline: solid 1px #000;
     border: none;
     font-family: "raleway", sans-serif;
-    font-size: 0.813em;
+    font-size: 1.2em;
     line-height: 1.85;
     border-radius: 0;
     -webkit-appearance: none;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 
-}
-#search-icon:hover {
-    cursor: pointer;
-    color: #1e2022;
 }
 
 textarea {
@@ -455,6 +437,7 @@ input[type="search"] {
     padding-right: 0.375em;
     /* so safari 'x' doesn't get cut off */
 }
+
 
 /* sticky */
 

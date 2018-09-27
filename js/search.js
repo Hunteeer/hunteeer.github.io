@@ -56,16 +56,3 @@ search.addWidget(
     })
 );
 search.start();
-
-function searchBox() {
-    /* Control search box behavior */
-    const input = $('#search-input');
-    const results = $('#search-results');
-
-    $("#search-icon").click(function() {
-        input.toggleClass('focus');
-        input.focus();
-    });
-}
-
-searchBox();

@@ -20,8 +20,21 @@ Tracks is distributed under the terms of the GNU GPL
 /*===== Variables =====*/
 
 /* Theme Colors */
-#search-reset.hidden {
-    display: none !important
+#back-to-top {
+    position: fixed;
+    display: none;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1000
+}
+
+#back-to-top:hover {
+    cursor: pointer
+}
+
+#back-to-top svg {
+    height: 1.5rem;
+    width: 1.5rem
 }
 
 .site-title,
@@ -400,6 +413,11 @@ textarea {
     -webkit-appearance: none;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
+
+}
+#search-icon:hover {
+    cursor: pointer;
+    color: #1e2022;
 }
 
 textarea {
@@ -437,7 +455,6 @@ input[type="search"] {
     padding-right: 0.375em;
     /* so safari 'x' doesn't get cut off */
 }
-
 
 /* sticky */
 
@@ -1986,7 +2003,6 @@ li.pingback:first-child {
     padding: 1.5em;
     margin-bottom: 1.5em;
     background: white;
-    text-align: center;
     clear: both;
 }
 

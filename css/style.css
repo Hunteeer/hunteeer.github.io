@@ -358,7 +358,7 @@ input[type="search"] {
 
 /* sticky */
 .excerpt.sticky .excerpt-container {
-  background: #111;
+  background: white;
 }
 
 /* ie image border fix */

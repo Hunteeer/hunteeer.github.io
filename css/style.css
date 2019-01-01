@@ -42,7 +42,7 @@ Tracks is distributed under the terms of the GNU GPL
 .entry-tags, .author-meta .author span, .comments-number h2, .comment-author .author-name, .site-footer h1, .design-credit, .widget-title, .widget li, .menu-footer-items a, .menu-secondary-items a {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 /* Social Media Brand Colors */
@@ -126,13 +126,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.625em;
+  font-size: 2.1em;
   /* 42px / 16px */
   line-height: 1.143;
 }
 
 h2 {
-  font-size: 2.25em;
+  font-size: 1.875em;
   /* 36px / 16px */
   line-height: 1.34;
 }
@@ -832,7 +832,7 @@ a img {
 
 .excerpt-title, .entry-title {
   letter-spacing: 0.04em;
-  font-size: 1.313em;
+  font-size: 2.1em;
   /* 21px / 16px */
   line-height: 1.143;
 }
@@ -941,7 +941,7 @@ a img {
   }
 
   .excerpt-title, .entry-title {
-    font-size: 1.875em;
+    font-size: 2.1em;
     /* 30px */
     line-height: 1.6;
   }

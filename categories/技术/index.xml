@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>技术 on 一苇间</title>
-    <link>https://hunteeer.coding.me/categories/%E6%8A%80%E6%9C%AF/</link>
+    <link>https://hunteeer.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
     <description>Recent content in 技术 on 一苇间</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 26 Dec 2018 09:37:46 +0800</lastBuildDate>
     
-	<atom:link href="https://hunteeer.coding.me/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hunteeer.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>RTL-SDR教程：如何利用SDR#和DSD&#43;解码数字对讲机</title>
-      <link>https://hunteeer.coding.me/post/rtl-sdr-tutorial-decode-digital-voice/</link>
+      <link>https://hunteeer.github.io/post/rtl-sdr-tutorial-decode-digital-voice/</link>
       <pubDate>Wed, 26 Dec 2018 09:37:46 +0800</pubDate>
       
-      <guid>https://hunteeer.coding.me/post/rtl-sdr-tutorial-decode-digital-voice/</guid>
+      <guid>https://hunteeer.github.io/post/rtl-sdr-tutorial-decode-digital-voice/</guid>
       <description>&lt;p&gt;&lt;center&gt;&lt;strong&gt;假如捡到一个RTL-SDR，我能做些什么？&lt;/strong&gt;&lt;/center&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>新兴非易失性存储技术概述</title>
-      <link>https://hunteeer.coding.me/post/overview-of-emerging-nonvolatile-memory-technologies/</link>
+      <link>https://hunteeer.github.io/post/overview-of-emerging-nonvolatile-memory-technologies/</link>
       <pubDate>Sat, 13 Oct 2018 10:46:03 +0800</pubDate>
       
-      <guid>https://hunteeer.coding.me/post/overview-of-emerging-nonvolatile-memory-technologies/</guid>
+      <guid>https://hunteeer.github.io/post/overview-of-emerging-nonvolatile-memory-technologies/</guid>
       <description>&lt;p&gt;&lt;center&gt;&lt;strong&gt;本文翻译自&lt;a href=&#34;https://www.researchgate.net/profile/Jagan_Meena/&#34;&gt;Jagan Singh Meena&lt;/a&gt;等人撰写的“&lt;a href=&#34;https://www.researchgate.net/publication/265727614_Overview_of_Emerging_Non-volatile_Memory_Technologies/&#34;&gt;Overview of Emerging Non-volatile Memory Technologies&lt;/a&gt;”一文。&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;随缘更新，水平有限。&lt;/strong&gt;&lt;/center&gt;&lt;/p&gt;</description>

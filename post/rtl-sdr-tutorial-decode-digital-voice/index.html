@@ -9,14 +9,14 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": "https:\/\/hunteeer.coding.me\/"
+             "@id": "https:\/\/hunteeer.github.io\/"
         },
         "articleSection" : "post",
         "name" : "RTL-SDR教程：如何利用SDR#和DSD\x2b解码数字对讲机",
         "headline" : "RTL-SDR教程：如何利用SDR#和DSD\x2b解码数字对讲机",
-        "description" : "\x3cp\x3e\x3ccenter\x3e\x3cstrong\x3e假如捡到一个RTL-SDR，我能做些什么？\x3c\/strong\x3e\x3c\/center\x3e\x3c\/p\x3e",
+        "description" : "\x3c!-- raw HTML omitted --\x3e",
         "inLanguage" : "en",
-        "summary" : "\x3cp\x3e\x3ccenter\x3e\x3cstrong\x3e假如捡到一个RTL-SDR，我能做些什么？\x3c\/strong\x3e\x3c\/center\x3e\x3c\/p\x3e",
+        "summary" : "\x3c!-- raw HTML omitted --\x3e",
         "author" : "",
         "creator" : "",
         "publisher": "",
@@ -25,9 +25,9 @@
         "copyrightYear" : "2018",
         "datePublished": "2018-12-26 09:37:46 \x2b0800 CST",
         "dateModified" : "2018-12-26 09:37:46 \x2b0800 CST",
-        "url" : "https:\/\/hunteeer.coding.me\/post\/rtl-sdr-tutorial-decode-digital-voice\/",
-        "wordCount" : "33",
-        "image" : "https://hunteeer.coding.me/img/portfolio/RTL-SDR-1.jpg"",
+        "url" : "https:\/\/hunteeer.github.io\/post\/rtl-sdr-tutorial-decode-digital-voice\/",
+        "wordCount" : "25",
+        "image" : "https://hunteeer.github.io/img/portfolio/RTL-SDR-1.jpg"",
         "keywords" : [ "Blog" ]   
     }
 </script>
@@ -207,104 +207,83 @@ if (!doNotTrack) {
                 <div class="entry-container">
                     <div class="entry-content">
                         <article>
-                            <p><center><strong>假如捡到一个RTL-SDR，我能做些什么？</strong></center></p>
-
-<p></br></p>
-
-<h2 id="center-前期准备-center"><center> 前期准备 </center></h2>
-
-<p></br></p>
-
-<h3 id="1-简单介绍">1. <strong>简单介绍</strong></h3>
-
-<p></br></p>
-
+                            <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="center--center"><!-- raw HTML omitted --> 前期准备 <!-- raw HTML omitted --></h2>
+<!-- raw HTML omitted -->
 <ul>
-<li><p><i class="far fa-question-circle"></i>
-<strong>什么是RTL-SDR？</strong></p></li>
-
-<li><p><i class="far fa-comment"></i>
-<strong>RTL-SDR是一种基于RTL2832U的廉价<a href="https://zh.wikipedia.org/wiki/Rtlsdr">软件无线电</a>。</strong></p></li>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>什么是RTL-SDR？</strong></p>
+</li>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>RTL-SDR是一种基于RTL2832U的廉价<a href="https://zh.wikipedia.org/wiki/Rtlsdr">软件无线电</a>。</strong></p>
+</li>
 </ul>
-
-<p></br></p>
-
+<!-- raw HTML omitted -->
 <ul>
-<li><p><i class="far fa-question-circle"></i>
-<strong>它有什么用处？</strong></p></li>
-
-<li><p><i class="far fa-comment"></i>
-<strong>它可以用来听广播、看飞机……<a href="https://www.rtl-sdr.com">RTL-SDR.COM</a>上有许多资讯以及用例分享。</strong></p></li>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>它有什么用处？</strong></p>
+</li>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>它可以用来听广播、看飞机……<a href="https://www.rtl-sdr.com">RTL-SDR.COM</a>上有许多资讯以及用例分享。</strong></p>
+</li>
 </ul>
-
-<p></br></p>
-
+<!-- raw HTML omitted -->
 <ul>
-<li><p><i class="far fa-question-circle"></i>
-<strong>我们要干什么？</strong></p></li>
-
-<li><p><i class="far fa-comment"></i>
-<strong>我们要用它来接收、解码一些未加密的无线数字对讲机通话。</strong></p></li>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>我们要干什么？</strong></p>
+</li>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>我们要用它来接收、解码一些未加密的无线数字对讲机通话。</strong></p>
+</li>
 </ul>
-
-<p></br></p>
-
-<h3 id="2-物料清单">2. <strong>物料清单</strong></h3>
-
-<p></br></p>
-
+<!-- raw HTML omitted -->
 <ul>
-<li><p><strong>一个RTL-SDR以及配套的连接线、天线，可在网上购买，价格在几十至几百元不等，关键词：rtl-sdr。</strong></p></li>
-
-<li><p><strong>一台Windows10系统的笔记本电脑（当然在其它操作系统下也是可行的，只不过需要更换对应软件）。</strong></p></li>
-
-<li><p><strong>SDR#软件，一款功能强大的SDR支撑软件,下载：<a href="https://airspy.com/download/">https://airspy.com/download</a>。</strong></p></li>
-
-<li><p><strong>VB-CABLE虚拟音频线驱动，下载：<a href="https://www.vb-audio.com/Cable/index.htm/">https://www.vb-audio.com/Cable/index.htm</a>。</strong></p></li>
-
-<li><p><strong>DSD+以及DSD+配套的DLL文件，下载：<a href="https://www.dsdplus.com/download-2/">https://www.dsdplus.com/download-2</a>。</strong></p></li>
+<li>
+<p><strong>一个RTL-SDR以及配套的连接线、天线，可在网上购买，价格在几十至几百元不等，关键词：rtl-sdr。</strong></p>
+</li>
+<li>
+<p><strong>一台Windows10系统的笔记本电脑（当然在其它操作系统下也是可行的，只不过需要更换对应软件）。</strong></p>
+</li>
+<li>
+<p><strong>SDR#软件，一款功能强大的SDR支撑软件,下载：<a href="https://airspy.com/download/"><a href="https://airspy.com/download">https://airspy.com/download</a></a>。</strong></p>
+</li>
+<li>
+<p><strong>VB-CABLE虚拟音频线驱动，下载：<a href="https://www.vb-audio.com/Cable/index.htm/"><a href="https://www.vb-audio.com/Cable/index.htm">https://www.vb-audio.com/Cable/index.htm</a></a>。</strong></p>
+</li>
+<li>
+<p><strong>DSD+以及DSD+配套的DLL文件，下载：<a href="https://www.dsdplus.com/download-2/"><a href="https://www.dsdplus.com/download-2">https://www.dsdplus.com/download-2</a></a>。</strong></p>
+</li>
 </ul>
-
-<div style="text-align:center; text-justify:inter-ideograph;">
-</div>
-
-<p></br></p>
-
-<h3 id="3-安装步骤">3. <strong>安装步骤</strong></h3>
-
-<p></br></p>
-
-<h4 id="步骤一-sdr-的安装"><strong>步骤一：SDR#的安装</strong></h4>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="sdr"><strong>步骤一：SDR#的安装</strong></h4>
 <p>参考文档：</p>
-
 <p><a href="https://oneguyoneblog.com/2016/09/15/sdrsharp-sdr-installing-windows-10">https://oneguyoneblog.com/2016/09/15/sdrsharp-sdr-installing-windows-10</a>
 <a href="https://www.jianshu.com/p/ba180c163986">https://www.jianshu.com/p/ba180c163986</a>
-</br></p>
-
-<h4 id="步骤二-vb-cable的安装"><strong>步骤二：VB-CABLE的安装</strong></h4>
-
+<!-- raw HTML omitted --></p>
+<h4 id="vbcable"><strong>步骤二：VB-CABLE的安装</strong></h4>
 <p>较为简单，按照软件指示操作即可。注意可能需要重启系统。
-</br></p>
-
-<h4 id="步骤三-dsd-的安装"><strong>步骤三：DSD+的安装</strong></h4>
-
+<!-- raw HTML omitted --></p>
+<h4 id="dsd"><strong>步骤三：DSD+的安装</strong></h4>
 <p>参考文档：</p>
-
 <p><a href="http://www.m6mdr.co.uk/how-to-decoding-signals-with-rtl-sdr-sdrsharp-dsd/">http://www.m6mdr.co.uk/how-to-decoding-signals-with-rtl-sdr-sdrsharp-dsd/</a></p>
-
-<p></br></p>
-
-<h2 id="当我看到m6mdr写的文档时-觉得自己没有必要再写了"><strong>当我看到M6MDR写的文档时，觉得自己没有必要再写了……</strong></h2>
-
-<p></br></p>
-
-<h3 id="最后"><strong>最后</strong></h3>
-
+<!-- raw HTML omitted -->
+<h2 id="m6mdr"><strong>当我看到M6MDR写的文档时，觉得自己没有必要再写了……</strong></h2>
+<!-- raw HTML omitted -->
 <ul>
-<li><p><strong>如果你找到一个频道，却没听到对话，反复检查配置都没问题的情况下，再确认一下它是在传语音吗？因为很多时候，这些频道上都只是在空传DATA。</strong></p></li>
-
-<li><p><strong>本人也未搞明白的一个问题：为什么明明看到频道上有很多人在聊，而且都是group call，我却什么都听不到？是不是需要设置多通道什么的？</strong></p></li>
+<li>
+<p><strong>如果你找到一个频道，却没听到对话，反复检查配置都没问题的情况下，再确认一下它是在传语音吗？因为很多时候，这些频道上都只是在空传DATA。</strong></p>
+</li>
+<li>
+<p><strong>本人也未搞明白的一个问题：为什么明明看到频道上有很多人在聊，而且都是group call，我却什么都听不到？是不是需要设置多通道什么的？</strong></p>
+</li>
 </ul>
                         </article>
                     </div>
@@ -387,7 +366,7 @@ if (!doNotTrack) {
     </ul>
     <div class="design-credit">
         
-        <p>&copy; 2018&amp;2019 Reed</p>
+        <p>© 2018&amp;2019 Reed</p>
         
         <p>Nederburg Hugo Theme by <a href="https://appernetic.io">Appernetic</a>.</p>
         

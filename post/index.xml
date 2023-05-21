@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 一苇间</title>
+    <link>https://hunteeer.github.io/post/</link>
+    <description>Recent content in Posts on 一苇间</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Jun 2019 17:03:48 +0800</lastBuildDate><atom:link href="https://hunteeer.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>手机摄影的优劣势分析</title>
+      <link>https://hunteeer.github.io/post/photography-on-mobile-phone/</link>
+      <pubDate>Wed, 05 Sep 2018 18:25:22 +0530</pubDate>
+      
+      <guid>https://hunteeer.github.io/post/photography-on-mobile-phone/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;在这里，我试图探讨手机摄影的优劣势所在。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>硕士三年</title>
+      <link>https://hunteeer.github.io/post/summary-of-graduation/</link>
+      <pubDate>Mon, 24 Jun 2019 17:03:48 +0800</pubDate>
+      
+      <guid>https://hunteeer.github.io/post/summary-of-graduation/</guid>
+      <description>&lt;p&gt;2016.9.1~2019.6.30.&lt;br&gt;
+&lt;strong&gt;剑未佩妥，出门已是江湖。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>RTL-SDR教程：如何利用SDR#和DSD&#43;解码数字对讲机</title>
+      <link>https://hunteeer.github.io/post/rtl-sdr-tutorial-decode-digital-voice/</link>
+      <pubDate>Wed, 26 Dec 2018 09:37:46 +0800</pubDate>
+      
+      <guid>https://hunteeer.github.io/post/rtl-sdr-tutorial-decode-digital-voice/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;假如捡到一个RTL-SDR，我能做些什么？&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>碎片</title>
+      <link>https://hunteeer.github.io/post/pieces/</link>
+      <pubDate>Mon, 01 Oct 2018 17:10:45 +0800</pubDate>
+      
+      <guid>https://hunteeer.github.io/post/pieces/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Pieces of mind.&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

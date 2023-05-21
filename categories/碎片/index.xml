@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>碎片 on 一苇间</title>
+    <link>https://hunteeer.github.io/categories/%E7%A2%8E%E7%89%87/</link>
+    <description>Recent content in 碎片 on 一苇间</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Oct 2018 17:10:45 +0800</lastBuildDate><atom:link href="https://hunteeer.github.io/categories/%E7%A2%8E%E7%89%87/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>碎片</title>
+      <link>https://hunteeer.github.io/post/pieces/</link>
+      <pubDate>Mon, 01 Oct 2018 17:10:45 +0800</pubDate>
+      
+      <guid>https://hunteeer.github.io/post/pieces/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Pieces of mind.&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术 on 一苇间</title>
+    <link>https://hunteeer.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on 一苇间</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Dec 2018 09:37:46 +0800</lastBuildDate><atom:link href="https://hunteeer.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RTL-SDR教程：如何利用SDR#和DSD&#43;解码数字对讲机</title>
+      <link>https://hunteeer.github.io/post/rtl-sdr-tutorial-decode-digital-voice/</link>
+      <pubDate>Wed, 26 Dec 2018 09:37:46 +0800</pubDate>
+      
+      <guid>https://hunteeer.github.io/post/rtl-sdr-tutorial-decode-digital-voice/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;假如捡到一个RTL-SDR，我能做些什么？&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https:\/\/hunteeer.github.io\/"
+        },
+        "articleSection" : "post",
+        "name" : "RTL-SDR教程：如何利用SDR#和DSD\u002b解码数字对讲机",
+        "headline" : "RTL-SDR教程：如何利用SDR#和DSD\u002b解码数字对讲机",
+        "description" : "\u003cp\u003e\u003cstrong\u003e假如捡到一个RTL-SDR，我能做些什么？\u003c\/strong\u003e\u003c\/p\u003e",
+        "inLanguage" : "en",
+        "summary" : "\u003cp\u003e\u003cstrong\u003e假如捡到一个RTL-SDR，我能做些什么？\u003c\/strong\u003e\u003c\/p\u003e",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-12-26 09:37:46 \u002b0800 CST",
+        "dateModified" : "2018-12-26 09:37:46 \u002b0800 CST",
+        "url" : "https:\/\/hunteeer.github.io\/post\/rtl-sdr-tutorial-decode-digital-voice\/",
+        "wordCount" : "26",
+        "image" : "https://hunteeer.github.io/img/portfolio/RTL-SDR-1.jpg"",
+        "keywords" : [ "Blog" ]   
+    }
+</script>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+ 
+<title>RTL-SDR教程：如何利用SDR#和DSD&#43;解码数字对讲机 </title>
+
+
+<meta name="description" content="个人技术博客。" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" type="text/css" media="all">
+<link rel="stylesheet" href="/css/font-awesome.min.css" type='text/css' media='all'>
+
+<link href="/css/style.css" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
+
+<link href="/css/custom.css" rel="stylesheet" type='text/css' media='all'>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-125645162-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+
+<body class="post-template-default single single-post single-format-standard ct-body singular singular-post not-front standard">
+    
+
+<body class="home blog ct-body standard"> 
+    <div id="overflow-container" class="overflow-container">
+        <a class="skip-content" href="#main"></a>
+        <header id="site-header" class="site-header" role="banner">
+            <div class='top-navigation'>
+                <div class='container'>
+    <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+        <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fa fa-plus"></i></button>
+        <div class="menu">
+            <ul id="menu-secondary-items" class="menu-secondary-items">
+                
+                <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                    <a href="/categories/%E6%8A%80%E6%9C%AF">技术</a>
+                </li>
+                
+                <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                    <a href="/categories/%E6%91%84%E5%BD%B1">摄影</a>
+                </li>
+                
+                <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                    <a href="/categories/%E7%94%9F%E6%B4%BB">生活</a>
+                </li>
+                
+                <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                    <a href="/categories/%E7%A2%8E%E7%89%87">碎片</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <ul class="social-media-icons">
+        
+        <li>
+            <a href="/search">
+        <i class="fa fa-search"></i>
+        <span class="screen-reader-text">search</span>
+      </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li>
+            <a href="mailto:reedincn@outlook.com" data-animate-hover="pulse" class="email">
+        <i class="fa fa-envelope" title="email"></i>
+        <span class="screen-reader-text">email</span>
+      </a>
+        </li>
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/Hunteeer" data-animate-hover="pulse" class="github" target="_blank">
+        <i class="fa fa-github" title="github"></i>
+        <span class="screen-reader-text">github</span>
+      </a>
+        </li>
+        
+        
+        
+    </ul>
+</div>
+            </div>
+            <div class="container">
+                <div id="title-info" class="title-info">
+    <div id='site-title' class='site-title'>
+        
+        <a href="/"> 一苇间 </a>
+        
+    </div>
+</div>
+<button id="toggle-navigation" class="toggle-navigation">
+    <i class="fa fa-bars"></i>
+</button>
+<div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+<div id="menu-primary" class="menu-container menu-primary" role="navigation">
+    
+    <p class="site-description">记录想法、过程、结果。记录生活。</p>
+    
+    <div class="menu">
+        <ul id="menu-primary-items" class="menu-primary-items">
+            
+            
+            <li id="menu-item" class='menu-item menu-item-type-custom menu-item-object-custom '>
+                <a href="/">主页</a>
+                
+            </li>
+            
+            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page '>
+                <a href="/about/">关于</a>
+                
+            </li>
+            
+        </ul>
+    </div>
+</div>
+            </div>
+        </header>
+        
+    
+    
+    
+    
+    
+    <div id="loop-container" class="loop-container">
+        
+        <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+            <div class='featured-image lazy lazy-bg-image'  data-background="/img/portfolio/RTL-SDR-1.jpg" >
+            </div>
+            
+                <div class="entry-meta">
+                    <span class="date">26 December</span> <span> / </span>
+                    <span class="author">
+            <a href="/" title="Posts by Reed" rel="author">Reed</a>
+          </span>
+                    
+                    <span class="category">
+            <span> / </span>
+                    <a href="/categories/%e6%8a%80%e6%9c%af">技术</a>
+                    </span>
+                    
+                </div>
+                <div class='entry-header'>
+                    <div class='entry-title'> RTL-SDR教程：如何利用SDR#和DSD&#43;解码数字对讲机</div>
+                </div>
+                <div class="entry-container">
+                    <div class="entry-content">
+                        <article>
+                            <p><strong>假如捡到一个RTL-SDR，我能做些什么？</strong></p>
+<!-- raw HTML omitted -->
+<h2 id="center-前期准备-center"><!-- raw HTML omitted --> 前期准备 <!-- raw HTML omitted --></h2>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>什么是RTL-SDR？</strong></p>
+</li>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>RTL-SDR是一种基于RTL2832U的廉价<a href="https://zh.wikipedia.org/wiki/Rtlsdr">软件无线电</a>。</strong></p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>它有什么用处？</strong></p>
+</li>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>它可以用来听广播、看飞机……<a href="https://www.rtl-sdr.com">RTL-SDR.COM</a>上有许多资讯以及用例分享。</strong></p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>我们要干什么？</strong></p>
+</li>
+<li>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<strong>我们要用它来接收、解码一些未加密的无线数字对讲机通话。</strong></p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p><strong>一个RTL-SDR以及配套的连接线、天线，可在网上购买，价格在几十至几百元不等，关键词：rtl-sdr。</strong></p>
+</li>
+<li>
+<p><strong>一台Windows10系统的笔记本电脑（当然在其它操作系统下也是可行的，只不过需要更换对应软件）。</strong></p>
+</li>
+<li>
+<p><strong>SDR#软件，一款功能强大的SDR支撑软件,下载：<a href="https://airspy.com/download/">https://airspy.com/download</a>。</strong></p>
+</li>
+<li>
+<p><strong>VB-CABLE虚拟音频线驱动，下载：<a href="https://www.vb-audio.com/Cable/index.htm/">https://www.vb-audio.com/Cable/index.htm</a>。</strong></p>
+</li>
+<li>
+<p><strong>DSD+以及DSD+配套的DLL文件，下载：<a href="https://www.dsdplus.com/download-2/">https://www.dsdplus.com/download-2</a>。</strong></p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h4 id="步骤一sdr的安装"><strong>步骤一：SDR#的安装</strong></h4>
+<p>参考文档：</p>
+<p><a href="https://oneguyoneblog.com/2016/09/15/sdrsharp-sdr-installing-windows-10">https://oneguyoneblog.com/2016/09/15/sdrsharp-sdr-installing-windows-10</a>
+<a href="https://www.jianshu.com/p/ba180c163986">https://www.jianshu.com/p/ba180c163986</a>
+<!-- raw HTML omitted --></p>
+<h4 id="步骤二vb-cable的安装"><strong>步骤二：VB-CABLE的安装</strong></h4>
+<p>较为简单，按照软件指示操作即可。注意可能需要重启系统。
+<!-- raw HTML omitted --></p>
+<h4 id="步骤三dsd的安装"><strong>步骤三：DSD+的安装</strong></h4>
+<p>参考文档：</p>
+<p><a href="http://www.m6mdr.co.uk/how-to-decoding-signals-with-rtl-sdr-sdrsharp-dsd/">http://www.m6mdr.co.uk/how-to-decoding-signals-with-rtl-sdr-sdrsharp-dsd/</a></p>
+<!-- raw HTML omitted -->
+<h2 id="当我看到m6mdr写的文档时觉得自己没有必要再写了"><strong>当我看到M6MDR写的文档时，觉得自己没有必要再写了……</strong></h2>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p><strong>如果你找到一个频道，却没听到对话，反复检查配置都没问题的情况下，再确认一下它是在传语音吗？因为很多时候，这些频道上都只是在空传DATA。</strong></p>
+</li>
+<li>
+<p><strong>本人也未搞明白的一个问题：为什么明明看到频道上有很多人在聊，而且都是group call，我却什么都听不到？是不是需要设置多通道什么的？</strong></p>
+</li>
+</ul>
+                        </article>
+                    </div>
+                    
+                    <div class='entry-meta-bottom'>
+                        
+                    </div>
+                    
+                    <div class="author-meta">
+                        <div class="author">
+                            
+                            <img alt='Reed' src="https://www.gravatar.com/avatar/103bdb03029a7014dd0ae94cfd45f2f9?s=100&d=identicon" class='avatar avatar-72 photo' height='72' width='72'>
+    
+                            <span>
+      Written by:<a href="/" title="Posts by Reed" rel="author">Reed</a> </span>
+                        </div>
+                        <div class="bio">
+                            
+                            
+                            <p>碌碌风尘挟人去，桑榆暮影，天地一苇间。</p>
+                            
+                            <p>reedincn@outlook.com</p>
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+    </div>
+    <footer id="site-footer" class="site-footer" role="contentinfo">
+    <h1>
+    
+    <a href=""> 一苇间 </a>
+    
+    </h1>
+    
+    <p class="site-description">记录想法、过程、结果。记录生活。</p>
+    
+    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
+        <div class="menu">
+            <ul id="menu-footer-items" class="menu-footer-items">
+                
+            </ul>
+        </div>
+    </div>
+    <ul class="social-media-icons">
+        
+        
+        
+        
+        
+        <li>
+            <a href="mailto:reedincn@outlook.com"  class="email">
+            <i class="fa fa-envelope" title="email"></i>
+            <span class="screen-reader-text">email</span>
+        </a>
+        </li>
+        
+        
+        
+        
+        <li>
+            <a href="https://github.com/Hunteeer"  class="github" target="_blank">
+            <i class="fa fa-github" title="github"></i>
+            <span class="screen-reader-text">github</span>
+        </a>
+        </li>
+        
+        
+        
+    </ul>
+    <div class="design-credit">
+        
+        <p>© 2018~2023 Reed</p>
+        
+        <p>Nederburg Hugo Theme by <a href="https://appernetic.io">Appernetic</a>.</p>
+        
+        <p>A port of Tracks by Compete Themes.</p>
+        
+    </div>
+</footer>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/jquerymigrate.js"></script>
+<script src="/js/production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.2"></script>
+<script src="/js/search.js"></script>
+<script src="/js/ink.js"></script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</body>
+</html>
